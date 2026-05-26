@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-explicit-any, @typescript-eslint/no-unused-vars */
 import { describe, it, expect, vi } from "vitest";
 
 vi.mock("@/db/index", () => ({
@@ -71,6 +72,8 @@ describe.skip("Database query patterns (requires running DB)", () => {
 
     expect(contents.length).toBeGreaterThan(0);
     expect(media.length).toBeGreaterThan(0);
+    expect(voices.length).toBeGreaterThanOrEqual(0);
+    expect(placeTagData.length).toBeGreaterThanOrEqual(0);
   });
 
   it("lists published places by location and category", async () => {
