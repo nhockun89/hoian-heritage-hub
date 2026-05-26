@@ -1,12 +1,10 @@
-import { ERA_VALUES, PLACE_CONTENT_TYPES, MEDIA_TYPES } from "@/db/validations";
+import { ERA_VALUES, PLACE_CONTENT_TYPES, MEDIA_TYPES, MEDIA_ASSIGNMENT_ROLES } from "@/db/validations";
 
-export { ERA_VALUES, PLACE_CONTENT_TYPES, MEDIA_TYPES };
+export { ERA_VALUES, PLACE_CONTENT_TYPES, MEDIA_TYPES, MEDIA_ASSIGNMENT_ROLES };
 
 export type EraValue = (typeof ERA_VALUES)[number];
 export type PlaceContentType = (typeof PLACE_CONTENT_TYPES)[number];
 export type MediaType = (typeof MEDIA_TYPES)[number];
-
-export const MEDIA_ASSIGNMENT_ROLES = ["hero", "gallery"] as const;
 export type MediaAssignmentRole = (typeof MEDIA_ASSIGNMENT_ROLES)[number];
 
 export function slugify(text: string): string {

@@ -14,6 +14,7 @@ export const placeContentTypeSchema = z.enum([
 export const PLACE_CONTENT_TYPES = placeContentTypeSchema.options as unknown as readonly [string, ...string[]];
 
 export const mediaAssignmentRoleSchema = z.enum(["hero", "gallery"]);
+export const MEDIA_ASSIGNMENT_ROLES = mediaAssignmentRoleSchema.options as unknown as readonly [string, ...string[]];
 
 export const submissionTypeSchema = z.enum(["local_voice", "correction", "new_place"]);
 export const submissionStatusSchema = z.enum(["pending", "approved", "rejected"]);
