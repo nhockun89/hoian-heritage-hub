@@ -48,6 +48,6 @@ describe("Schema exports", () => {
   });
 
   it("submissions place_id is nullable", () => {
-    expect(submissions.place_id.dataType).toBe("string");
+    expect(submissions.place_id.notNull).toBe(false);
   });
 });
