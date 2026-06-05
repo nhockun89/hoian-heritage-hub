@@ -24,13 +24,16 @@ export const locations = pgTable("locations", {
 
 export const categories = pgTable("categories", {
   id: text("id").primaryKey(),
+  short_name: text("short_name").notNull(),
   name: text("name").notNull(),
   slug: text("slug").notNull().unique(),
-  icon: text("icon"),
+  icon: text("icon").notNull(),
   color_theme: text("color_theme").notNull(),
   description: text("description"),
   sort_order: integer("sort_order").notNull().default(0),
-});
+}, (table) => [
+  check("categories_color_theme_check", sql`${table.color_theme} IN ('heritage', 'food', 'nature', 'activity')`),
+]);
 
 export const tags = pgTable("tags", {
   id: text("id").primaryKey(),
