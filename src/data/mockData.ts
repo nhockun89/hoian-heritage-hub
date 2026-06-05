@@ -474,6 +474,7 @@ export const featuredData = [
       },
     ],
     reverse: false,
+    variant: 'bridge',
   },
   {
     subtitle: 'Sustainable Life',
@@ -562,7 +563,7 @@ export const newsletterData = {
 
 export const footerData = {
   brand: 'Hoi An Heritage',
-  copyright: '© 2024 Hoi An Heritage. Made for wanderers, by wanderers.',
+  copyright: `© ${new Date().getFullYear()} Hoi An Heritage. Made for wanderers, by wanderers.`,
   columns: [
     {
       title: 'Explore',

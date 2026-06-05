@@ -61,10 +61,10 @@ export default function HeroSection() {
         </div>
 
         <div className="flex flex-wrap justify-center gap-4 reveal-on-scroll hero-stagger-3 is-visible">
-          <button className="bg-[#f4d03f] text-[#221b00] px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#e7c433] transition-all duration-300 btn-hover shadow-lg">
+          <button onClick={(e) => e.preventDefault()} className="bg-[#f4d03f] text-[#221b00] px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#e7c433] transition-all duration-300 btn-hover shadow-lg">
             {heroData.ctaPrimary}
           </button>
-          <button className="bg-[#76d7c4] text-[#00201b] px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#93f4e0] transition-all duration-300 btn-hover shadow-lg">
+          <button onClick={(e) => e.preventDefault()} className="bg-[#76d7c4] text-[#00201b] px-8 py-4 rounded-lg font-bold text-lg hover:bg-[#93f4e0] transition-all duration-300 btn-hover shadow-lg">
             {heroData.ctaSecondary}
           </button>
         </div>

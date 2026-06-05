@@ -25,6 +25,7 @@ export default function DiscoverSection() {
                   className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-110"
                   src={category.imageUrl}
                   alt={category.title}
+                  loading={index === 0 ? 'eager' : 'lazy'}
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/30 to-transparent"></div>
                 <div className="absolute bottom-6 left-6 right-6 z-10 transition-transform duration-500 group-hover:translate-y-[-8px]">

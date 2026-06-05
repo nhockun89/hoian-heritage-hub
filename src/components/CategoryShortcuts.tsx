@@ -9,6 +9,7 @@ export default function CategoryShortcuts() {
             <a
               key={category.label}
               href="#"
+              onClick={(e) => e.preventDefault()}
               title={category.fullLabel}
               className="group flex items-center justify-center gap-3 bg-white rounded-2xl p-4 shadow-sm hover:shadow-md transition-all hover:-translate-y-1"
             >

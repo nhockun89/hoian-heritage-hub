@@ -30,6 +30,7 @@ export default function Footer() {
               <a
                 key={tag}
                 href="#"
+                onClick={(e) => e.preventDefault()}
                 className="px-4 py-2 rounded-full bg-white text-sm text-on-surface-variant hover:text-tertiary hover:bg-tertiary-container/20 transition-all"
               >
                 {tag}
@@ -54,6 +55,7 @@ export default function Footer() {
                 key={icon}
                 className="w-10 h-10 rounded-full bg-white flex items-center justify-center text-tertiary shadow-sm hover:scale-110 hover:bg-primary hover:text-white transition-all"
                 href="#"
+                onClick={(e) => e.preventDefault()}
               >
                 <span className="material-symbols-outlined">{icon}</span>
               </a>
@@ -71,6 +73,7 @@ export default function Footer() {
                       <a
                         className="text-on-surface-variant hover:text-tertiary hover:translate-x-1 transition-all block"
                         href="#"
+                        onClick={(e) => e.preventDefault()}
                       >
                         {link}
                       </a>
@@ -103,11 +106,11 @@ export default function Footer() {
           </p>
           <div className="flex items-center gap-4">
             <span className="text-sm text-on-surface-variant">Download our app:</span>
-            <a href="#" className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5">
+            <a href="#" onClick={(e) => e.preventDefault()} className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5">
               <span className="material-symbols-outlined text-on-surface-variant">phone_iphone</span>
               <span className="text-sm font-medium text-on-surface">App Store</span>
             </a>
-            <a href="#" className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5">
+            <a href="#" onClick={(e) => e.preventDefault()} className="flex items-center gap-2 bg-white px-4 py-2 rounded-lg shadow-sm hover:shadow-md transition-all hover:-translate-y-0.5">
               <span className="material-symbols-outlined text-on-surface-variant">android</span>
               <span className="text-sm font-medium text-on-surface">Play Store</span>
             </a>

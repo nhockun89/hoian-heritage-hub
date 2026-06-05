@@ -15,12 +15,21 @@ export function useScrollReveal() {
       });
     }, observerOptions);
 
-    document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
-      observer.observe(el);
-    });
+    const observeAll = () => {
+      document.querySelectorAll('.reveal-on-scroll:not([data-observed])').forEach((el) => {
+        el.setAttribute('data-observed', 'true');
+        observer.observe(el);
+      });
+    };
+
+    observeAll();
+
+    const mutationObserver = new MutationObserver(observeAll);
+    mutationObserver.observe(document.body, { childList: true, subtree: true });
 
     return () => {
       observer.disconnect();
+      mutationObserver.disconnect();
     };
   }, []);
 }
