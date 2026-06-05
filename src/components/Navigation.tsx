@@ -7,7 +7,7 @@ export default function Navigation() {
     const handleScroll = () => {
       setScrolled(window.scrollY > 50);
     };
-    window.addEventListener('scroll', handleScroll);
+    window.addEventListener('scroll', handleScroll, { passive: true });
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
@@ -41,6 +41,7 @@ export default function Navigation() {
             key={link.label}
             href="#"
             title={link.full}
+            onClick={(e) => e.preventDefault()}
             className={`font-medium transition-all py-1 text-lg ${
               index === 0
                 ? 'text-[#815000] border-b-2 border-[#815000]'

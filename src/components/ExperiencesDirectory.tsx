@@ -56,6 +56,7 @@ export default function ExperiencesDirectory() {
                   className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110"
                   src={item.imageUrl}
                   alt={item.title}
+                  loading="lazy"
                 />
                 <div className="absolute top-3 left-3">
                   <span className="inline-block px-2.5 py-1 rounded-full bg-white/90 text-xs font-bold text-on-surface">

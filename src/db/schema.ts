@@ -44,15 +44,6 @@ export const tags = pgTable("tags", {
   check("tags_type_check", sql`${table.type} IN ('theme', 'era', 'feature')`),
 ]);
 
-// === JUNCTION: place_tags ===
-
-export const placeTags = pgTable("place_tags", {
-  place_id: uuid("place_id").notNull().references(() => places.id, { onDelete: "cascade" }),
-  tag_id: text("tag_id").notNull().references(() => tags.id, { onDelete: "cascade" }),
-}, (table) => [
-  primaryKey({ columns: [table.place_id, table.tag_id] }),
-]);
-
 // === CONTENT TABLES (uuid PKs) ===
 
 export const places = pgTable("places", {
@@ -73,7 +64,7 @@ export const places = pgTable("places", {
   created_at: timestamp("created_at", { withTimezone: true }).notNull().default(sql`now()`),
   updated_at: timestamp("updated_at", { withTimezone: true }).notNull().default(sql`now()`),
 }, (table) => [
-  uniqueIndex("places_location_category_slug_unique").on(table.location_id, table.category_id, table.slug),
+  uniqueIndex("places_location_category_slug_unique").on(table.location_id, table.category_id, table.published),
   index("places_location_category_published").on(table.location_id, table.category_id, table.published),
 ]);
 
@@ -86,6 +77,15 @@ export const contributors = pgTable("contributors", {
   created_at: timestamp("created_at", { withTimezone: true }).notNull().default(sql`now()`),
   updated_at: timestamp("updated_at", { withTimezone: true }).notNull().default(sql`now()`),
 });
+
+// === JUNCTION: place_tags ===
+
+export const placeTags = pgTable("place_tags", {
+  place_id: uuid("place_id").notNull().references(() => places.id, { onDelete: "cascade" }),
+  tag_id: text("tag_id").notNull().references(() => tags.id, { onDelete: "cascade" }),
+}, (table) => [
+  primaryKey({ columns: [table.place_id, table.tag_id] }),
+]);
 
 export const placeContents = pgTable("place_contents", {
   id: uuid("id").primaryKey().default(sql`gen_random_uuid()`),
