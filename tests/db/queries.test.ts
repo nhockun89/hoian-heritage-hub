@@ -21,7 +21,7 @@ import { eq, and } from "drizzle-orm";
 describe.skip("Database query patterns (requires running DB)", () => {
   it("loads a place detail page: place + contents + media + voices + tags", async () => {
     const locationId = "hoi-an";
-    const categorySlug = "historic-places";
+    const categorySlug = "heritage-sites";
     const placeSlug = "japanese-covered-bridge";
 
     const category = await db.query.categories.findFirst({
@@ -80,7 +80,7 @@ describe.skip("Database query patterns (requires running DB)", () => {
     const results = await db.query.places.findMany({
       where: and(
         eq(places.location_id, "hoi-an"),
-        eq(places.category_id, "historic-places"),
+        eq(places.category_id, "heritage-sites"),
         eq(places.published, true),
       ),
       orderBy: (p, { asc }) => [asc(p.sort_order)],

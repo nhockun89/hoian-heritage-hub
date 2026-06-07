@@ -1,5 +1,11 @@
 import { z } from "zod";
 
+export const colorThemeEnum = z.enum(["heritage", "food", "nature", "activity"]);
+export const COLOR_THEMES = colorThemeEnum.options as unknown as readonly [string, ...string[]];
+
+export const categoryIconEnum = z.enum(["landmark", "utensils", "leaf", "palette", "compass", "store", "bed"]);
+export const CATEGORY_ICONS = categoryIconEnum.options as unknown as readonly [string, ...string[]];
+
 export const eraEnumSchema = z.enum(["1800s", "1900s", "colonial", "pre-war", "present"]);
 export const ERA_VALUES = eraEnumSchema.options as unknown as readonly [string, ...string[]];
 
