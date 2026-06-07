@@ -1,29 +1,51 @@
+/**
+ * Zod validators derived from the canonical vocabulary in
+ * `src/domain/vocabulary.ts`. The constants are the single source
+ * of truth; the Zod enums below are derived from them.
+ *
+ * The content_json Zod schemas are not enums — they describe the
+ * shape of `place_contents.content_json` for each `type`, and live
+ * here because they're the runtime-validated counterpart of the
+ * `ContentJson` discriminated union in `src/db/types.ts`.
+ *
+ * If you need to *read* a value of one of these enums from the
+ * browser, import the constant or type from `src/domain/vocabulary`
+ * directly. This module is server-side (Zod, runtime validation)
+ * and excluded from the frontend bundle.
+ */
+
 import { z } from "zod";
+import {
+  COLOR_THEMES,
+  ERA_VALUES,
+  MEDIA_TYPES,
+  MEDIA_ASSIGNMENT_ROLES,
+  PLACE_CONTENT_TYPES,
+  SUBMISSION_STATUSES,
+  SUBMISSION_TYPES,
+} from "../domain/vocabulary";
 
-export const colorThemeEnum = z.enum(["heritage", "food", "nature", "activity"]);
-export const COLOR_THEMES = colorThemeEnum.options as unknown as readonly [string, ...string[]];
-
-export const categoryIconEnum = z.enum(["landmark", "utensils", "leaf", "palette", "compass", "store", "bed"]);
-export const CATEGORY_ICONS = categoryIconEnum.options as unknown as readonly [string, ...string[]];
-
-export const eraEnumSchema = z.enum(["1800s", "1900s", "colonial", "pre-war", "present"]);
-export const ERA_VALUES = eraEnumSchema.options as unknown as readonly [string, ...string[]];
-
-export const placeMediaTypeSchema = z.enum([
-  "photo-past", "photo-present", "video", "audio", "document",
-]);
-export const MEDIA_TYPES = placeMediaTypeSchema.options as unknown as readonly [string, ...string[]];
-
-export const placeContentTypeSchema = z.enum([
-  "history", "comparison", "story", "tip", "highlight",
-]);
-export const PLACE_CONTENT_TYPES = placeContentTypeSchema.options as unknown as readonly [string, ...string[]];
-
-export const mediaAssignmentRoleSchema = z.enum(["hero", "gallery"]);
-export const MEDIA_ASSIGNMENT_ROLES = mediaAssignmentRoleSchema.options as unknown as readonly [string, ...string[]];
-
-export const submissionTypeSchema = z.enum(["local_voice", "correction", "new_place"]);
-export const submissionStatusSchema = z.enum(["pending", "approved", "rejected"]);
+export const colorThemeEnum = z.enum(
+  COLOR_THEMES as unknown as [string, ...string[]],
+);
+export const eraEnumSchema = z.enum(
+  ERA_VALUES as unknown as [string, ...string[]],
+);
+export const placeContentTypeSchema = z.enum(
+  PLACE_CONTENT_TYPES as unknown as [string, ...string[]],
+);
+export const placeMediaTypeSchema = z.enum(
+  MEDIA_TYPES as unknown as [string, ...string[]],
+);
+export const mediaAssignmentRoleSchema = z.enum(
+  MEDIA_ASSIGNMENT_ROLES as unknown as [string, ...string[]],
+);
+export const submissionTypeSchema = z.enum(
+  SUBMISSION_TYPES as unknown as [string, ...string[]],
+);
+export const submissionStatusSchema = z.enum(
+  SUBMISSION_STATUSES as unknown as [string, ...string[]],
+);
 
 export const historyContentSchema = z.object({
   headline: z.string().min(1),
@@ -61,10 +83,23 @@ export const contentJsonSchemaByType = {
   highlight: highlightContentSchema,
 } as const;
 
-export function validateContentJson(type: string, data: unknown): { success: boolean; errors?: z.ZodError } {
-  const schema = contentJsonSchemaByType[type as keyof typeof contentJsonSchemaByType];
+export function validateContentJson(
+  type: string,
+  data: unknown,
+): { success: boolean; errors?: z.ZodError } {
+  const schema =
+    contentJsonSchemaByType[type as keyof typeof contentJsonSchemaByType];
   if (!schema) {
-    return { success: false, errors: new z.ZodError([{ code: "custom", message: `Unknown content type: ${type}`, path: ["type"] }]) };
+    return {
+      success: false,
+      errors: new z.ZodError([
+        {
+          code: "custom",
+          message: `Unknown content type: ${type}`,
+          path: ["type"],
+        },
+      ]),
+    };
   }
   const result = schema.safeParse(data);
   if (result.success) {

@@ -10,10 +10,12 @@ import {
   placeContentTypeSchema,
   submissionTypeSchema,
   submissionStatusSchema,
+} from "@/db/validations";
+import {
   ERA_VALUES,
   PLACE_CONTENT_TYPES,
   MEDIA_TYPES,
-} from "@/db/validations";
+} from "@/domain/vocabulary";
 
 const validHistory = {
   headline: "A Bridge Between Cultures",

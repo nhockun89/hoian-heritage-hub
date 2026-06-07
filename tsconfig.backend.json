@@ -19,6 +19,6 @@
     "ignoreDeprecations": "6.0",
     "baseUrl": "."
   },
-  "include": ["src/db", "src/lib", "tests", "drizzle.config.ts"],
+  "include": ["src/db", "src/domain", "src/lib", "tests", "drizzle.config.ts"],
   "exclude": ["node_modules"]
 }

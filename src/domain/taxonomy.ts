@@ -19,20 +19,13 @@
  */
 
 /**
- * The 4 color themes are a separate vocabulary from the 7 section
- * categories. The color theme is also constrained at the database
- * layer (see `categories.color_theme` CHECK constraint and the
- * `colorThemeEnum` in src/db/validations.ts); the test suite in
- * tests/db/vocabulary.test.ts asserts the two stay in sync.
+ * The 4 color themes are owned by the vocabulary module
+ * (src/domain/vocabulary.ts) where the SQL CHECK constraint for
+ * `categories.color_theme` is also tracked. Imported here so the
+ * `Category.color` field can be typed against the same source.
  */
-export type ColorTheme = "heritage" | "food" | "nature" | "activity";
-
-export const COLOR_THEMES: readonly ColorTheme[] = [
-  "heritage",
-  "food",
-  "nature",
-  "activity",
-] as const;
+import { COLOR_THEMES, type ColorTheme } from "./vocabulary";
+export { COLOR_THEMES, type ColorTheme };
 
 export type CategoryId =
   | "heritage"
