@@ -1,10 +1,11 @@
 import { localSecretsData } from '../data/mockData';
+import { Reveal } from './Reveal';
 
 export default function LocalSecretsSection() {
   return (
     <section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+        <Reveal className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-secondary font-label uppercase tracking-widest mb-4 block">
             {localSecretsData.subtitle}
           </span>
@@ -14,14 +15,14 @@ export default function LocalSecretsSection() {
           <p className="text-on-surface-variant text-lg leading-relaxed">
             {localSecretsData.description}
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
           {localSecretsData.secrets.map((secret, index) => (
-            <div
+            <Reveal
               key={secret.title}
-              className="group bg-surface-container-low rounded-3xl p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2 reveal-on-scroll"
-              style={{ transitionDelay: `${index * 100}ms` }}
+              className="group bg-surface-container-low rounded-3xl p-8 hover:shadow-xl transition-all duration-500 hover:-translate-y-2"
+              delay={index * 100}
             >
               <div className="w-12 h-12 rounded-2xl bg-secondary-container/40 flex items-center justify-center mb-6 group-hover:bg-secondary group-hover:text-white transition-colors">
                 <span className="material-symbols-outlined text-2xl text-secondary group-hover:text-white transition-colors">
@@ -39,7 +40,7 @@ export default function LocalSecretsSection() {
                   {secret.source}
                 </span>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

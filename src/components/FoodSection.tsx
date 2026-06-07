@@ -1,10 +1,11 @@
 import { foodData } from '../data/mockData';
+import { Reveal } from './Reveal';
 
 export default function FoodSection() {
   return (
     <section className="bg-[#faf9f5] py-section-gap px-margin-mobile md:px-margin-desktop">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-20 reveal-on-scroll">
+        <Reveal className="text-center max-w-3xl mx-auto mb-20">
           <span className="text-tertiary font-label uppercase tracking-widest mb-4 block">
             {foodData.subtitle}
           </span>
@@ -14,16 +15,16 @@ export default function FoodSection() {
           <p className="text-on-surface-variant text-lg leading-relaxed">
             {foodData.description}
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
           {foodData.items.map((item, index) => (
-            <div
+            <Reveal
               key={item.name}
-              className={`group cursor-pointer reveal-on-scroll ${
+              className={`group cursor-pointer ${
                 index % 2 === 1 ? 'pt-8' : ''
               }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
+              delay={index * 100}
             >
               <div className="relative aspect-square rounded-[24px] overflow-hidden mb-6 shadow-md transition-all duration-500 hover:shadow-2xl hover:-translate-y-1">
                 <img
@@ -66,7 +67,7 @@ export default function FoodSection() {
                 {item.cta}
                 <span className="material-symbols-outlined text-sm">arrow_forward</span>
               </span>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

@@ -1,10 +1,11 @@
 import { howToExploreData } from '../data/mockData';
+import { Reveal } from './Reveal';
 
 export default function HowToExplore() {
   return (
     <section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-white overflow-hidden">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-16 reveal-on-scroll">
+        <Reveal className="text-center max-w-3xl mx-auto mb-16">
           <span className="text-primary font-label uppercase tracking-widest mb-4 block">
             {howToExploreData.subtitle}
           </span>
@@ -14,14 +15,14 @@ export default function HowToExplore() {
           <p className="text-on-surface-variant text-lg leading-relaxed">
             {howToExploreData.description}
           </p>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
           {howToExploreData.steps.map((step, index) => (
-            <div
+            <Reveal
               key={step.number}
-              className="relative group reveal-on-scroll"
-              style={{ transitionDelay: `${index * 150}ms` }}
+              className="relative group"
+              delay={index * 150}
             >
               {/* Connector line */}
               {index < howToExploreData.steps.length - 1 && (
@@ -44,11 +45,11 @@ export default function HowToExplore() {
                 <h3 className="font-headline text-xl text-on-surface mb-3">
                   {step.title}
                 </h3>
-                <p className="text-on-surface-variant text-sm leading-relaxed">
-                  {step.description}
-                </p>
+              <p className="text-on-surface-variant text-sm leading-relaxed">
+                {step.description}
+              </p>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>

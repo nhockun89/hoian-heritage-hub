@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { experiencesData } from '../data/mockData';
+import { Reveal } from './Reveal';
 
 export default function ExperiencesDirectory() {
   const [activeFilter, setActiveFilter] = useState('All');
@@ -14,7 +15,7 @@ export default function ExperiencesDirectory() {
   return (
     <section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-[#f0f7f5]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-12 reveal-on-scroll">
+        <Reveal className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-secondary font-label uppercase tracking-widest mb-4 block">
             {experiencesData.subtitle}
           </span>
@@ -24,10 +25,10 @@ export default function ExperiencesDirectory() {
           <p className="text-on-surface-variant text-lg leading-relaxed">
             {experiencesData.description}
           </p>
-        </div>
+        </Reveal>
 
         {/* Filter Tabs */}
-        <div className="flex justify-center gap-2 mb-12 reveal-on-scroll overflow-x-auto pb-2">
+        <Reveal className="flex justify-center gap-2 mb-12 overflow-x-auto pb-2">
           {experiencesData.filters.map((filter) => (
             <button
               key={filter.value}
@@ -41,15 +42,15 @@ export default function ExperiencesDirectory() {
               {filter.label}
             </button>
           ))}
-        </div>
+        </Reveal>
 
         {/* Grid - 2 rows max */}
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-gutter">
           {filteredItems.map((item, index) => (
-            <div
+            <Reveal
               key={item.id}
-              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1 reveal-on-scroll"
-              style={{ transitionDelay: `${(index % 4) * 100}ms` }}
+              delay={(index % 4) * 100}
+              className="group bg-white rounded-2xl overflow-hidden shadow-sm hover:shadow-xl transition-all duration-500 hover:-translate-y-1"
             >
               <div className="relative aspect-[4/3] overflow-hidden">
                 <img
@@ -90,11 +91,11 @@ export default function ExperiencesDirectory() {
                   Learn More
                 </button>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
 
-        <div className="text-center mt-12 reveal-on-scroll">
+        <Reveal className="text-center mt-12">
           <button className="group inline-flex items-center gap-2 text-secondary font-bold text-lg hover:text-on-secondary-container transition-colors">
             <span className="border-b-2 border-transparent group-hover:border-secondary transition-all">
               View All Experiences
@@ -103,7 +104,7 @@ export default function ExperiencesDirectory() {
               arrow_forward
             </span>
           </button>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

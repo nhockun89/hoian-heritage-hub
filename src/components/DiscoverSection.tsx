@@ -1,24 +1,25 @@
 import { discoverData } from '../data/mockData';
+import { Reveal } from './Reveal';
 
 export default function DiscoverSection() {
   return (
     <section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-[#faf9f5]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center mb-16 reveal-on-scroll">
+        <Reveal className="text-center mb-16">
           <h2 className="font-headline text-display-lg-mobile md:text-headline text-on-surface mb-4">
             {discoverData.title}
           </h2>
           <div className="w-16 h-0.5 bg-outline mx-auto transition-all duration-700 w-24"></div>
-        </div>
+        </Reveal>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-gutter">
           {discoverData.categories.map((category, index) => (
-            <div
+            <Reveal
               key={category.title}
-              className={`group bg-surface-container-low rounded-[16px] overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 reveal-on-scroll ${
+              delay={index * 100}
+              className={`group bg-surface-container-low rounded-[16px] overflow-hidden hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 ${
                 index === 0 ? 'md:col-span-3' : ''
               }`}
-              style={{ transitionDelay: `${index * 100}ms` }}
             >
               <div className={`relative overflow-hidden ${index === 0 ? 'aspect-[21/9] md:aspect-[21/7]' : 'aspect-[4/5]'}`}>
                 <img
@@ -47,7 +48,7 @@ export default function DiscoverSection() {
                   </span>
                 </div>
               </div>
-            </div>
+            </Reveal>
           ))}
         </div>
       </div>
