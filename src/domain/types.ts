@@ -43,20 +43,33 @@ export interface HeroData {
 export interface CategoryShortcutData {
   readonly id: CategoryId;
   readonly icon: IconName;
+  readonly label: string;
   readonly fullLabel: string;
   readonly count: number;
-  readonly color: ColorTheme;
+  /** Tailwind class string for the swatch. See
+   * CategoryShortcutRow in src/data/sections/categoryShortcuts.ts
+   * for the migration TODO. */
+  readonly color: string;
+  readonly theme: ColorTheme;
 }
 
 export interface DiscoverCategoryData {
   readonly id: CategoryId;
   readonly tag: string;
+  /** Tailwind class string for the tag pill (e.g.
+   *  bg-[#f4d03f]/90 text-[#221b00]). */
+  readonly tagColor: string;
   readonly title: string;
   readonly description: string;
   readonly imageUrl: string;
   readonly count: number;
   readonly cta: string;
   readonly color: ColorTheme;
+}
+
+export interface DiscoverData {
+  readonly title: string;
+  readonly categories: readonly DiscoverCategoryData[];
 }
 
 // === This-month editorial ===
@@ -66,7 +79,11 @@ export interface ThisMonthItemData {
   readonly title: string;
   readonly date: string;
   readonly description: string;
-  readonly color: ColorTheme;
+  /** Tailwind class string for the icon color (e.g. text-tertiary). */
+  readonly color: string;
+  /** Tailwind class string for the icon background
+   *  (e.g. bg-tertiary-container/30). */
+  readonly bgColor: string;
 }
 
 export interface ThisMonthData {
@@ -181,7 +198,7 @@ export interface FeaturedData {
   readonly title: string;
   readonly description: string;
   readonly imageUrl: string;
-  readonly features: readonly FeaturedFeatureData[];
+  readonly features?: readonly FeaturedFeatureData[];
   readonly cta?: string;
   readonly images?: readonly string[];
   readonly variant: FeaturedVariant;

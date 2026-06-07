@@ -33,9 +33,11 @@ describe("Domain type contracts", () => {
     const shortcuts: readonly CategoryShortcutData[] = CATEGORIES.map((c) => ({
       id: c.id,
       icon: c.icon,
+      label: c.short,
       fullLabel: c.full,
       count: c.count,
-      color: c.color,
+      color: "bg-[#000]/20 text-[#000]",
+      theme: c.color,
     }));
     expect(shortcuts).toHaveLength(7);
   });
