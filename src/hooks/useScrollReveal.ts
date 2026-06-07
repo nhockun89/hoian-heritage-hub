@@ -16,8 +16,7 @@ export function useScrollReveal() {
     }, observerOptions);
 
     const observeAll = () => {
-      document.querySelectorAll('.reveal-on-scroll:not([data-observed])').forEach((el) => {
-        el.setAttribute('data-observed', 'true');
+      document.querySelectorAll('.reveal-on-scroll').forEach((el) => {
         observer.observe(el);
       });
     };
