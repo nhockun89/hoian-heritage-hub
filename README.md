@@ -49,13 +49,17 @@ The site presents Hoi An as a "living museum" of Japanese, Chinese, and European
 
 - **Node.js ≥ 20** (project uses Vite 8 and TS 6)
 - **npm** (or pnpm / yarn — examples use npm)
-- **PostgreSQL 14+** with the `pgcrypto` extension (for `gen_random_uuid()`)
-  - The repo assumes **Supabase** locally via the [Supabase CLI](https://supabase.com/docs/guides/cli), or any reachable Postgres URL
-- **Supabase CLI** (optional, for local Supabase: `supabase start`)
+
+### Optional
+
+- **Supabase CLI** — only if you want to run the database locally (`brew install supabase/tap/supabase`)
+- **PostgreSQL 14+** with the `pgcrypto` extension — the frontend runs without it
 
 ---
 
 ## Quick Start
+
+The frontend is fully standalone — no database, no env vars needed:
 
 ```bash
 # 1. Clone and install
@@ -63,25 +67,26 @@ git clone <your-fork-url> hoian-heritage-hub
 cd hoian-heritage-hub
 npm install
 
-# 2. Configure environment
-cp .env.example .env
-# then edit .env (see Environment Variables below)
-
-# 3. Apply database migrations (Supabase local or your Postgres URL)
-#    Option A — Supabase local stack:
-supabase start
-supabase db reset              # applies all migrations + seed data
-
-#    Option B — your own Postgres:
-#    psql "$DATABASE_URL" -f supabase/migrations/00001_initial_schema.sql
-#    psql "$DATABASE_URL" -f supabase/migrations/00002_seed_data.sql
-#    psql "$DATABASE_URL" -f supabase/migrations/00003_triggers_and_guards.sql
-#    psql "$DATABASE_URL" -f supabase/migrations/00004_rls_policies.sql
-#    psql "$DATABASE_URL" -f supabase/migrations/00005_category_taxonomy_update.sql
-
-# 4. Run the dev server
+# 2. Start the dev server
 npm run dev
-# → http://localhost:5173
+```
+
+Open **http://localhost:5173** in your browser. The page renders all 15 sections from `src/data/sections/` — no DB required.
+
+### With a local database (optional)
+
+If you want to run the database alongside:
+
+```bash
+# Set up env vars
+cp .env.example .env        # then edit .env (see Environment Variables below)
+
+# Apply migrations
+supabase start
+supabase db reset            # applies all 5 migrations + seed data
+
+# Run tests that need a DB
+npm test
 ```
 
 ---
@@ -95,7 +100,7 @@ npm run dev
 | `npm run preview`| Preview the production build locally                          |
 | `npm start`     | Alias of `npm run preview`                                      |
 | `npm run lint`  | Run ESLint over the project                                     |
-| `npm test`      | Run Vitest test suite once (CI mode)                            |
+| `npm test`      | Run Vitest test suite once (tests/db, tests/domain, tests/data) |
 
 ---
 
@@ -323,6 +328,19 @@ The older `v1/` and `v2/` directories are kept for reference but should not be u
 - **[CODEBASE_GUIDE.md](./CODEBASE_GUIDE.md)** — deep dive into the data model, section-by-section UI map, and contributor workflows.
 - **`supabase/migrations/`** — SQL is the source of truth for the database; comments at the top of each file explain its scope.
 - **`src/db/validations.ts`** — Zod schemas double as machine-readable content contracts.
+
+---
+
+## Troubleshooting
+
+**`npm run dev` fails with "Cannot find native binding"**
+Vite 8 uses `rolldown` which ships platform-specific binaries. Delete node_modules and reinstall:
+```bash
+rm -rf node_modules package-lock.json && npm install
+```
+
+**`npx tsc -b` fails on files in `src/db/`**
+The frontend (`tsconfig.app.json`) excludes `src/db` and `src/lib` — those files are for the backend/Supabase project. If you see errors there while working on components, it's expected; the backend project (`tsconfig.backend.json`) covers them.
 
 ---
 
