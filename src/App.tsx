@@ -1,4 +1,3 @@
-import { useScrollReveal } from './hooks/useScrollReveal';
 import Navigation from './components/Navigation';
 import HeroSection from './components/HeroSection';
 import CategoryShortcuts from './components/CategoryShortcuts';
@@ -16,8 +15,6 @@ import NewsletterSection from './components/NewsletterSection';
 import Footer from './components/Footer';
 
 function App() {
-  useScrollReveal();
-
   return (
     <div className="min-h-screen bg-background">
       <Navigation />

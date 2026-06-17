@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { itineraryData } from '../data/mockData';
+import { Reveal } from './Reveal';
 
 export default function ItinerarySection() {
   const [activeDay, setActiveDay] = useState(0);
@@ -8,7 +9,7 @@ export default function ItinerarySection() {
   return (
     <section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-[#faf9f5]">
       <div className="max-w-7xl mx-auto">
-        <div className="text-center max-w-3xl mx-auto mb-12 reveal-on-scroll">
+        <Reveal className="text-center max-w-3xl mx-auto mb-12">
           <span className="text-primary font-label uppercase tracking-widest mb-4 block">
             {itineraryData.subtitle}
           </span>
@@ -18,10 +19,10 @@ export default function ItinerarySection() {
           <p className="text-on-surface-variant text-lg leading-relaxed">
             {itineraryData.description}
           </p>
-        </div>
+        </Reveal>
 
         {/* Day Selector */}
-        <div className="flex justify-center gap-3 mb-12 reveal-on-scroll">
+        <Reveal className="flex justify-center gap-3 mb-12">
           {itineraryData.days.map((d, index) => (
             <button
               key={d.label}
@@ -35,7 +36,7 @@ export default function ItinerarySection() {
               {d.label}
             </button>
           ))}
-        </div>
+        </Reveal>
 
         {/* Timeline */}
         <div className="max-w-4xl mx-auto">
@@ -44,10 +45,10 @@ export default function ItinerarySection() {
             <div className="absolute left-6 md:left-8 top-0 bottom-0 w-0.5 bg-outline/20"></div>
 
             {day.timeline.map((item, index) => (
-              <div
+              <Reveal
                 key={`${activeDay}-${index}`}
-                className="relative flex gap-6 mb-8 last:mb-0 reveal-on-scroll"
-                style={{ transitionDelay: `${index * 100}ms` }}
+                className="relative flex gap-6 mb-8 last:mb-0"
+                delay={index * 100}
               >
                 {/* Icon circle */}
                 <div className="relative z-10 w-12 h-12 md:w-16 md:h-16 rounded-full bg-primary-container flex items-center justify-center flex-shrink-0 shadow-sm">
@@ -64,7 +65,7 @@ export default function ItinerarySection() {
                   </div>
                   <p className="text-on-surface-variant text-sm leading-relaxed">{item.description}</p>
                 </div>
-              </div>
+              </Reveal>
             ))}
           </div>
         </div>

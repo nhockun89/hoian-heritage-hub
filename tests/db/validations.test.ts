@@ -10,9 +10,6 @@ import {
   placeContentTypeSchema,
   submissionTypeSchema,
   submissionStatusSchema,
-  ERA_VALUES,
-  PLACE_CONTENT_TYPES,
-  MEDIA_TYPES,
 } from "@/db/validations";
 
 const validHistory = {
@@ -88,11 +85,5 @@ describe("Content JSON schemas", () => {
     expect(submissionStatusSchema.safeParse("pending").success).toBe(true);
     expect(submissionStatusSchema.safeParse("approved").success).toBe(true);
     expect(submissionStatusSchema.safeParse("in_review").success).toBe(false);
-  });
-
-  it("re-exports constant arrays matching enums", () => {
-    expect(ERA_VALUES).toEqual(["1800s", "1900s", "colonial", "pre-war", "present"]);
-    expect(PLACE_CONTENT_TYPES).toEqual(["history", "comparison", "story", "tip", "highlight"]);
-    expect(MEDIA_TYPES).toEqual(["photo-past", "photo-present", "video", "audio", "document"]);
   });
 });

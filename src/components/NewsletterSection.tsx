@@ -1,5 +1,6 @@
 import { useState } from 'react';
 import { newsletterData } from '../data/mockData';
+import { Reveal } from './Reveal';
 
 export default function NewsletterSection() {
   const [email, setEmail] = useState('');
@@ -7,7 +8,7 @@ export default function NewsletterSection() {
   return (
     <section className="py-section-gap px-margin-mobile md:px-margin-desktop">
       <div className="max-w-7xl mx-auto">
-        <div className="relative rounded-[48px] bg-inverse-surface p-12 md:p-20 overflow-hidden text-center reveal-on-scroll">
+        <Reveal className="relative rounded-[48px] bg-inverse-surface p-12 md:p-20 overflow-hidden text-center">
           <div className="absolute top-0 right-0 w-96 h-96 bg-tertiary/20 blur-[100px] rounded-full -mr-48 -mt-48 animate-pulse-slow"></div>
           <div
             className="absolute bottom-0 left-0 w-96 h-96 bg-primary/20 blur-[100px] rounded-full -ml-48 -mb-48 animate-pulse-slow"
@@ -41,7 +42,7 @@ export default function NewsletterSection() {
             </form>
             <p className="mt-6 text-white/40 text-sm">{newsletterData.disclaimer}</p>
           </div>
-        </div>
+        </Reveal>
       </div>
     </section>
   );

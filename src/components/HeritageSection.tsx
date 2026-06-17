@@ -1,4 +1,5 @@
 import { heritageData } from '../data/mockData';
+import { Reveal } from './Reveal';
 
 export default function HeritageSection() {
   const stats = [
@@ -7,7 +8,7 @@ export default function HeritageSection() {
   ];
 
   return (
-    <section className="py-section-gap px-margin-mobile md:px-margin-desktop bg-white reveal-on-scroll">
+    <Reveal as="section" className="py-section-gap px-margin-mobile md:px-margin-desktop bg-white">
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-center gap-gutter">
         <div className="md:w-1/2 space-y-6">
           <span className="text-tertiary font-label uppercase tracking-widest">
@@ -36,6 +37,6 @@ export default function HeritageSection() {
           ))}
         </div>
       </div>
-    </section>
+    </Reveal>
   );
 }
