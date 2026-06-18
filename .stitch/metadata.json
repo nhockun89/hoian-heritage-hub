@@ -1,0 +1,25 @@
+{
+  "projectId": "17011206790625590021",
+  "projectName": "Hoi An Heritage Hub — Codebase Edition",
+  "title": "Hoi An Heritage Hub — Codebase Edition",
+  "screens": [
+    {
+      "id": "15061072603396399061",
+      "sourceScreen": "projects/17011206790625590021/screens/15061072603396399061",
+      "title": "Homepage Snapshot",
+      "type": "DESIGN"
+    },
+    {
+      "id": "1672504101498179775",
+      "sourceScreen": "projects/17011206790625590021/screens/1672504101498179775",
+      "title": "Design System",
+      "type": "DOCUMENT"
+    }
+  ],
+  "designSystem": {
+    "assetId": "3ff0c3bf690c495196859e6842c14eec",
+    "name": "Hoi An Heritage Hub — Codebase Edition",
+    "source": "DESIGN.md"
+  },
+  "createdAt": "2026-06-18"
+}
