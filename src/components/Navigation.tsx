@@ -14,7 +14,7 @@ export default function Navigation() {
   }, []);
 
   const navLinks = [
-    { label: 'Heritage', full: 'Heritage Sites', path: '/' },
+    { label: 'Heritage', full: 'Heritage Sites', path: '/heritage' },
     { label: 'Food', full: 'Food & Drink', path: '/food' },
     { label: 'Nature', full: 'Nature & Outdoors', path: '/nature' },
     { label: 'Arts', full: 'Arts & Crafts', path: '/arts' },

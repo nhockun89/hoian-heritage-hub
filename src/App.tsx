@@ -7,12 +7,14 @@ import ArtsPage from './pages/ArtsPage';
 import ActivitiesPage from './pages/ActivitiesPage';
 import LocalLifePage from './pages/LocalLifePage';
 import StaysPage from './pages/StaysPage';
+import HeritagePage from './pages/HeritagePage';
 
 function App() {
   return (
     <Routes>
       <Route element={<Layout />}>
         <Route path="/" element={<HomePage />} />
+        <Route path="/heritage" element={<HeritagePage />} />
         <Route path="/food" element={<FoodPage />} />
         <Route path="/nature" element={<NaturePage />} />
         <Route path="/arts" element={<ArtsPage />} />
