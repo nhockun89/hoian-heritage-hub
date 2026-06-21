@@ -1,5 +1,6 @@
 import { Routes, Route } from 'react-router-dom';
 import Layout from './components/Layout';
+import ScrollToTop from './components/ScrollToTop';
 import HomePage from './components/HomePage';
 import FoodPage from './pages/FoodPage';
 import NaturePage from './pages/NaturePage';
@@ -11,18 +12,21 @@ import HeritagePage from './pages/HeritagePage';
 
 function App() {
   return (
-    <Routes>
-      <Route element={<Layout />}>
-        <Route path="/" element={<HomePage />} />
-        <Route path="/heritage" element={<HeritagePage />} />
-        <Route path="/food" element={<FoodPage />} />
-        <Route path="/nature" element={<NaturePage />} />
-        <Route path="/arts" element={<ArtsPage />} />
-        <Route path="/activities" element={<ActivitiesPage />} />
-        <Route path="/local-life" element={<LocalLifePage />} />
-        <Route path="/stays" element={<StaysPage />} />
-      </Route>
-    </Routes>
+    <>
+      <ScrollToTop />
+      <Routes>
+        <Route element={<Layout />}>
+          <Route path="/" element={<HomePage />} />
+          <Route path="/heritage" element={<HeritagePage />} />
+          <Route path="/food" element={<FoodPage />} />
+          <Route path="/nature" element={<NaturePage />} />
+          <Route path="/arts" element={<ArtsPage />} />
+          <Route path="/activities" element={<ActivitiesPage />} />
+          <Route path="/local-life" element={<LocalLifePage />} />
+          <Route path="/stays" element={<StaysPage />} />
+        </Route>
+      </Routes>
+    </>
   );
 }
 
