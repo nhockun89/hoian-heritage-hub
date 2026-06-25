@@ -53,7 +53,7 @@ Help first-time travelers to Hoi An discover:
 | 2 | Search bar | Utility | Direct-lookup in a compact strip below the hero. Searches Dishes + Places only (not Stories). | Small strip |
 | 3 | Must-Taste Dishes | Editorial | 6-12 curated dish cards (horizontal scroller). Click a dish → filters Places directory to "serves this dish." | Medium |
 | 4 | **Places to Eat** | **Utility (dominant)** | 4 featured vibe chips + `More vibes` + `Filters` button (5 structured filters in drawer) + 6 starting place cards (8 when filtered). Active filters as removable chips. Live match count. No-results guidance. | **Largest** |
-| 5 | Kitchen Stories | Editorial | Bento: 2 large + 1 mini + 1 visual story card. Bidirectional dish/place badges. "More food stories →" link to future archive. | Medium |
+| 5 | Kitchen Stories | Editorial | Bento: 2 large + 2 mini story cards. Bidirectional dish/place badges. "More food stories →" link to future archive. | Medium |
 
 ### Section relationships
 
@@ -171,12 +171,10 @@ The current hero focuses on a single dish ("The Golden Secret of Cao Lau"). The 
 - Section heading: "Kitchen Stories" + subtitle "The people behind the plate."
 - Bento grid: `grid grid-cols-1 md:grid-cols-12 gap-8`.
   - 2 large cards (`md:col-span-8`, alternating image-left/right via `md:flex-row-reverse`).
-  - 1 mini card (`md:col-span-4`) — vignette with icon + detail.
-  - 1 visual card (`md:col-span-4`) — circular image or accent-color block.
+  - 2 mini cards (`md:col-span-4`) — vignettes with icon + detail.
 - **Story card content:**
   - Large: image + tag + title + excerpt (2-3 lines) + bidirectional badges — capped at 2 dishes + 2 places. Selection rule: dishes/places with a matching card on this page first, then order of mention. If > 2, show "+N more" that links to the story detail page. `READ FULL STORY →` link to `/food/stories/<slug>`.
   - Mini: icon + title + 1-line excerpt + detail (e.g. "5:00 AM start"). No badges (space-constrained).
-  - Visual: accent color + short hook. No badges.
 - **"More food stories →"** link below bento → future `/food/stories` archive.
 - Min 3 cards visible above section fold (both large + one mini).
 
@@ -241,10 +239,10 @@ The current hero focuses on a single dish ("The Golden Secret of Cao Lau"). The 
 │  │ ◦Cao Lau ◦Ba Le Well │ │ ◦Banh Mi +1  │  ← capped 2 + N      │
 │  │ READ FULL STORY →    │ │ READ →       │                      │
 │  └──────────────────────┘ └──────────────┘                      │
-│  ┌─────────┐ ┌──────────────────────┐                          │
-│  │ ◯ SPICE │ │ MARKET MORNING       │                          │
-│  │ OF LIFE │ │ 5:00 AM · herbs      │                          │
-│  └─────────┘ └──────────────────────┘                          │
+│  ┌──────────────────────┐ ┌──────────────────────┐            │
+│  │ MARKET MORNING       │ │ SPICE OF LIFE        │            │
+│  │ 5:00 AM · herbs      │ │ chili jam · condiment│            │
+│  └──────────────────────┘ └──────────────────────┘            │
 │              More food stories →                                 │
 ├──────────────────────────────────────────────────────────────────┤
 │  [FOOTER]                                                        │
