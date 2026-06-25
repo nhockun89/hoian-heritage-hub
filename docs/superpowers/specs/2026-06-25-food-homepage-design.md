@@ -93,6 +93,7 @@ The current hero focuses on a single dish ("The Golden Secret of Cao Lau"). The 
 - Debounced 200ms. Dropdown shows max 5 dishes (dish icon) + 5 places (location icon).
 - **Dropdown styling:** `bg-surface-container-lowest` (white) with `border-outline-variant`, `shadow-lg`, `rounded-xl`. Dish results show a `restaurant` icon; place results show a `location_on` icon. Each result: name + one-line meta (dish: neighborhood; place: neighborhood + price).
 - **Empty state (0 matches):** dropdown shows "No matches for '<query>'" with a muted icon. Not hidden.
+- **Vibe suggestion:** if the query fuzzy-matches a vibe tag id or label (e.g. "river" → "Riverside", "quiet" → "Hidden gem"), show a "Try vibe: Riverside" suggestion above the result list. Clicking it closes the dropdown and activates that vibe chip in §4 (smooth-scroll to Places).
 - **Keyboard navigation:** Arrow Up/Down moves highlight, Enter selects highlighted result, Escape closes dropdown. ARIA: `role="combobox"`, `aria-expanded`, `aria-activedescendant` on the input; `role="listbox"` and `role="option"` on the dropdown.
 - **Dismiss:** click outside the dropdown closes it.
 - Dish result click → smooth-scroll to that dish card in §3 (and `scrollIntoView({inline:'center'})` the specific card in the horizontal scroller).
