@@ -34,7 +34,7 @@ Help first-time travelers to Hoi An discover:
 | Search/filter architecture | Architecture B: scoped filters. Search bar searches Dishes + Places only. Vibe tags + structured filters live only inside the Places section. Dishes and Stories stay editorial (un-filterable). Dish→Place connected via click-through, not shared filters. |
 | Click behavior | Hybrid: dish click stays in-page (filters Places directory below); place click opens the in-page expandable/modal. |
 | Vibe tags | 8 tags in two groups (setting: Riverside, Rice paddy, Rooftop, Heritage interior, Garden, Beachside; character: Hidden gem, Local favorite). Soft, multi-select, hand-curated. |
-| Structured filters | 5 filters (Price, Open now, Neighborhood, Cuisine, Pet-friendly). Hard, categorical. Live inside a `Filters` drawer, not always visible. |
+| Structured filters | 4 filters (Price, Open now, Neighborhood, Pet-friendly). Hard, categorical. Live inside a `Filters` drawer, not always visible. |
 | Filter UI pattern | Pattern C: vibe chips primary (always visible), structured filters in a drawer. Active filters render as removable chips above the grid. |
 | Place card content | Scan-optimized: image, name, neighborhood, price, primary vibe chip, Open now badge, signature dish badges. Description, rating, hours, and full dish list live in the in-page expandable. |
 | Stories section | Keep the bento (2 large + 2 mini). Add bidirectional dish/place badges. Add "More food stories →" link to future archive. |
@@ -138,7 +138,6 @@ The current hero focuses on a single dish ("The Golden Secret of Cao Lau"). The 
   - Price — single-select chips: $, $$, $$$
   - Open now — toggle (default off)
   - Neighborhood — dropdown: Old Town, An Bang, Tra Que, Cam Thanh, Cam Nam, Riverside
-  - Cuisine — multi-select chips: Vietnamese, Cao Lau, Banh Mi, Seafood, Vegetarian, Cafe, Fusion
   - Pet-friendly — toggle (default off)
   - **Drawer behavior:** all filters are **live** (same as vibe chips — no Apply button). Toggling a filter immediately updates the grid. This removes the live-vs-deferred inconsistency. Drawer actions: `Clear all` (clears all filters, vibes + structured) and `Close` (closes drawer — since filters are live, there are no "unsaved changes" to discard). A dot appears on the `Filters` button when any structured filter is active.
   - Drawer uses `rounded-xl` (largest defined radius token, 0.75rem) and `bg-surface-container-lowest`.
@@ -291,12 +290,11 @@ Extending: add an entry here + one migration. UI auto-renders the new chip.
 | `price` | Price | single-select | `$`, `$$`, `$$$` |
 | `open-now` | Open now | toggle | (boolean) |
 | `neighborhood` | Neighborhood | dropdown | `old-town`, `an-bang`, `tra-que`, `cam-thanh`, `cam-nam`, `riverside` |
-| `cuisine` | Cuisine | multi-select | `vietnamese`, `cao-lau`, `banh-mi`, `seafood`, `vegetarian`, `cafe`, `fusion` |
 | `pet-friendly` | Pet-friendly | toggle | (boolean) |
 
 Extending: add a filter entry here. The `Filters` drawer auto-renders it. Backend adds the matching column or tag.
 
-**`NEIGHBORHOODS`** and **`CUISINES`** — derived from `PLACE_FILTERS.values`, also usable standalone for place detail pages and search indexing.
+**`NEIGHBORHOODS`** — derived from `PLACE_FILTERS.values`, also usable standalone for place detail pages and search indexing.
 
 ### Schema changes (new migration `supabase/migrations/00006_food_directory.sql`)
 
@@ -307,8 +305,6 @@ Extending: add a filter entry here. The `Filters` drawer auto-renders it. Backen
   - `price_band TEXT CHECK (price_band IN ('$','$$','$$$'))`
   - `opening_hours JSONB` — `{mon:"7-21", tue:"7-21", ...}` for `open-now` computation.
   - `pet_friendly BOOLEAN DEFAULT false`
-  - `cuisine TEXT[]` — multi-value array.
-  - `rating DECIMAL(2,1)` — editorial or aggregated.
 - `neighborhood` is derived from the existing `locations` table — no new column.
 - `open-now` is computed at query time from `opening_hours` + current time in the **live Supabase adapter** (future). The **mock adapter** uses a static `openNow: boolean` field per place for simplicity.
 - `rating` is a static editorial value in the **mock adapter** (`rating: number` per place). The **live adapter** may source it from aggregated reviews or keep it editorial — a separate decision.
@@ -332,8 +328,8 @@ export interface PlaceEntry {
   description: string;
   rating: number;
   openNow: boolean;
+  hours: string; // e.g. "7:00 AM – 9:00 PM"
   vibeTagIds: readonly VibeTagId[];
-  cuisine: readonly CuisineId[];
   petFriendly: boolean;
   signatureDishIds: readonly string[];
 }
@@ -368,6 +364,7 @@ export const foodStoriesData: FoodStoriesData = { /* 4 mock stories */ };
 ```
 
 **Extend `src/data/sections/food.ts`** — add `id`, `vibeTagId`, `storyTeaser`, and a derived `servingPlaceCount: number` to each dish entry. `servingPlaceCount` is computed once at adapter definition by counting places whose `signatureDishIds` include the dish id. Dishes currently lack ids, which are needed for dish→place and story→dish links. A count of 0 hides the "Where to try it →" affordance.
+- Remove `CuisineId` / cuisine vocabulary from this work since the Cuisine structured filter was removed.
 
 ### New page-level types (in `src/domain/types.ts`)
 
@@ -425,7 +422,7 @@ Following the existing `FoodData` named type pattern:
 
 7. **Reuse existing patterns.** `<Reveal>` for scroll animations, `ExperiencesDirectory`'s `useState` filter pattern, `FoodPage`'s existing bento + horizontal scroller, `group-hover:scale-110` for image zoom (codebase standard, not `scale-105`). No new animation primitives except `--animate-fade-fast` for filter re-render.
 
-8. **Extensibility via the Vocabulary pattern.** Every enum (`VIBE_TAGS`, `PLACE_FILTERS`, `NEIGHBORHOODS`, `CUISINES`) lives as an `as const` array in `src/domain/vocabulary.ts` with Zod + SQL CHECK + snapshot test. Adding a tag or filter is a one-file edit + one migration. UI auto-renders from the array — no hardcoded chip lists in components.
+8. **Extensibility via the Vocabulary pattern.** Every enum (`VIBE_TAGS`, `PLACE_FILTERS`, `NEIGHBORHOODS`) lives as an `as const` array in `src/domain/vocabulary.ts` with Zod + SQL CHECK + snapshot test. Adding a tag or filter is a one-file edit + one migration. UI auto-renders from the array — no hardcoded chip lists in components.
 
 9. **Sticky search on scroll-up only.** The search bar sticks to the top when scrolling up (serves the "Search-friendly" principle on a tall page) but hides when scrolling down (doesn't cover content). In-scope, not optional.
 
@@ -451,3 +448,4 @@ Following the existing `FoodData` named type pattern:
 - Should the search bar's live dropdown index be built from the mock adapter data at module load, or computed on each keystroke? (Performance question for implementation.)
 - The in-page place expandable should be a modal (overlay) on mobile and inline expansion (card grows in place) on desktop. Modal is simpler for mobile; inline preserves grid context on wider screens.
 - The "strictest filter" suggestion algorithm: for each active filter, compute count if removed alone — is this performant enough on every no-results render with the mock adapter? (Likely yes at 50 places; needs verification at scale with the live adapter.)
+- `--color-success` value: `#2e7d32` proposed; verify WCAG AA contrast against `surface` (#fff8ef) during implementation.
