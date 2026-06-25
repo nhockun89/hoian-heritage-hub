@@ -143,7 +143,7 @@ The current hero focuses on a single dish ("The Golden Secret of Cao Lau"). The 
   - **Drawer behavior:** all filters are **live** (same as vibe chips — no Apply button). Toggling a filter immediately updates the grid. This removes the live-vs-deferred inconsistency. Drawer actions: `Clear all` (clears all filters, vibes + structured) and `Close` (closes drawer — since filters are live, there are no "unsaved changes" to discard). A dot appears on the `Filters` button when any structured filter is active.
   - Drawer uses `rounded-xl` (largest defined radius token, 0.75rem) and `bg-surface-container-lowest`.
 - **Active filter chips row:** above grid, below vibe row. Active constraints render as removable chips. **Two labeled groups** with a separator: `Vibe: × Hidden gem  × Riverside  |  Filters: × $$  × Old Town  × Open now`. `Clear all` at right clears both groups. Vibe chips use warm tint; structured filter chips use `border-outline` (#837567, darker/cooler than `outline-variant` #cfc6ae) for actual contrast against the warm vibe chips.
-- **Match count / visible cap:** "Showing 6 of 12 places" left-aligned above grid in default state (no filters). In default state, only the 6 editor-curated starting places render; "View all 12 →" links to the full archive. Once any filter is active, all matching places render up to a cap of 8; if more than 8 match, the first 8 render with "View all N →" below the grid. The first number is the visible count; the second is the total matching current filters.
+- **Match count / visible cap:** "Showing 6 of 12 places" left-aligned above grid in default state (no filters). In default state, only the 6 editor-curated starting places render; a "Load more places" button reveals the next 6 inline. Once any filter is active, all matching places render up to a cap of 8; if more than 8 match, a "Load more" button reveals the next 6 inline. The first number is the currently visible count; the second is the total matching current filters.
 - **Place grid:** `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter`. Default shows 6-8 editor-curated cards. Filtered state re-renders in place with a 200ms fade (add `--animate-fade-fast: fade-fast 200ms ease-out` to `index.css` so the duration isn't a magic number; `@keyframes fade-fast { from { opacity: 0.4 } to { opacity: 1 } }`).
 - **Place card (scan-optimized):**
   - Image (aspect 4/3) with `group-hover:scale-110` zoom.
@@ -157,7 +157,7 @@ The current hero focuses on a single dish ("The Golden Secret of Cao Lau"). The 
 - **No results state:** "No places match all filters." Below the message, show the suggested relaxation: for each active filter, compute the count if that filter alone were removed; suggest the one yielding the most results. Tie-break order: structured > vibe > dish. The suggested filter renders as a clickable chip ("Try removing Rooftop?"). If the dish filter is the sole cause (0 places serve it regardless of other filters), surface the dish chip explicitly. Never silently relax.
 - **Loading state:** while the adapter loads, show a 3-card skeleton grid (pulsing `bg-surface-container` blocks with `animate-pulse-slow`).
 - **Genuinely-empty state (0 places in adapter, distinct from filter no-results):** editorial message "We're still curating Hoi An's tables — check back soon." with a link to `/food/stories` as an alternative.
-- **"View all places →"** link below the grid → future `/food/places` archive. Only shown when filtered count > 8.
+- **"Load more places"** button below the grid reveals the next 6 matching places inline. Replaces the need for a stub `/food/places` archive link. A future dedicated archive page can still be added when the place inventory grows.
 
 **UX notes:**
 - All filter state in local `useState` (mirrors `ExperiencesDirectory`). No global state.
@@ -229,7 +229,7 @@ The current hero focuses on a single dish ("The Golden Secret of Cao Lau"). The 
 │  │Serves:   │ │Serves:   │ │Serves:   │                        │
 │  │Cao Lau+1 │ │Cao Lau   │ │Banh Mi+1 │  ← dish badges +N      │
 │  └──────────┘ └──────────┘ └──────────┘                        │
-│              View all 12 places →                               │
+│              Load more places →                                 │
 ├──────────────────────────────────────────────────────────────────┤
 │  KITCHEN STORIES                                                 │
 │  The people behind the plate.                                    │
@@ -386,7 +386,7 @@ Following the existing `FoodData` named type pattern:
 | `/food/place/:slug` | `PlaceDetailPage` (new) | Out of scope — stub route ("coming soon") so links don't 404. |
 | `/food/stories/:slug` | `FoodStoryPage` (new) | Out of scope — stub route. |
 | `/food/stories` | `FoodStoriesArchive` | Out of scope — stub route. |
-| `/food/places` | `PlacesArchive` | Out of scope — stub route. |
+| `/food/places` | `PlacesArchive` | Out of scope — may be added later when place inventory grows; "Load more" handles inline expansion for now. |
 
 **In-scope:** only `/food` (the redesigned homepage). Stub routes exist so homepage links (place cards, story cards, "More" links) don't 404. Each stub renders "This page is coming soon" with a back-to-`/food` link.
 
@@ -409,7 +409,7 @@ Following the existing `FoodData` named type pattern:
 
 ## 6. Best practices for clean-but-data-rich
 
-1. **Progressive disclosure.** The homepage shows curated subsets (6-12 dishes, 6-8 places, 4 stories). Full directories live behind "View all →" links to future archive pages. The homepage is a showcase, not a database dump.
+1. **Progressive disclosure.** The homepage shows curated subsets (6 starting dishes, 6 starting places, 4 stories). "Load more" buttons reveal additional places inline; full archives are future routes. The homepage is a showcase, not a database dump.
 
 2. **Two-tier visual language with explicit labels.** Vibe chips (warm `food` ColorTheme tint) vs structured filter chips (`border-outline` #837567, darker/cooler than `outline-variant`) — same shape, different tint AND labeled groups ("Vibe:" / "Filters:") with a separator in the active chips row. Users don't have to infer the two mental models. The `Filters` drawer hides the 5 structured controls until requested.
 
@@ -440,7 +440,7 @@ Following the existing `FoodData` named type pattern:
 - Place detail page (`/food/place/:slug`) — full page with map/photos is out of scope. **In-scope:** a minimal in-page expandable/modal from existing card data so the primary conversion flow doesn't dead-end.
 - Story detail page (`/food/stories/:slug`) — stub only.
 - Stories archive (`/food/stories`) — stub only.
-- Places archive (`/food/places`) — stub only.
+- Places archive (`/food/places`) — no longer needed for this iteration; "Load more" handles inline expansion. May be added later when inventory grows.
 - Live Supabase adapter — mock adapter only (per the existing Adapter pattern; live adapter is a future work item).
 - User-submitted content / community moderation — existing DB has `submissions` table but this spec doesn't wire it up.
 
