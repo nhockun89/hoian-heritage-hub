@@ -32,11 +32,11 @@ Help first-time travelers to Hoi An discover:
 | Scope | Redesign the existing Hoi An `FoodPage.tsx` in this repo. Reuse data, design tokens, and conventions. |
 | Primary job on first visit | Lead with a short editorial "food story of Hoi An" intro, then split into dishes and places. |
 | Search/filter architecture | Architecture B: scoped filters. Search bar searches Dishes + Places only. Vibe tags + structured filters live only inside the Places section. Dishes and Stories stay editorial (un-filterable). Dish→Place connected via click-through, not shared filters. |
-| Click behavior | Hybrid: dish click stays in-page (filters Places directory below); place click navigates to `/food/place/<slug>` detail page. |
+| Click behavior | Hybrid: dish click stays in-page (filters Places directory below); place click opens the in-page expandable/modal. |
 | Vibe tags | 8 tags in two groups (setting: Riverside, Rice paddy, Rooftop, Heritage interior, Garden, Beachside; character: Hidden gem, Local favorite). Soft, multi-select, hand-curated. |
 | Structured filters | 5 filters (Price, Open now, Neighborhood, Cuisine, Pet-friendly). Hard, categorical. Live inside a `Filters` drawer, not always visible. |
 | Filter UI pattern | Pattern C: vibe chips primary (always visible), structured filters in a drawer. Active filters render as removable chips above the grid. |
-| Place card content | Editorial-rich: image, name, one-line description, neighborhood, price, top 2-3 vibe chips, Open now badge, signature dish badges, rating. |
+| Place card content | Scan-optimized: image, name, neighborhood, price, primary vibe chip, Open now badge, signature dish badges. Description, rating, hours, and full dish list live in the in-page expandable. |
 | Stories section | Keep the bento (2 large + 2 mini). Add bidirectional dish/place badges. Add "More food stories →" link to future archive. |
 | Page composition | Approach 3: utility-led with editorial bookends. Editorial intro → search → dishes → Places (dominant) → stories (closing bookend). |
 | Extensibility | Hard constraint. Vibe tags and structured filters must be extensible via the Vocabulary pattern. Adding a tag or filter = one vocabulary edit + one migration + snapshot test update. |
@@ -50,9 +50,9 @@ Help first-time travelers to Hoi An discover:
 | # | Section | Type | Role | Weight |
 |---|---|---|---|---|
 | 1 | Editorial intro | Editorial | Open the brand promise. Short hero with image + headline + 1-paragraph orientation. Broader than the current Cao Lau-only hero. | Medium |
-| 2 | Search bar | Utility | Direct-lookup. Searches Dishes + Places only (not Stories). | Small |
+| 2 | Search bar | Utility | Direct-lookup in a compact strip below the hero. Searches Dishes + Places only (not Stories). | Small strip |
 | 3 | Must-Taste Dishes | Editorial | 6-12 curated dish cards (horizontal scroller). Click a dish → filters Places directory to "serves this dish." | Medium |
-| 4 | **Places to Eat** | **Utility (dominant)** | Vibe tag chips (8) + `Filters` button (5 structured filters in drawer) + 6-8 place cards. Active filters as removable chips. Live match count. No-results guidance. | **Largest** |
+| 4 | **Places to Eat** | **Utility (dominant)** | 4 featured vibe chips + `More vibes` + `Filters` button (5 structured filters in drawer) + 6 starting place cards (8 when filtered). Active filters as removable chips. Live match count. No-results guidance. | **Largest** |
 | 5 | Kitchen Stories | Editorial | Bento: 2 large + 1 mini + 1 visual story card. Bidirectional dish/place badges. "More food stories →" link to future archive. | Medium |
 
 ### Section relationships
@@ -80,14 +80,14 @@ The current hero focuses on a single dish ("The Golden Secret of Cao Lau"). The 
 - Single CTA: "Discover the flavors" — smooth-scrolls to §3.
 
 **UX notes:**
-- The search bar (§2) is attached to the hero bottom, not a standalone section. This preserves the 120px `--spacing-section-gap` rhythm for the 5 real sections and avoids a choppy single-input block floating between two 120px gaps.
+- The search bar (§2) lives in a compact `surface-container` strip directly below the hero — not overlaid on the image, not a full 120px section. This preserves legibility and the 120px `--spacing-section-gap` rhythm for the real content sections.
 - Mobile: hero height ~520px (reduced from current 707px) to keep search bar above the fold.
 - Reuse existing `pb-hero-pad-sm md:pb-hero-pad-lg` padding tokens (used in current `FoodPage.tsx:66`; verify token provenance during implementation — may need to be added to `index.css` if not defined elsewhere).
 
-### §2 Search bar (attached to hero bottom)
+### §2 Search bar (below hero, compact strip)
 
 **Content & behavior:**
-- One input, max-w-2xl centered on desktop, full width on mobile. Attached to the bottom of the hero (overlays the Ken Burns image with a `glass` backdrop) — not a standalone section.
+- One input, max-w-2xl centered on desktop, full width on mobile. Sits in a compact `surface-container` strip (~80px tall) directly below the hero — not a full 120px section, and not overlaid on the Ken Burns image.
 - Placeholder: "Search dishes or places…"
 - Searches two indices: Dishes (from §3 data) + Places (from §4 data). Not Stories.
 - Debounced 200ms. Dropdown shows max 5 dishes (dish icon) + 5 places (location icon).
@@ -113,7 +113,7 @@ The current hero focuses on a single dish ("The Golden Secret of Cao Lau"). The 
   - Image (aspect 3/4) with `group-hover:scale-110` zoom (matches `FoodSection.tsx:31`, `ExperiencesDirectory.tsx:57`, current `FoodPage.tsx:109` — not `scale-105`).
   - Top-left badge: editorial tag (`THE WORLD'S BEST`, `STREET CLASSIC`, etc.).
   - Bottom overlay: dish name + one-line story teaser (new).
-  - Below image (single info zone, matching place card body pattern): location pin + neighborhood + price band + "Serves at N places" count (sets expectations before click-through).
+  - Below image (single info zone, matching place card body pattern): location pin + neighborhood + price band + "Serves at N places" count (sets expectations before click-through; derived from `servingPlaceCount` in the dish adapter).
   - No vibe tag on dish cards. The spec's own rule is "vibes are place attributes, not dish attributes" (§1) — showing a vibe tag on a dish contradicts that rule. Removed.
   - "Where to try it →" affordance on hover (only shown if `signatureDishIds` on places yields > 0; a dish with 0 serving places hides the affordance).
 - **Click behavior:** clicking the card (with `serves-place-count > 0`) smooth-scrolls to §4 and sets a `serves-dish=<id>` filter. The Places heading updates to "Places serving Cao Lau" with a clear-able chip. See §4 "Dish filter composition" for how this interacts with existing filters.
@@ -126,10 +126,12 @@ The current hero focuses on a single dish ("The Golden Secret of Cao Lau"). The 
 ### §4 Places to Eat (dominant section)
 
 **Content & layout:**
-- Section heading: "Places to Eat" + subtitle "Find a table that matches your mood." (Heading uses `text-display-lg` 48px, not `text-headline` 32px, to reinforce the "dominant" weight claimed by the spec. Other section headings stay at `text-headline`.)
-- **Vibe tag row (always visible):** 8 chips in two visually-separated groups:
-  - Setting (6): Riverside, Rice paddy, Rooftop, Heritage interior, Garden, Beachside — tinted with `food` ColorTheme (`bg-tertiary-container/30 text-on-tertiary-container`).
-  - Character (2): Hidden gem, Local favorite — same tint, distinguished by a `·` divider between the two groups and a small icon prefix (`diamond` for Hidden gem, `favorite` for Local favorite).
+- Section heading: "Places to Eat" + subtitle "Find a table that matches your mood." Uses `text-headline` (32px) like other section headings. Dominance comes from content volume and interactivity, not heading size.
+- **Vibe tag row (progressive disclosure):** 4 featured chips always visible, plus a `More vibes` button that expands to reveal the remaining 4. This keeps the default row scannable while preserving the full 8-tag vocabulary.
+  - Featured 4: Riverside, Rice paddy, Hidden gem, Local favorite.
+  - Revealed via `More vibes`: Rooftop, Heritage interior, Garden, Beachside.
+  - All 8 share the same `food` ColorTheme tint (`bg-tertiary-container/30 text-on-tertiary-container`).
+  - Two groups are still distinguished by a `·` divider and icon prefixes: setting tags (Riverside, Rice paddy, Rooftop, Heritage interior, Garden, Beachside) vs character tags (Hidden gem, Local favorite).
   - Multi-select. Active = filled bg; inactive = outline only.
   - Horizontal wrap on mobile; `overflow-x-auto hide-scrollbar` on desktop.
 - **`Filters` button:** right end of vibe row. Opens a drawer (desktop: right-side sheet, 300ms slide — matches `btn-hover` duration; mobile: bottom sheet) with 5 structured filters:
@@ -141,14 +143,15 @@ The current hero focuses on a single dish ("The Golden Secret of Cao Lau"). The 
   - **Drawer behavior:** all filters are **live** (same as vibe chips — no Apply button). Toggling a filter immediately updates the grid. This removes the live-vs-deferred inconsistency. Drawer actions: `Clear all` (clears all filters, vibes + structured) and `Close` (closes drawer — since filters are live, there are no "unsaved changes" to discard). A dot appears on the `Filters` button when any structured filter is active.
   - Drawer uses `rounded-xl` (largest defined radius token, 0.75rem) and `bg-surface-container-lowest`.
 - **Active filter chips row:** above grid, below vibe row. Active constraints render as removable chips. **Two labeled groups** with a separator: `Vibe: × Hidden gem  × Riverside  |  Filters: × $$  × Old Town  × Open now`. `Clear all` at right clears both groups. Vibe chips use warm tint; structured filter chips use `border-outline` (#837567, darker/cooler than `outline-variant` #cfc6ae) for actual contrast against the warm vibe chips.
-- **Match count:** "Showing 6 of 12 places" left-aligned above grid. The first number is the visible count; the second is the total matching current filters. Updates live. If filtered count ≤ 8, all matching cards render; if > 8, the first 8 render and "View all 12 →" appears below the grid.
+- **Match count / visible cap:** "Showing 6 of 12 places" left-aligned above grid in default state (no filters). In default state, only the 6 editor-curated starting places render; "View all 12 →" links to the full archive. Once any filter is active, all matching places render up to a cap of 8; if more than 8 match, the first 8 render with "View all N →" below the grid. The first number is the visible count; the second is the total matching current filters.
 - **Place grid:** `grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter`. Default shows 6-8 editor-curated cards. Filtered state re-renders in place with a 200ms fade (add `--animate-fade-fast: fade-fast 200ms ease-out` to `index.css` so the duration isn't a magic number; `@keyframes fade-fast { from { opacity: 0.4 } to { opacity: 1 } }`).
-- **Place card (editorial-rich):**
-  - Image (aspect 4/3) with `group-hover:scale-110` zoom (matches codebase pattern).
+- **Place card (scan-optimized):**
+  - Image (aspect 4/3) with `group-hover:scale-110` zoom.
   - Top-left: primary vibe tag chip.
-  - Top-right: `Open now` badge — **not color-only.** Uses an icon glyph (`schedule` filled for open, `schedule` outline for closed) + the word "Open"/"Closed". Color: `text-secondary` (teal #006b5d, the closest existing token) for open, `text-on-surface-variant` (muted) for closed. The spec acknowledges this reuses `secondary` (a `nature`/`activity` ColorTheme color) for a semantic "open" state — acceptable since no `success` token exists; adding one is a separate design-system work item.
-  - Body (single info zone below image, matching dish card pattern): name (headline font), one-line description (`line-clamp-1`), neighborhood + price band row, **signature dish badges** — capped at 2 on `lg:grid-cols-3`, expanding to 2 on `md:grid-cols-2` with `+N more` overflow that links to a dish detail (future) or scrolls up to the dish (if on homepage), rating (e.g. `4.8 ★` with `star` icon).
-  - Card click → `/food/place/<slug>`.
+  - Top-right: `Open now` badge — icon + word + `--color-success`.
+  - Body (single info zone below image): name (headline font), neighborhood + price band row, signature dish badges — capped at 2 on `lg:grid-cols-3` with `+N more` overflow.
+  - The one-line description, rating, hours, and full dish list live in the in-page expandable/modal, not on the card. This keeps the grid scannable and clean.
+  - Card click → opens the in-page expandable/modal.
   - Dish badge click → smooth-scroll up to that dish in §3 with `scrollIntoView({inline:'center'})`.
 - **Dish filter composition (from §3 click-through):** when a user clicks a dish in §3, the `serves-dish` filter **replaces** any prior dish filter (only one dish active at a time) and **composes with** existing vibe/structured filters. Example: user has `Hidden gem + $$` active, clicks Cao Lau → Places shows places that are Hidden gem AND $$ AND serve Cao Lau. If composition yields zero results, the no-results state (below) surfaces the dish chip as a relaxation candidate: "No places serving Cao Lau match your other filters — clear them?"
 - **No results state:** "No places match all filters." Below the message, show the suggested relaxation: for each active filter, compute the count if that filter alone were removed; suggest the one yielding the most results. Tie-break order: structured > vibe > dish. The suggested filter renders as a clickable chip ("Try removing Rooftop?"). If the dish filter is the sole cause (0 places serve it regardless of other filters), surface the dish chip explicitly. Never silently relax.
@@ -160,7 +163,7 @@ The current hero focuses on a single dish ("The Golden Secret of Cao Lau"). The 
 - All filter state in local `useState` (mirrors `ExperiencesDirectory`). No global state.
 - The `Filters` button shows a count badge when structured filters are active (e.g. "Filters (3)").
 - `<Reveal>` for card entrance, staggered by `index % 3`.
-- **Place card click is the #1 conversion flow.** Since `/food/place/<slug>` is a stub route, ship a minimal in-page expandable/modal from the existing card data (description, rating, dishes, vibe, hours) as the first-iteration detail view, with a "Full details coming soon" note. This avoids dead-ending the primary conversion on a "coming soon" page. The full `PlaceDetailPage` with map/photos is a future work item.
+- **Place card click is the #1 conversion flow.** Ship a minimal in-page expandable/modal from the existing card data (description, rating, dishes, vibe, hours) as the first-iteration detail view. The expandable contains enough information to feel complete; no "coming soon" messaging. The full `PlaceDetailPage` with map/photos is a future work item. Mobile: modal overlay. Desktop: inline card expansion.
 
 ### §5 Kitchen Stories
 
@@ -197,7 +200,7 @@ The current hero focuses on a single dish ("The Golden Secret of Cao Lau"). The 
 │  Japanese noodle craft, Chinese broth logic, French              │
 │  baguette — all folded into a UNESCO river port.                 │
 │  [ Discover the flavors ↓ ]                                      │
-│         [ 🔍  Search dishes or places…              ]  ← attached│
+│         [ 🔍  Search dishes or places…              ]            │
 ├──────────────────────────────────────────────────────────────────┤ ← 120px gap
 │  MUST-TASTE ICONS                            ◀  ▶                │
 │  Essential flavors of the Ancient Town.                          │
@@ -209,24 +212,22 @@ The current hero focuses on a single dish ("The Golden Secret of Cao Lau"). The 
 │  │Old Town│Old Town│Old Town│…    │…   │…    │                       │
 │  └────┘ └────┘ └────┘ └────┘ └────┘ └────┘                      │
 ├──────────────────────────────────────────────────────────────────┤
-│  PLACES TO EAT          ← text-display-lg (48px, dominant)       │
+│  PLACES TO EAT                                                   │
 │  Find a table that matches your mood.                            │
-│  (Riverside)(Rice paddy)(Rooftop)(Heritage)(Garden)(Beachside)  │
-│  · (◈Hidden gem)(♥Local favorite)                   [ Filters ] │
+│  (Riverside)(Rice paddy)(◈Hidden gem)(♥Local favorite) [More] [ Filters ]│
+│  (Rooftop)(Heritage)(Garden)(Beachside)  ← revealed by More     │
 │  Vibe: × Hidden gem × Riverside | Filters: × $$ × Old Town       │
 │                                           × Open now   Clear all│
-│  Showing 6 of 12 places                                          │
+│  Showing 6 of 12 places (6 curated starting places)              │
 │  ┌──────────┐ ┌──────────┐ ┌──────────┐                        │
 │  │ [img]    │ │ [img]    │ │ [img]    │                        │
 │  │Hidden gem│ │Riverside │ │Local fav │  ← top-left vibe chip   │
 │  │      ⊙Open│ │      ⊙Open│ │     ○Closed│ ← top-right badge   │
 │  │Thanh Cao │ │Ba Le Well│ │Madame Kh │                        │
 │  │ Lau      │ │  Cao Lau │ │  Banh Mi │                        │
-│  │"Noodle…."│ │"40-yr…." │ │"Queen of"│                        │
 │  │Old Town$$│ │Old Town$$│ │Old Town$ │                        │
 │  │Serves:   │ │Serves:   │ │Serves:   │                        │
 │  │Cao Lau+1 │ │Cao Lau   │ │Banh Mi+1 │  ← dish badges +N      │
-│  │★4.8      │ │★4.9      │ │★4.7      │  ← rating              │
 │  └──────────┘ └──────────┘ └──────────┘                        │
 │              View all 12 places →                               │
 ├──────────────────────────────────────────────────────────────────┤
@@ -253,9 +254,9 @@ The current hero focuses on a single dish ("The Golden Secret of Cao Lau"). The 
 ### Mobile (key differences)
 
 - Hero: ~520px (reduced from 707px) to keep search bar above the fold.
-- Search bar: full width, attached to hero bottom. Dropdown overlays as a sheet (max-height 50vh, scrim behind) — does not push content.
+- Search bar: full width, in a compact `surface-container` strip directly below hero. Dropdown overlays as a sheet (max-height 50vh, scrim behind) — does not push content.
 - Dish cards: horizontal swipe (~160px wide), chevrons hidden.
-- Vibe chips: wrap to 2 rows (3-4 per row). `·` divider and icon prefixes preserved.
+- Vibe chips: 4 featured visible + "More" button revealing 4 more. `·` divider and icon prefixes preserved.
 - Filter drawer: bottom sheet (thumb-reachable) instead of right-side sheet.
 - Place grid: 1 column. Dish badges cap at 1 + overflow on 1-col.
 - Bento: single-column stack.
@@ -366,14 +367,14 @@ export interface FoodStoryEntry {
 export const foodStoriesData: FoodStoriesData = { /* 4 mock stories */ };
 ```
 
-**Extend `src/data/sections/food.ts`** — add `id`, `vibeTagId`, `storyTeaser` to each dish entry. Dishes currently lack ids, which are needed for dish→place and story→dish links.
+**Extend `src/data/sections/food.ts`** — add `id`, `vibeTagId`, `storyTeaser`, and a derived `servingPlaceCount: number` to each dish entry. `servingPlaceCount` is computed once at adapter definition by counting places whose `signatureDishIds` include the dish id. Dishes currently lack ids, which are needed for dish→place and story→dish links. A count of 0 hides the "Where to try it →" affordance.
 
 ### New page-level types (in `src/domain/types.ts`)
 
 Following the existing `FoodData` named type pattern:
 - `PlacesData` (consumed by `PlacesDirectory` component).
 - `FoodStoriesData` (consumed by `KitchenStories` component — replaces the inline `kitchenStories` const in `FoodPage.tsx`).
-- Extend the existing `FoodData` dish item shape with `id`, `vibeTagId`, `storyTeaser`.
+- Extend the existing `FoodData` dish item shape with `id`, `vibeTagId`, `storyTeaser`, `servingPlaceCount`.
 
 ---
 
@@ -430,7 +431,7 @@ Following the existing `FoodData` named type pattern:
 
 10. **Mobile-first density control.** Vibe chips wrap to 2 rows with `·` divider preserved. Place grid collapses to 1 column with dish badges capped at 1 + overflow. Bento collapses to single-column stack. Hero shrinks to ~520px. Filter drawer becomes a bottom sheet on mobile (thumb-reachable) vs. right-side sheet on desktop. Search dropdown overlays as a 50vh sheet with scrim.
 
-11. **Accessibility baseline.** `Open now` badge uses icon + word (not color-only). Search dropdown is a combobox with keyboard nav and ARIA roles. Filter chips are keyboard-focusable toggles. Drawer traps focus while open. Color contrast for warm vibe chips vs `border-outline` structured chips meets WCAG AA.
+11. **Accessibility baseline.** `Open now` badge uses icon + word plus `--color-success` (not color-only). Search dropdown is a combobox with keyboard nav and ARIA roles. Filter chips are keyboard-focusable toggles. Drawer traps focus while open. Color contrast for warm vibe chips vs `border-outline` structured chips and `--color-success` vs `surface` meets WCAG AA.
 
 12. **Place card click as primary conversion.** The #1 outward flow (place card → details) ships as an in-page expandable/modal from existing card data, not a "coming soon" stub. Full `PlaceDetailPage` with map/photos is a future work item. This avoids dead-ending the primary conversion on a redesigned homepage.
 
@@ -443,11 +444,10 @@ Following the existing `FoodData` named type pattern:
 - Stories archive (`/food/stories`) — stub only.
 - Places archive (`/food/places`) — stub only.
 - Live Supabase adapter — mock adapter only (per the existing Adapter pattern; live adapter is a future work item).
-- Adding a `--color-success` token to `index.css` — the `Open now` badge reuses `secondary` (teal) for now; a proper success/green token is a separate design-system work item.
 - User-submitted content / community moderation — existing DB has `submissions` table but this spec doesn't wire it up.
 
 ## Open questions for implementation
 
 - Should the search bar's live dropdown index be built from the mock adapter data at module load, or computed on each keystroke? (Performance question for implementation.)
-- Should the in-page place expandable be a modal (overlay) or an inline expansion (card grows in place)? Modal is simpler for mobile; inline preserves grid context. Decide during implementation.
+- The in-page place expandable should be a modal (overlay) on mobile and inline expansion (card grows in place) on desktop. Modal is simpler for mobile; inline preserves grid context on wider screens.
 - The "strictest filter" suggestion algorithm: for each active filter, compute count if removed alone — is this performant enough on every no-results render with the mock adapter? (Likely yes at 50 places; needs verification at scale with the live adapter.)
