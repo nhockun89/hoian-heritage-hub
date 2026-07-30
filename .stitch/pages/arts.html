@@ -1,0 +1,310 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Creative Spirit | Hoi An Heritage Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Manrope:wght@400;600;800&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#705d00",
+                    "on-secondary-fixed": "#00201b",
+                    "surface-variant": "#e9e2d3",
+                    "tertiary-container": "#865300",
+                    "on-tertiary-fixed": "#2b1700",
+                    "outline": "#7d7766",
+                    "surface": "#fff8ef",
+                    "tertiary-fixed": "#ffddb9",
+                    "surface-cool": "#f0f7f5",
+                    "outline-variant": "#cfc6ae",
+                    "on-tertiary-container": "#ffd09c",
+                    "on-primary-container": "#f2d876",
+                    "primary": "#554600",
+                    "secondary-container": "#90f1dd",
+                    "on-secondary-container": "#0b6f61",
+                    "surface-container": "#f5edde",
+                    "on-surface": "#1e1b12",
+                    "surface-cream": "#fff8ef",
+                    "on-tertiary-fixed-variant": "#663e00",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "secondary": "#006b5d",
+                    "inverse-on-surface": "#f8f0e1",
+                    "on-primary": "#ffffff",
+                    "background": "#fff8ef",
+                    "on-error-container": "#93000a",
+                    "surface-warm": "#f5f0e8",
+                    "on-background": "#1e1b12",
+                    "surface-container-highest": "#e9e2d3",
+                    "secondary-fixed-dim": "#83d6c4",
+                    "tertiary": "#663e00",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#4b4637",
+                    "on-secondary-fixed-variant": "#005046",
+                    "primary-fixed": "#fce17e",
+                    "inverse-surface": "#343026",
+                    "surface-tint": "#705d00",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#efe7d8",
+                    "inverse-primary": "#dfc566",
+                    "secondary-fixed": "#9ff2e0",
+                    "surface-bright": "#fff8ef",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#dfc566",
+                    "surface-dim": "#e1d9ca",
+                    "surface-container-low": "#fbf3e4",
+                    "on-primary-fixed": "#221b00",
+                    "tertiary-fixed-dim": "#feb965",
+                    "on-primary-fixed-variant": "#544600",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "24px",
+                    "margin-desktop": "80px",
+                    "hero-pad-lg": "128px",
+                    "section-gap": "120px",
+                    "hero-pad-sm": "32px",
+                    "gutter": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Noto Serif"],
+                    "display-lg": ["Noto Serif"],
+                    "headline": ["Noto Serif"],
+                    "label": ["Manrope"],
+                    "body": ["Manrope"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "0px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "0px", "fontWeight": "700"}],
+                    "headline": ["32px", {"lineHeight": "1.2", "letterSpacing": "0px", "fontWeight": "600"}],
+                    "label": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body": ["16px", {"lineHeight": "1.5", "letterSpacing": "0px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .hero-gradient {
+            background: linear-gradient(to bottom, rgba(0,0,0,0) 0%, rgba(30,27,18,0.7) 100%);
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(242, 216, 118, 0.4);
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface text-on-surface font-body overflow-x-hidden">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 backdrop-blur-md bg-surface/95 flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary text-2xl active:opacity-80 active:scale-95 transition-all duration-300">menu</button>
+<h1 class="font-headline text-headline-mobile font-bold text-primary tracking-tight">Hoi An Heritage Hub</h1>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label text-label text-primary border-b-2 border-primary py-1 uppercase tracking-widest" href="#">Heritage</a>
+<a class="font-label text-label text-on-surface-variant hover:text-primary transition-colors duration-300 uppercase tracking-widest" href="#">Eat</a>
+<a class="font-label text-label text-on-surface-variant hover:text-primary transition-colors duration-300 uppercase tracking-widest" href="#">Crafts</a>
+<a class="font-label text-label text-on-surface-variant hover:text-primary transition-colors duration-300 uppercase tracking-widest" href="#">Map</a>
+</div>
+<button class="material-symbols-outlined text-primary text-2xl active:opacity-80 active:scale-95 transition-all duration-300">search</button>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative w-full h-[751px] overflow-hidden flex items-end">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full scale-105 animate-[breath_20s_infinite_alternate]" data-alt="A cinematic, low-angle shot inside a traditional Hoi An lantern workshop. Thousands of silk lanterns in ochre, amber, and deep crimson hang from dark wooden rafters, glowing softly in the warm evening light. Dust motes dance in the sunbeams filtering through aged shutters. The atmosphere is poetic and timeless, captured in a high-end editorial photography style with rich tonal layering." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDXPhQSWzVHFOLplsM0Wkd2KnfWMOTvGrTq6Kdft6LhbSptz_udtH5T94s7yQqtkdRpe6UpPLQjMDbKWZkoyg1vOtYO1V29Uxp83MoNqagWr0HC5XvVwtAU95SbUViFf7xqA-0rqwxZHzqidhRzjt0GL6AGYUCBv0EQWC7G4Uq9ALDJEh2jJLhGkNNNz_JdXZ74J4KyFCVV3Pum17jvdPHuL91uQNLa7MY16mNS1tj6MhClg4S5whaWO0FCBvHnE5RB6jY3_Xz5wKoq')"></div>
+<div class="absolute inset-0 hero-gradient"></div>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop pb-hero-pad-sm md:pb-hero-pad-lg max-w-4xl">
+<div class="flex gap-3 mb-6">
+<span class="bg-primary-container text-on-primary-container px-4 py-1.5 rounded-full font-label text-[10px] tracking-widest uppercase">Heritage Craft</span>
+<span class="bg-secondary-container/20 border border-secondary-container/30 text-on-secondary-container px-4 py-1.5 rounded-full font-label text-[10px] tracking-widest uppercase glass-effect">Artisan Studio</span>
+</div>
+<h2 class="font-display-lg-mobile md:text-display-lg text-white mb-6 leading-tight">Creative Spirit: <span class="text-on-primary-container italic font-normal">The Art of Living</span></h2>
+<p class="text-white/80 font-body text-body max-w-xl leading-relaxed">Discover the rhythmic hands that shape the soul of the ancient town. From the smell of freshly carved cedar to the cooling touch of river clay, witness a heritage that breathes through art.</p>
+</div>
+</section>
+<!-- Craft Villages Section (Asymmetric Layout) -->
+<section class="mt-section-gap px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-4">
+<div class="max-w-xl">
+<h3 class="font-headline text-primary mb-4">Craft Villages</h3>
+<p class="text-on-surface-variant font-body">Generations of master artisans residing in the outlying hamlets of Hoi An, preserving techniques that date back to the 15th century.</p>
+</div>
+<div class="h-px flex-grow bg-outline-variant/30 mx-8 hidden md:block"></div>
+<button class="font-label text-label text-primary hover:underline transition-all uppercase tracking-widest">Explore All Clusters</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Kim Bong Carpentry -->
+<div class="md:col-span-7 group cursor-pointer">
+<div class="relative aspect-[16/10] overflow-hidden rounded-xl bg-surface-container mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="Close-up of a master carpenter's weathered hands at Kim Bong village, meticulously carving intricate floral patterns into dark teak wood. Sunlit ochre dust particles hang in the air. The lighting is warm and natural, highlighting the texture of the wood and the artisan's expertise. The scene feels like a high-end heritage journal entry, intimate and respectful." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC01K6Gd80SL7JbOx2i3b5f78F_kesVeKLv33QHgWGa3sHP2rxOtQpPSM-Pzdf3stvVBRZcv5FXB5e_DzWMrUkOpblZ6DUjFfimfQL3h1Un3vF3Ejlnsvnp1eVL8d7AhgX3F2F4pV27Fs-S5DKV8Q4laKIlORHHsa6FuRlOBXAY-56e-47mPNt4A1O9dBrpfFEJZnQp1-hY705EnfDrwp47tTb9Z20NX-BBgt94ChoGni81VCKh0fFu86crRm6KewVc8uv4zC9y80Ij"/>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline text-2xl mb-2 text-on-surface group-hover:text-primary transition-colors">Kim Bong Carpentry</h4>
+<p class="text-on-surface-variant text-body max-w-md">Whispers of the forest turned into structural poetry. Known for ship-building and temple restoration.</p>
+</div>
+<span class="material-symbols-outlined text-primary text-3xl group-hover:translate-x-2 transition-transform duration-300">arrow_right_alt</span>
+</div>
+</div>
+<!-- Thanh Ha Pottery -->
+<div class="md:col-span-5 md:mt-24 group cursor-pointer">
+<div class="relative aspect-[4/5] overflow-hidden rounded-xl bg-surface-container mb-6">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A serene scene at Thanh Ha Pottery Village. Stacks of unglazed terracotta pots and bricks drying in the golden afternoon sun on a riverbank. The palette is dominated by sun-drenched ochre and earthy browns. In the background, the Thu Bon river reflects a pale blue sky. The composition is minimalist and artistic, focusing on repetitive shapes and natural textures." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBagmjkR50UcwqBFdKvWf7eym2WXhemwUi025ORPaKqqz64ThUFklnFrSNvUMjwkpffVhH7NTEYHy12mImYimeqHPJ3lrmfauZeP74zvgRBYrw9ZgiyfWHscMnQ4cg9o5kWHFtS6kqUlhVRlBPQGl8IKEb2I4ceCJmGYA3YXopcz_cevS-wrMgglFSTmxYBrwYQdA28GZU70rHdVKLYZXXAYb3-NxH0aChD8ocAXtDHGPM3PMaSMiMFIUJFBeLa6dkIqRrc1FzIjk97"/>
+<div class="absolute inset-0 bg-primary/10 opacity-0 group-hover:opacity-100 transition-opacity duration-300"></div>
+</div>
+<div>
+<h4 class="font-headline text-2xl mb-2 text-on-surface group-hover:text-primary transition-colors">Thanh Ha Pottery</h4>
+<p class="text-on-surface-variant text-body">The alchemy of river mud and open flame, producing porous, earth-toned vessels used for centuries.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Modern Expressions Section (Bento Grid) -->
+<section class="mt-section-gap px-margin-mobile md:px-margin-desktop bg-surface-container-low py-24 rounded-[40px] mx-4 md:mx-12">
+<div class="text-center mb-16">
+<span class="font-label text-label text-tertiary-fixed-variant uppercase tracking-widest mb-4 block">New Perspectives</span>
+<h3 class="font-headline text-primary">Modern Expressions</h3>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-4 grid-rows-2 gap-4 h-auto md:h-[600px]">
+<div class="md:col-span-2 md:row-span-2 bg-surface rounded-2xl p-8 flex flex-col justify-between group cursor-pointer shadow-sm hover:shadow-md transition-all">
+<div>
+<div class="w-12 h-12 bg-primary-container rounded-lg flex items-center justify-center text-on-primary-container mb-8">
+<span class="material-symbols-outlined">brush</span>
+</div>
+<h5 class="font-headline text-2xl mb-4">The Art Gallery Path</h5>
+<p class="text-on-surface-variant font-body mb-8">A curated journey through the town's contemporary galleries, featuring local oil painters and avant-garde ceramicists.</p>
+</div>
+<div class="relative h-48 rounded-xl overflow-hidden">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="Interior of a minimalist modern art gallery in Hoi An. White walls, polished concrete floors, and large-scale abstract paintings featuring bold strokes of ochre and indigo. High-key, sophisticated lighting creates a premium gallery atmosphere. A single wooden bench sits in the center, inviting contemplation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuB-UVKgiMEHkLyar8h-S2OTgtKRKHocHZtdGgrJEp_P-s8s-qg8DAmAgcOWsHAoZZa_FrVjgyk1InGbLX0GspI5FD0D1i-Nip7YRJpWtty5MXf51QnMSgStktjjFUZ-4KPGYNrDI-v6-DpbhDHkzZoK_Aezsw9krNrjC7cpiirsrwdNSo6clbc1NT8Y6ct5ElNEnEdvZ4Egcx9dkRBxKVpPy_TBksbxntBN0pH1RUz1uwe-6Lmr7gSNdxscs8w8uBvHnMNgi7haI8Sw"/>
+</div>
+</div>
+<div class="md:col-span-2 bg-surface-container-highest rounded-2xl p-6 flex items-center gap-6 group cursor-pointer hover:bg-surface-variant transition-colors">
+<div class="w-24 h-24 shrink-0 rounded-lg overflow-hidden">
+<img class="w-full h-full object-cover" data-alt="Close-up of a contemporary textile piece using traditional Hoi An silk weaving techniques but with a modern, geometric pattern in muted tones of cream and sunlit ochre. Soft, diffused lighting." src="https://lh3.googleusercontent.com/aida-public/AB6AXuArkjNt0UxnqsosNPRLZUE3W4yHo4iXTUxAPTaiTOI6Va1HpOVOx1sNFOAM0hBura10D5j9L5wL84JQVf-p0C1GsuOqDgMenXyLr3vzGvSjda38ndalEbY-IoxHPOLYXgIxn6k463SqRKT-fpx-yIyadqRJEN7JnAHDiHbBT-zBVd04EtRsTy4cZR8JtsId6mVJMWtBznp44WAdiic-2As27lSUSo6GG0bUb2-pWGVdpBVd7kXIcZ0Fo--8dMC9K922DVv_hi-uV0kF"/>
+</div>
+<div>
+<h6 class="font-label text-label uppercase tracking-wider text-primary mb-1">Textile Lab</h6>
+<p class="font-body text-on-surface font-semibold">Reshaping Ancient Silk</p>
+</div>
+</div>
+<div class="md:col-span-1 bg-primary-container text-on-primary-container rounded-2xl p-6 flex flex-col justify-end group cursor-pointer">
+<span class="material-symbols-outlined text-4xl mb-4">camera</span>
+<p class="font-body text-sm font-bold">Visual Archives: 1920-2024 Exhibition</p>
+</div>
+<div class="md:col-span-1 bg-surface rounded-2xl p-6 border border-outline-variant/30 flex flex-col justify-between group cursor-pointer hover:border-primary transition-colors">
+<p class="font-label text-label uppercase tracking-tighter text-on-surface-variant">Artist Residence</p>
+<div class="flex items-center justify-between">
+<span class="font-headline text-xl">Apply</span>
+<span class="material-symbols-outlined">call_made</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Community -->
+<section class="mt-section-gap px-margin-mobile md:px-margin-desktop mb-24">
+<div class="max-w-2xl mx-auto text-center">
+<h3 class="font-headline text-on-surface mb-6">Join the Artisan Guild</h3>
+<p class="text-on-surface-variant mb-8">Receive monthly insights into heritage preservation, exclusive studio visits, and stories from the workshops.</p>
+<div class="flex flex-col sm:flex-row gap-4">
+<input class="flex-grow bg-surface-container border-transparent focus:border-primary rounded-full px-6 py-4 outline-none transition-all" placeholder="Your email address" type="email"/>
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-full font-label text-label uppercase tracking-widest hover:brightness-110 active:scale-95 transition-all">Subscribe</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container rounded-t-[40px] w-full mt-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-10">
+<div class="mb-8 md:mb-0">
+<h2 class="font-headline text-headline text-primary mb-2">Hoi An Heritage Hub</h2>
+<p class="font-body text-body text-on-surface-variant max-w-sm">© 2024 Hoi An Heritage Hub. Preserving the soul of the Ancient Town.</p>
+</div>
+<div class="flex gap-8">
+<a class="font-body text-body text-on-surface-variant hover:text-primary underline transition-all duration-300" href="#">Archives</a>
+<a class="font-body text-body text-on-surface-variant hover:text-primary underline transition-all duration-300" href="#">Community</a>
+<a class="font-body text-body text-on-surface-variant hover:text-primary underline transition-all duration-300" href="#">Sustainability</a>
+<a class="font-body text-body text-on-surface-variant hover:text-primary underline transition-all duration-300" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 py-3 pb-safe bg-surface shadow-[0_-4px_20px_rgba(27,28,26,0.06)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all duration-300 px-4 py-1" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-label text-[10px] uppercase mt-1">Heritage</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all duration-300 px-4 py-1" href="#">
+<span class="material-symbols-outlined">restaurant</span>
+<span class="font-label text-[10px] uppercase mt-1">Eat</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 active:scale-95 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label text-[10px] uppercase mt-1">Crafts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all duration-300 px-4 py-1" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label text-[10px] uppercase mt-1">Map</span>
+</a>
+</nav>
+<script>
+        // Micro-interaction: Header scroll effect
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-sm');
+                header.style.backgroundColor = 'rgba(255, 248, 239, 0.98)';
+            } else {
+                header.classList.remove('shadow-sm');
+                header.style.backgroundColor = 'rgba(255, 248, 239, 0.95)';
+            }
+        });
+
+        // Simple Fade-in Observer
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-8');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('section > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-1000', 'opacity-0', 'translate-y-8');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

@@ -71,7 +71,7 @@ export type SubmissionStatus = (typeof SUBMISSION_STATUSES)[number];
  * constraint to include the new value; update the array here.
  */
 export const SQL_CHECK_LOCATIONS = {
-  COLOR_THEMES: "00001_initial_schema.sql",
+  COLOR_THEMES: "00005_category_taxonomy_update.sql",
   PLACE_CONTENT_TYPES: "00001_initial_schema.sql",
   MEDIA_TYPES: "00001_initial_schema.sql",
   SUBMISSION_TYPES: "00001_initial_schema.sql",

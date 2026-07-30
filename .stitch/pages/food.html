@@ -1,0 +1,376 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Hoi An Heritage Hub | Local Flavors</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Manrope:wght@400;500;600;700&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@100..900&family=Noto+Serif:wght@100..900&display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            display: inline-block;
+            line-height: 1;
+        }
+        .hide-scrollbar::-webkit-scrollbar {
+            display: none;
+        }
+        .hide-scrollbar {
+            -ms-overflow-style: none;
+            scrollbar-width: none;
+        }
+        .cinematic-zoom {
+            animation: slowBreath 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes slowBreath {
+            from { transform: scale(1); }
+            to { transform: scale(1.1); }
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#705d00",
+                    "on-secondary-fixed": "#00201b",
+                    "surface-variant": "#e9e2d3",
+                    "tertiary-container": "#865300",
+                    "on-tertiary-fixed": "#2b1700",
+                    "outline": "#7d7766",
+                    "surface": "#fff8ef",
+                    "tertiary-fixed": "#ffddb9",
+                    "surface-cool": "#f0f7f5",
+                    "outline-variant": "#cfc6ae",
+                    "on-tertiary-container": "#ffd09c",
+                    "on-primary-container": "#f2d876",
+                    "primary": "#554600",
+                    "secondary-container": "#90f1dd",
+                    "on-secondary-container": "#0b6f61",
+                    "surface-container": "#f5edde",
+                    "on-surface": "#1e1b12",
+                    "surface-cream": "#fff8ef",
+                    "on-tertiary-fixed-variant": "#663e00",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "secondary": "#006b5d",
+                    "inverse-on-surface": "#f8f0e1",
+                    "on-primary": "#ffffff",
+                    "background": "#fff8ef",
+                    "on-error-container": "#93000a",
+                    "surface-warm": "#f5f0e8",
+                    "on-background": "#1e1b12",
+                    "surface-container-highest": "#e9e2d3",
+                    "secondary-fixed-dim": "#83d6c4",
+                    "tertiary": "#663e00",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#4b4637",
+                    "on-secondary-fixed-variant": "#005046",
+                    "primary-fixed": "#fce17e",
+                    "inverse-surface": "#343026",
+                    "surface-tint": "#705d00",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#efe7d8",
+                    "inverse-primary": "#dfc566",
+                    "secondary-fixed": "#9ff2e0",
+                    "surface-bright": "#fff8ef",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#dfc566",
+                    "surface-dim": "#e1d9ca",
+                    "surface-container-low": "#fbf3e4",
+                    "on-primary-fixed": "#221b00",
+                    "tertiary-fixed-dim": "#feb965",
+                    "on-primary-fixed-variant": "#544600",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "24px",
+                    "margin-desktop": "80px",
+                    "hero-pad-lg": "128px",
+                    "section-gap": "120px",
+                    "hero-pad-sm": "32px",
+                    "gutter": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Noto Serif"],
+                    "display-lg": ["Noto Serif"],
+                    "headline": ["Noto Serif"],
+                    "label": ["Manrope"],
+                    "body": ["Manrope"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "0px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "0px", "fontWeight": "700"}],
+                    "headline": ["32px", {"lineHeight": "1.2", "letterSpacing": "0px", "fontWeight": "600"}],
+                    "label": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body": ["16px", {"lineHeight": "1.5", "letterSpacing": "0px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body antialiased">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/95 dark:bg-surface-dim/95 backdrop-blur-md">
+<nav class="flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full">
+<div class="flex items-center gap-4">
+<button class="text-primary active:opacity-80 active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined">menu</span>
+</button>
+<h1 class="font-headline text-headline-mobile font-bold text-primary tracking-tight">Hoi An Heritage Hub</h1>
+</div>
+<!-- Desktop Nav Links -->
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label text-label text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Heritage</a>
+<a class="font-label text-label text-primary border-b-2 border-primary transition-colors duration-300" href="#">Eat</a>
+<a class="font-label text-label text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Crafts</a>
+<a class="font-label text-label text-on-surface-variant hover:text-primary transition-colors duration-300" href="#">Map</a>
+</div>
+<button class="text-primary active:opacity-80 active:scale-95 transition-all duration-300">
+<span class="material-symbols-outlined">search</span>
+</button>
+</nav>
+</header>
+<main class="pt-16">
+<!-- Hero Section -->
+<section class="relative h-[707px] w-full overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full cinematic-zoom bg-cover bg-center" data-alt="A cinematic, high-angle close-up of a steaming bowl of authentic Cao Lau noodles in Hoi An. The dish features thick rice noodles, slices of tender pork, crisp local greens, and golden rice crackers, all bathed in a warm, amber-toned light. The setting is a rustic wooden table in a dimly lit heritage building, with soft morning sunlight filtering through ancient shutters, creating a poetic, sun-drenched atmosphere that emphasizes the rich textures and heritage of the dish." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBAbzvqHDUJTc42r0hnhImnYkzG-9o3bgk0tognAdGkJ-K1N1q1AM4-ekAIwM-yttw0ItBQls1ZBfFGUlQ9NLwK4y0-Q-InNYh2FCBum4gRRZzrJZQwbolm3pvok25gJdxYEg4my_poCkf1B8SODmKBm1gpot_Yrok_X0AZGK1nT-D4J7JFjgkukgv8X9S2HFwmgZJSZ3OaF_4qgXb7OJPaHupjm4jn1Ixxjyv8OAsy3_IgRc8QVVRD2-DCha0-H3adDLm-zG4e_WWz')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 flex flex-col justify-end h-full pb-hero-pad-sm md:pb-hero-pad-lg px-margin-mobile md:px-margin-desktop">
+<span class="font-label text-label text-on-tertiary-fixed-variant bg-tertiary-fixed px-3 py-1 rounded-full w-fit mb-4">HERITAGE CUISINE</span>
+<h2 class="font-display-lg-mobile md:text-display-lg text-on-surface max-w-2xl">The Golden Secret of Cao Lau</h2>
+<p class="mt-6 text-on-surface-variant text-body md:text-lg max-w-xl font-body leading-relaxed">
+                    More than a dish, it is a piece of Hoi An's soul—crafted with water from the ancient Ba Le Well and wood ash from the Cham Islands.
+                </p>
+<div class="mt-8">
+<button class="bg-primary-container text-on-primary-container px-8 py-4 rounded-lg font-label text-label uppercase tracking-widest hover:translate-y-[-4px] transition-all duration-300 shadow-lg">
+                        Discover the Origin
+                    </button>
+</div>
+</div>
+</section>
+<!-- Must-Taste Section (Horizontal Scroll) -->
+<section class="mt-section-gap">
+<div class="px-margin-mobile md:px-margin-desktop flex justify-between items-end mb-8">
+<div>
+<h3 class="font-headline text-headline text-on-surface">Must-Taste Icons</h3>
+<p class="font-body text-on-surface-variant mt-2">Essential flavors that define the Ancient Town's palate.</p>
+</div>
+<div class="hidden md:flex gap-4">
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined">chevron_left</span>
+</button>
+<button class="w-12 h-12 rounded-full border border-outline-variant flex items-center justify-center text-primary hover:bg-primary/5 transition-colors">
+<span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+</div>
+<div class="flex overflow-x-auto gap-gutter px-margin-mobile md:px-margin-desktop pb-8 hide-scrollbar">
+<!-- Banh Mi Card -->
+<div class="flex-none w-72 md:w-96 group">
+<div class="aspect-[3/4] rounded-2xl overflow-hidden bg-surface-container relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A macro photograph of a legendary Hoi An Banh Mi, showcasing the perfectly crispy, golden-brown crust of the baguette bursting with savory fillings including paté, grilled pork, fresh cilantro, and bright chili sauce. The lighting is warm and directional, highlighting the steam rising from the bread and the vibrant colors of the vegetables. The style is editorial and food-magazine inspired, evoking a sense of mouth-watering authenticity." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXWkOBSFqE_CiY0eDeCx9kqyZ_JWWl-OevY8EpDydg0Mxh7IIwXCn6BD_cqpHZAq_w4qyQThV8SBaZi19UWEAD2nhRS9FISvb7XpT_UamA5nl5hm8L6vncowAFjQxTXQe1ROZ4BHLEJcBh3-JVAONnuilmQVYoWf2qIkeVaH5udtVe6OTY_MQrmxtozIneZbbqRqVx-BHIhYj2bJvez5IX15HpHFqSVfqQBUik7vphsUdd_tsfnkUckXvyLETXNjOu3IFQ7l82gC0w"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<p class="font-label text-label mb-1 opacity-90">THE WORLD'S BEST</p>
+<h4 class="font-headline text-2xl">Banh Mi Hoi An</h4>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<span class="font-body text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">location_on</span> Ba Le Well Area
+                        </span>
+<span class="font-label text-label text-primary">$$</span>
+</div>
+</div>
+<!-- White Rose Dumplings Card -->
+<div class="flex-none w-72 md:w-96 group">
+<div class="aspect-[3/4] rounded-2xl overflow-hidden bg-surface-container relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A delicate presentation of White Rose Dumplings (Banh Bao Banh Vac) on a traditional ceramic plate. The translucent, flower-shaped shrimp dumplings are topped with crispy fried shallots and served with a side of golden dipping sauce. The setting is an elegant, open-air courtyard of a heritage house with soft, diffused daylight and lush green foliage in the background. The aesthetic is clean, minimalist, and deeply rooted in Vietnamese tradition." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDhL-oTYcXxedz1Ay7VwNcvi9CPA2KihZUhb2w0mvDb70TP4p02-q_BrXg_PrpQtRexHPB5-0qZhnvOzdpOt-x627PPAwO8k7z_-iQ7ljrcL5S8g-JffN50SCsQUGuxFBNxuEHfk-PUFBII3uA40S9KhG4-cR7_xzhIQn6Tgu7iP1Yh3Sl9kf2d6S2qP9niIbwHa7CVTX423_DYaoOUvcyWpD-6x2-Q4kmaWoqZDhMNPQa35zQ_CrcfAl9Cy-njd3Ap_sBPw9-Xecej"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<p class="font-label text-label mb-1 opacity-90">HAND-CRAFTED ART</p>
+<h4 class="font-headline text-2xl">White Rose</h4>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<span class="font-body text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">location_on</span> Hai Ba Trung St.
+                        </span>
+<span class="font-label text-label text-primary">$$$</span>
+</div>
+</div>
+<!-- Chicken Rice Card -->
+<div class="flex-none w-72 md:w-96 group">
+<div class="aspect-[3/4] rounded-2xl overflow-hidden bg-surface-container relative">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A vibrant plate of Com Ga (Chicken Rice) featuring bright yellow turmeric rice, shredded seasoned chicken, and a side of fresh herbs and spicy papaya salad. The photo is taken from a top-down perspective, highlighting the geometric arrangement and the warm 'Spice Orange' accents of the chili jam. The lighting is sunny and cheerful, reflecting the bustling energy of the Hoi An Central Market." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCF-7_WOfztItY9NW0csTwlmXhRlWrtya2E5FAve5jUdOSAdC_thjUpmJwnFchHkmt59GQ_q83vobpoS4C64pKZN0YfkdkpeqU2HoA4Xkv5qYPsxzIPGatRuR_P7brATDchiFrV8_DZoo8DeIFd9AwsuKEiV4KDgjJNLtF4Qj_8OC99OIqRs7Yk01YDQW0YIeYJVOFcpJjzHDbtViNiGNc1KOcjEreJfews5vZS7xr8gGMzKWzFwtqyq4WUUjA9IBefzbAwyiDulZaP"/>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-black/10 transition-colors"></div>
+<div class="absolute bottom-6 left-6 text-white">
+<p class="font-label text-label mb-1 opacity-90">STREET CLASSIC</p>
+<h4 class="font-headline text-2xl">Com Ga Hoi An</h4>
+</div>
+</div>
+<div class="mt-4 flex items-center justify-between">
+<span class="font-body text-on-surface-variant flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">location_on</span> Central Market
+                        </span>
+<span class="font-label text-label text-primary">$</span>
+</div>
+</div>
+</div>
+</section>
+<!-- Kitchen Stories Section (Vertical List / Bento) -->
+<section class="mt-section-gap px-margin-mobile md:px-margin-desktop mb-24">
+<h3 class="font-headline text-headline text-on-surface mb-12">Kitchen Stories</h3>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Story 1 -->
+<div class="md:col-span-8 group bg-surface-container rounded-3xl overflow-hidden flex flex-col md:flex-row hover:shadow-xl transition-all duration-500">
+<div class="md:w-1/2 overflow-hidden h-64 md:h-auto">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A portrait of an elderly Vietnamese woman, a local vendor, laughing in her small food stall. She is surrounded by large aluminum pots and fresh herbs. The background shows the weathered, yellow-painted walls of Hoi An's ancient town. The morning light is soft and golden, capturing the deep wrinkles on her face and the genuine joy in her eyes. The style is documentary-style travel photography with a focus on human connection and heritage." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBNhWgNzvu4CAsnXJXa-PXefhge273rwodKVX9BIKCYr_ksij9L15h34T1z3xIE03YtiohZPGlHe4PVx-RliKWk2H0zyGwFRrjPsVJhMHQ5XPaQLnEXJ-e8iVFbvwNEPXXdT3ybU4LQzW6gZ77ZZllJEjHsBlQlUe_dRmikWAiF5eNUUIEgYVP1IWGxLuc-YvPlpU-_twnYVlXNUP95DWhvwDHl7xH1a6LeEhaKcypjsG1-gwszU3fvNy_lR72U3rqxMafXZYO68EJo"/>
+</div>
+<div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+<span class="text-tertiary font-label text-label mb-4">THE VENDOR'S TALE</span>
+<h4 class="font-headline text-2xl text-on-surface mb-4">The Keeper of the Well</h4>
+<p class="font-body text-on-surface-variant mb-6 leading-relaxed">
+                            Meet Mrs. Thanh, who has been drawing water from the Ba Le Well for 40 years to ensure her Cao Lau remains true to its century-old recipe.
+                        </p>
+<a class="flex items-center gap-2 text-primary font-label text-label font-bold group/link" href="#">
+                            READ FULL STORY 
+                            <span class="material-symbols-outlined group-hover/link:translate-x-2 transition-transform">arrow_forward</span>
+</a>
+</div>
+</div>
+<!-- Story 2 (Mini) -->
+<div class="md:col-span-4 bg-surface-container-high rounded-3xl p-8 flex flex-col justify-between border border-outline-variant/20">
+<div>
+<span class="material-symbols-outlined text-primary text-4xl mb-6">restaurant</span>
+<h4 class="font-headline text-xl text-on-surface mb-3">Market Morning Rituals</h4>
+<p class="font-body text-sm text-on-surface-variant leading-relaxed">
+                            A guide to navigating the Central Market at dawn, when the best herbs arrive from Tra Que Village.
+                        </p>
+</div>
+<div class="mt-8 pt-6 border-t border-outline-variant/30">
+<div class="flex items-center gap-3">
+<div class="w-10 h-10 rounded-full bg-secondary-container flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-sm">schedule</span>
+</div>
+<div>
+<p class="font-label text-xs font-bold text-on-surface">5:00 AM START</p>
+<p class="font-body text-xs text-on-surface-variant">Best for Freshness</p>
+</div>
+</div>
+</div>
+</div>
+<!-- Story 3 -->
+<div class="md:col-span-4 bg-tertiary-container text-on-tertiary-container rounded-3xl p-8 flex flex-col justify-center items-center text-center">
+<h4 class="font-headline text-2xl mb-4">Spice of Life</h4>
+<p class="font-body opacity-90 mb-8">Discover why Hoi An's chili jam is the secret ingredient you didn't know you needed.</p>
+<div class="w-full aspect-square rounded-full border-4 border-on-tertiary-container/20 p-2 overflow-hidden">
+<div class="w-full h-full rounded-full bg-cover bg-center" data-alt="A close-up artistic shot of bright red Hoi An chili jam in a small rustic stone bowl. Beside it are dried chilies and garlic cloves on a dark wooden surface. The contrast is high, with deep shadows and vibrant red tones, emphasizing the 'Spice Orange' palette and the intense flavor of the local condiment." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA5N5VVCiOHHGNLZvfg7YULO4-O-CGGJXhQaqzYjbZucgPoUyom7EZHOqHs-dpy1a8FCnR1oEetxuzYY3w82rJHU3BIMr8mjW9vWEvsJck1PQJ3RMnOrNo1JsuJULzJ7M1lRI0TijLzAM05p9HlN50je-XnvaTSmkS_fGBYFUyN1C4W2tsFAjyaWqPUQACaRT64fpQmlCvBDV_xq0B15svQPBjA4zqNds35GcYzpduDiWIE0N4enTfTBoVfalI3X7sqafwJMs230FLj')">
+</div>
+</div>
+</div>
+<!-- Story 4 -->
+<div class="md:col-span-8 group bg-surface-container-low rounded-3xl overflow-hidden flex flex-col md:flex-row-reverse hover:shadow-xl transition-all duration-500 border border-outline-variant/20">
+<div class="md:w-1/2 overflow-hidden h-64 md:h-auto">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-700" data-alt="A wide shot of the Hoi An Central Market food court during lunch hour. The scene is filled with steam, the blur of people in conical hats, and colorful stalls laden with fruit and bowls. The architecture features high ceilings with traditional wooden beams. The lighting is dynamic, with shafts of light piercing through the market's ventilation, creating a dramatic, cinematic atmosphere." src="https://lh3.googleusercontent.com/aida-public/AB6AXuC-plfshhaIAWJ88BgPQocVbhq8cMjXXw14ANXx03Lx1KXdppgaM94Xj_N0hdb74c_VLW1-ht5FP_iEiTB5EfH6Q3mSPOlWqi0DQqZJCrrPTRK4oCgX_9QyI9lY-Sjc-rtTrau23EGCHno7wI_Nxr-ylRAQchyQuy9i18TSGlrAq06GQfVnNH8c6SxwojOACezpd2WRzhZi5lMC_PUOmZzqhqFxbb9tCcSCZt-VFVJB5VKtNLrlK_JyfNnf8qggzkqwM7CbHm09hwxI"/>
+</div>
+<div class="md:w-1/2 p-8 md:p-12 flex flex-col justify-center">
+<span class="text-secondary font-label text-label mb-4">MARKET SECRETS</span>
+<h4 class="font-headline text-2xl text-on-surface mb-4">Under the Red Roofs</h4>
+<p class="font-body text-on-surface-variant mb-6 leading-relaxed">
+                            The Central Market is a living museum of taste. From savory 'Banh Xeo' to sweet 'Che', every corner holds a legacy.
+                        </p>
+<div class="flex gap-4">
+<div class="flex items-center gap-1 text-on-surface-variant text-xs font-label">
+<span class="material-symbols-outlined text-sm">location_on</span> PHAN CHU TRINH
+                             </div>
+<div class="flex items-center gap-1 text-on-surface-variant text-xs font-label">
+<span class="material-symbols-outlined text-sm">visibility</span> 12K READS
+                             </div>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-high rounded-t-[40px] w-full mt-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-10">
+<div class="mb-8 md:mb-0 text-center md:text-left">
+<h2 class="font-headline text-headline text-primary mb-2">Hoi An Heritage Hub</h2>
+<p class="font-body text-body text-on-surface-variant max-w-sm">Preserving the soul of the Ancient Town through its stories, crafts, and flavors.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8 md:gap-12">
+<a class="font-body text-body text-on-surface-variant hover:text-primary underline transition-all duration-300" href="#">Archives</a>
+<a class="font-body text-body text-on-surface-variant hover:text-primary underline transition-all duration-300" href="#">Community</a>
+<a class="font-body text-body text-on-surface-variant hover:text-primary underline transition-all duration-300" href="#">Sustainability</a>
+<a class="font-body text-body text-on-surface-variant hover:text-primary underline transition-all duration-300" href="#">Contact</a>
+</div>
+</div>
+<div class="border-t border-outline-variant/30 px-margin-mobile md:px-margin-desktop py-6 text-center">
+<p class="font-body text-label text-on-surface-variant">© 2024 Hoi An Heritage Hub. Preserving the soul of the Ancient Town.</p>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 py-3 pb-safe bg-surface-container-low dark:bg-surface-container-highest shadow-[0_-4px_20px_rgba(27,28,26,0.06)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all duration-300 px-4 py-1" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-label text-[10px] mt-1">Heritage</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 scale-95 transition-transform duration-300" href="#">
+<span class="material-symbols-outlined">restaurant</span>
+<span class="font-label text-[10px] mt-1">Eat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all duration-300 px-4 py-1" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label text-[10px] mt-1">Crafts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all duration-300 px-4 py-1" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label text-[10px] mt-1">Map</span>
+</a>
+</nav>
+<!-- Contextual FAB (Only on Home/Main areas, but included here for completeness of potential interaction) -->
+<button class="fixed bottom-24 right-8 w-14 h-14 bg-primary text-on-primary rounded-full shadow-2xl flex items-center justify-center hover:scale-110 active:scale-95 transition-all duration-300 z-40 md:bottom-12">
+<span class="material-symbols-outlined">map</span>
+</button>
+<script>
+        // Simple scroll interaction for Header
+        let lastScroll = 0;
+        const header = document.querySelector('header');
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll > lastScroll && currentScroll > 100) {
+                header.style.transform = 'translateY(-100%)';
+            } else {
+                header.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+
+        // Horizontal scroll button logic
+        const scrollContainer = document.querySelector('.hide-scrollbar');
+        const scrollNext = document.querySelectorAll('button span:contains("chevron_right")'); // This needs better selector
+        // In this environment, we just keep it visual, but a real dev would hook up the button listeners.
+    </script>
+</body></html>

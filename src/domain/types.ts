@@ -224,6 +224,122 @@ export interface FoodData {
   readonly items: readonly FoodItemData[];
 }
 
+// === Food page (dedicated /food) ===
+
+export interface FoodPageHeroData {
+  readonly eyebrow: string;
+  readonly title: string;
+  readonly description: string;
+  readonly cta: string;
+  readonly imageUrl: string;
+}
+
+export interface FoodPageSearchData {
+  readonly placeholder: string;
+  readonly suggestionsTitle: string;
+}
+
+export type FoodPrice = "$" | "$$" | "$$$";
+
+export interface MustTasteItemData {
+  readonly id: string;
+  readonly tag: string;
+  readonly title: string;
+  readonly location: string;
+  readonly price: FoodPrice;
+  readonly servingPlaceCount: number;
+  readonly imageUrl: string;
+}
+
+export interface VibeTagData {
+  readonly id: string;
+  readonly label: string;
+  readonly featured: boolean;
+}
+
+export interface PlaceData {
+  readonly id: string;
+  readonly name: string;
+  readonly neighborhood: string;
+  readonly price: FoodPrice;
+  readonly vibes: readonly string[];
+  readonly dishes: readonly string[];
+  readonly isOpen: boolean;
+  readonly isPetFriendly: boolean;
+  readonly rating: number;
+  readonly hours: string;
+  readonly description: string;
+  readonly imageUrl: string;
+}
+
+export interface FoodPagePlacesData {
+  readonly title: string;
+  readonly subtitle: string;
+  readonly description: string;
+  readonly vibeTags: readonly VibeTagData[];
+  readonly neighborhoods: readonly string[];
+  readonly places: readonly PlaceData[];
+  readonly priceLabel: string;
+  readonly neighborhoodLabel: string;
+  readonly openNowLabel: string;
+  readonly petFriendlyLabel: string;
+  readonly loadMoreLabel: string;
+  readonly clearAllLabel: string;
+  readonly emptyHeading: string;
+  readonly emptyBody: string;
+}
+
+export interface FoodPageRiversideData {
+  readonly eyebrow: string;
+  readonly title: string;
+  readonly description: string;
+  readonly cta: string;
+  readonly imageUrl: string;
+}
+
+export interface FoodPageStoryData {
+  readonly id: string;
+  readonly tag: string;
+  readonly title: string;
+  readonly excerpt: string;
+  readonly imageUrl: string;
+}
+
+export interface FoodPageMiniStoryData {
+  readonly tag: string;
+  readonly title: string;
+  readonly body: string;
+  readonly icon: IconName;
+}
+
+export interface FoodPageSpiceCardData {
+  readonly tag: string;
+  readonly title: string;
+  readonly body: string;
+  readonly icon: IconName;
+}
+
+export interface FoodPageStoriesData {
+  readonly title: string;
+  readonly subtitle: string;
+  readonly stories: readonly FoodPageStoryData[];
+  readonly miniStory: FoodPageMiniStoryData;
+  readonly spiceCard: FoodPageSpiceCardData;
+}
+
+export interface FoodPageData {
+  readonly hero: FoodPageHeroData;
+  readonly search: FoodPageSearchData;
+  readonly mustTaste: {
+    readonly title: string;
+    readonly description: string;
+    readonly items: readonly MustTasteItemData[];
+  };
+  readonly places: FoodPagePlacesData;
+  readonly riverside: FoodPageRiversideData;
+  readonly stories: FoodPageStoriesData;
+}
+
 // === Photo gallery ===
 
 export interface PhotoData {

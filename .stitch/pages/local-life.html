@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Ancient Echoes | Hoi An Heritage Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Manrope:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#705d00",
+                    "on-secondary-fixed": "#00201b",
+                    "surface-variant": "#e9e2d3",
+                    "tertiary-container": "#865300",
+                    "on-tertiary-fixed": "#2b1700",
+                    "outline": "#7d7766",
+                    "surface": "#fff8ef",
+                    "tertiary-fixed": "#ffddb9",
+                    "surface-cool": "#f0f7f5",
+                    "outline-variant": "#cfc6ae",
+                    "on-tertiary-container": "#ffd09c",
+                    "on-primary-container": "#f2d876",
+                    "primary": "#554600",
+                    "secondary-container": "#90f1dd",
+                    "on-secondary-container": "#0b6f61",
+                    "surface-container": "#f5edde",
+                    "on-surface": "#1e1b12",
+                    "surface-cream": "#fff8ef",
+                    "on-tertiary-fixed-variant": "#663e00",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "secondary": "#006b5d",
+                    "inverse-on-surface": "#f8f0e1",
+                    "on-primary": "#ffffff",
+                    "background": "#fff8ef",
+                    "on-error-container": "#93000a",
+                    "surface-warm": "#f5f0e8",
+                    "on-background": "#1e1b12",
+                    "surface-container-highest": "#e9e2d3",
+                    "secondary-fixed-dim": "#83d6c4",
+                    "tertiary": "#663e00",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#4b4637",
+                    "on-secondary-fixed-variant": "#005046",
+                    "primary-fixed": "#fce17e",
+                    "inverse-surface": "#343026",
+                    "surface-tint": "#705d00",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#efe7d8",
+                    "inverse-primary": "#dfc566",
+                    "secondary-fixed": "#9ff2e0",
+                    "surface-bright": "#fff8ef",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#dfc566",
+                    "surface-dim": "#e1d9ca",
+                    "surface-container-low": "#fbf3e4",
+                    "on-primary-fixed": "#221b00",
+                    "tertiary-fixed-dim": "#feb965",
+                    "on-primary-fixed-variant": "#544600",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "24px",
+                    "margin-desktop": "80px",
+                    "hero-pad-lg": "128px",
+                    "section-gap": "120px",
+                    "hero-pad-sm": "32px",
+                    "gutter": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Noto Serif"],
+                    "display-lg": ["Noto Serif"],
+                    "headline": ["Noto Serif"],
+                    "label": ["Manrope"],
+                    "body": ["Manrope"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "0px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "0px", "fontWeight": "700"}],
+                    "headline": ["32px", {"lineHeight": "1.2", "letterSpacing": "0px", "fontWeight": "600"}],
+                    "label": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body": ["16px", {"lineHeight": "1.5", "letterSpacing": "0px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .cinematic-zoom {
+            animation: slow-breath 20s infinite alternate ease-in-out;
+        }
+        @keyframes slow-breath {
+            0% { transform: scale(1); }
+            100% { transform: scale(1.08); }
+        }
+        .asymmetric-offset {
+            margin-left: clamp(0px, 8vw, 120px);
+        }
+        .glass-blur {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-surface font-body selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full z-50 bg-surface/95 dark:bg-surface-dim/95 backdrop-blur-md">
+<nav class="flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer">menu</span>
+<h1 class="font-headline text-headline-mobile font-bold text-primary dark:text-primary-fixed tracking-tight">Hoi An Heritage Hub</h1>
+</div>
+<div class="hidden md:flex items-center gap-8">
+<a class="font-label text-label text-primary border-b-2 border-primary py-1" href="#">Heritage</a>
+<a class="font-label text-label text-on-surface-variant hover:text-primary transition-colors" href="#">Eat</a>
+<a class="font-label text-label text-on-surface-variant hover:text-primary transition-colors" href="#">Crafts</a>
+<a class="font-label text-label text-on-surface-variant hover:text-primary transition-colors" href="#">Map</a>
+</div>
+<span class="material-symbols-outlined text-primary cursor-pointer">search</span>
+</nav>
+</header>
+<main class="overflow-x-hidden">
+<!-- Cinematic Hero Section -->
+<section class="relative h-[795px] flex items-end overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full cinematic-zoom bg-cover bg-center" data-alt="A cinematic, wide-angle photograph of a narrow, sun-drenched yellow alleyway in Hoi An. Elderly locals are seated on small wooden stools, engaged in quiet conversation near weathered wooden doors. The lighting is warm and golden, casting long, soft shadows against the textured mustard-colored walls. The overall mood is nostalgic, peaceful, and rich with cultural storytelling, capturing the essence of living heritage in a light-mode aesthetic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuD8GCiFZvnPvvPjXo0d3fkjIfN4vTGtLrMCUFljZ427A1DeTyM-sjMOZ-BGEdpdNFwA6--2M6QE1smP21Mj_IAKjJiTW8B9eegbP7QKiZOFLt-PKapldJPAA2gvQHJlImfH54VVQYIuNsKHhlaiFPxDHKlDi7yFy2fYMhG3NXScSQjmHLrp3oWpwbpV6fmaNua1xTLnAZOThb_GL3_lcwps1hnvwifowpinFacWa4hcAj8M7AIyyFUFpXxoJFukG58hNrgQe6i1kqCO')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-background via-transparent to-transparent opacity-80"></div>
+</div>
+<div class="relative z-10 px-margin-mobile md:px-margin-desktop pb-hero-pad-sm md:pb-hero-pad-lg max-w-4xl">
+<div class="inline-flex items-center gap-2 bg-primary-container/20 px-3 py-1 rounded-full mb-6 backdrop-blur-sm border border-primary/20">
+<span class="material-symbols-outlined text-primary text-[16px]" style="font-variation-settings: 'FILL' 1;">history_edu</span>
+<span class="font-label text-label text-primary uppercase">Living Heritage</span>
+</div>
+<h2 class="font-display-lg-mobile md:text-display-lg font-display-lg text-on-background leading-tight mb-4">Ancient Echoes: The Living Soul of Hoi An</h2>
+<p class="font-body text-body text-on-surface-variant max-w-xl text-lg leading-relaxed">Beyond the paper lanterns and tailor shops lies a rhythm of life unchanged for centuries. Step into the golden-hued veins of the Ancient Town, where every weathered brick whispers a story of survival and soul.</p>
+</div>
+</section>
+<!-- Alleyway Secrets Section (Asymmetric Bento) -->
+<section class="px-margin-mobile md:px-margin-desktop py-section-gap bg-surface-warm">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-4">
+<div class="max-w-2xl">
+<h3 class="font-headline text-headline text-primary mb-4">Alleyway Secrets</h3>
+<p class="font-body text-body text-on-surface-variant">The town's true character is found in its 'kiet' and 'hem'—the labyrinthine passages that hide family altars, hidden wells, and the quiet dignity of daily chores.</p>
+</div>
+<button class="bg-primary-container text-on-primary-container px-8 py-3 rounded-lg font-label text-label hover:scale-105 transition-transform active:scale-95">Explore the Map</button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Editorial Card -->
+<div class="md:col-span-8 group cursor-pointer">
+<div class="relative rounded-[16px] overflow-hidden bg-surface-container h-[500px]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="A detailed close-up of a weathered yellow wall in a Hoi An alleyway, featuring vibrant green moss climbing up the cracks and a small, ornate porcelain family altar nestled in a niche. The morning sun hits the surface at an angle, highlighting the rich textures of the lime-plaster wall. The aesthetic is clean and editorial, emphasizing the beauty in decay and the persistence of local traditions." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDL2C_Ew2ueoAPq-rMYrPGUgDUDDI2a33okMk5P0pDnftNbfu6tnCCOsUL25UE2G4ekuCu_hMUz1rr_tXqvNP0bIRq1JE3Rbc-VhiKbaVRwjcu8undxedHY9mqzsi5N6pmET4K-wWQR8DqN1IuuNnxcz870g3KGN50raZ2qdgwH3UGLFaUJ7MXQ5bG6LnIq88L47UHI1BaHKHJXWuDAx6fKNOfRlyh7EYsPFMjwAmGU0GEonvzMs5nTaYRAsvWHkF0RaI3VepgkhDSj"/>
+<div class="absolute inset-0 bg-gradient-to-t from-on-surface/60 to-transparent flex flex-col justify-end p-8 text-white">
+<span class="font-label text-[10px] uppercase tracking-widest mb-2 opacity-80">Chronicle 01</span>
+<h4 class="font-headline text-2xl mb-2">The Keeper of the Well</h4>
+<p class="font-body text-sm max-w-md opacity-90 leading-relaxed">For four generations, the Ba Le well has provided the sweet water necessary for authentic Cao Lau. Meet the families who guard its clarity.</p>
+</div>
+</div>
+</div>
+<!-- Vertical Card -->
+<div class="md:col-span-4 space-y-6">
+<div class="bg-surface-container rounded-[16px] p-8 h-full flex flex-col justify-between border border-outline-variant/30">
+<div>
+<span class="material-symbols-outlined text-primary mb-6 text-4xl">auto_stories</span>
+<h4 class="font-headline text-xl text-primary mb-4">Oral Histories</h4>
+<p class="font-body text-on-surface-variant mb-6 leading-relaxed">Listen to the archived recordings of the elders of Minh Huong, recounting the great floods and the era of the spice trade.</p>
+</div>
+<ul class="space-y-4">
+<li class="flex items-center gap-3 border-b border-outline-variant/20 pb-3 group">
+<span class="font-label text-primary">01</span>
+<span class="font-body text-sm group-hover:text-primary transition-colors">The 1964 Great Inundation</span>
+</li>
+<li class="flex items-center gap-3 border-b border-outline-variant/20 pb-3 group">
+<span class="font-label text-primary">02</span>
+<span class="font-body text-sm group-hover:text-primary transition-colors">Whispers of the Japanese Bridge</span>
+</li>
+<li class="flex items-center gap-3 group">
+<span class="font-label text-primary">03</span>
+<span class="font-body text-sm group-hover:text-primary transition-colors">The Weaver's Last Song</span>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</section>
+<!-- Festivals Section (Full Moon Lantern Festival) -->
+<section class="relative py-section-gap overflow-hidden bg-on-surface text-surface">
+<!-- Background Decorative Element -->
+<div class="absolute top-0 right-0 w-1/3 h-full bg-primary-container/10 blur-[120px] rounded-full translate-x-1/2"></div>
+<div class="px-margin-mobile md:px-margin-desktop relative z-10">
+<div class="asymmetric-offset max-w-3xl">
+<span class="font-label text-primary-fixed uppercase tracking-widest mb-4 block">Lunar Traditions</span>
+<h3 class="font-display-lg-mobile md:text-display-lg font-display-lg mb-8">The Full Moon Lantern Festival</h3>
+<p class="font-body text-lg md:text-xl opacity-80 leading-loose mb-12">Every 14th day of the lunar month, the Ancient Town extinguishes its electric lights. The streets are transformed into a luminous tapestry of silk lanterns, incense smoke, and paper lotus flowers floating down the Thu Bon river.</p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-12 mt-16">
+<div class="flex flex-col gap-6">
+<div class="aspect-[4/5] rounded-[16px] overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" data-alt="A magical scene of hundreds of colorful silk lanterns glowing against the dark blue twilight sky of Hoi An. The lanterns are in various shapes—lotus, garlic, and traditional rounds—illuminating the wooden facades of ancient houses. The water of the Thu Bon river reflects the warm orange and red lights, creating a dreamlike, ethereal atmosphere of a traditional festival night." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDLjpIbWwaAtGgHlcFn1pxLYdAifaarZldhf-2abDzAfFj8XrnVeKJiBUW3F9VClbCH5fi57Jve-NmB_XyULX0DHE0qjhe_f9oQrhSoCtcuq-XuOJwkCCGboGIHBEr7Nb4ClTkp1GXj4UN3rF-6buAe_r7nd7zD5j-0-hCFHBoUA2_gaSpg5ab9LF9GPlwJSzXHmHLgYN6nKQjK7k8hj1LyoPLGp3cDHYeYpkMETqfPoGeujPfvj780oMNGtYsA8kxDP8iLgTVIf1r4"/>
+</div>
+<div>
+<h5 class="font-headline text-xl mb-2">Sacred Offerings</h5>
+<p class="font-body text-sm opacity-70">Observe the ritual of 'Hoa Dang', the releasing of flower lanterns to pray for ancestors and global peace.</p>
+</div>
+</div>
+<div class="flex flex-col gap-6 md:translate-y-24">
+<div class="aspect-[4/5] rounded-[16px] overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" data-alt="A focused shot of a local artisan's hands meticulously crafting a paper lantern with a bamboo frame. The workbench is cluttered with colorful silk scraps and wood shavings. Soft, warm light from a nearby lantern highlights the texture of the materials and the skill in the craftsman's movements. The style is moody and authentic, emphasizing traditional craft and cultural preservation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBXzSIM4gMNGnPfcCRP6HDXWMKU2f-l_mfQB8oVep00s_Mja6d4OTMr9dZAr_j-ffZaB4kSopLGLF9Gz2sdcqv3l6PcCmxUHK0Y5tzmZafty12GDfzGJsHPsUFzJk9bZsm2xO02qbrD8ouRlPVcgn8_FOyoJcPF38vX1VbhuEwmS3yba5fV48g51evgmlZUCfRswsV29_MBO_HuRsSb5TZNRZcBePJMZfB6uHH8KaoUmVuKNh5U6g5ttSzVc5CatZlgCnx4ga05wax2"/>
+</div>
+<div>
+<h5 class="font-headline text-xl mb-2">Crafting Light</h5>
+<p class="font-body text-sm opacity-70">Join a master craftsman in the hidden courtyard of a communal house to learn the geometry of the bamboo lantern frame.</p>
+</div>
+</div>
+<div class="flex flex-col gap-6">
+<div class="aspect-[4/5] rounded-[16px] overflow-hidden">
+<img class="w-full h-full object-cover grayscale hover:grayscale-0 transition-all duration-500 cursor-pointer" data-alt="An atmospheric night shot of a traditional Vietnamese chess game being played by candlelight in a public square. A small crowd of locals and visitors watches in hushed silence. The old wooden buildings in the background are draped with shadows and faint lantern light, creating a scene of community and timeless tradition. The color palette is dominated by deep blues and warm, flickering ambers." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAXncsifgwQHrR-Cl2VCn_hvsUbyKm3bkYUnH9GVIe293mBBTr1hQxX2Dnm8jLXeYL_EqBIoewOGiZU8k_5Kk4lxvr66HuWgTA1lI18y6qpMHpneG4cg8GVngGq5p-EvRtVxS8y0dlzZcaejMFWpLKhoDBfXpcrpYJK-g24tBCpQa-jDc4i_j2h-futJiVUaOPjiy1IsA8WD5Kc1yznY-RyOgMEa1IgIGhIbCupUVsnBeRw5Cx0ihBFjiRaseJiEGbxImEeMytmGwPz"/>
+</div>
+<div>
+<h5 class="font-headline text-xl mb-2">Street Games</h5>
+<p class="font-body text-sm opacity-70">From 'Bai Choi' singing to traditional chess matches, the streets become a stage for the community's living joy.</p>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Newsletter / Community Section -->
+<section class="px-margin-mobile md:px-margin-desktop py-section-gap flex flex-col items-center text-center bg-surface-cream">
+<div class="max-w-2xl">
+<span class="material-symbols-outlined text-primary text-5xl mb-6">local_library</span>
+<h3 class="font-headline text-headline text-on-surface mb-4">Support Living Heritage</h3>
+<p class="font-body text-on-surface-variant mb-10 leading-relaxed">Join our community of preservationists. Receive monthly stories from the Ancient Town and contribute to the archiving of local traditions.</p>
+<div class="flex flex-col md:flex-row gap-4 w-full max-w-md mx-auto">
+<input class="flex-1 bg-transparent border-b-2 border-outline-variant focus:border-primary outline-none py-3 px-2 font-body transition-colors" placeholder="Your email address" type="email"/>
+<button class="bg-primary text-on-primary px-8 py-3 rounded-lg font-label text-label hover:bg-primary-container transition-colors">Subscribe</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container dark:bg-surface-container-high rounded-t-[40px] w-full mt-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-10">
+<div class="mb-6 md:mb-0">
+<h4 class="font-headline text-headline text-primary">Hoi An Heritage Hub</h4>
+<p class="font-body text-on-surface-variant text-sm max-w-xs mt-2">© 2024 Hoi An Heritage Hub. Preserving the soul of the Ancient Town.</p>
+</div>
+<div class="flex flex-wrap justify-center gap-8">
+<a class="font-body text-body text-on-surface-variant hover:text-primary underline transition-all" href="#">Archives</a>
+<a class="font-body text-body text-on-surface-variant hover:text-primary underline transition-all" href="#">Community</a>
+<a class="font-body text-body text-on-surface-variant hover:text-primary underline transition-all" href="#">Sustainability</a>
+<a class="font-body text-body text-on-surface-variant hover:text-primary underline transition-all" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 py-3 pb-safe bg-surface-container-low dark:bg-surface-container-highest shadow-[0_-4px_20px_rgba(27,28,26,0.06)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">account_balance</span>
+<span class="font-label text-[10px] mt-1">Heritage</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined">restaurant</span>
+<span class="font-label text-[10px] mt-1">Eat</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label text-[10px] mt-1">Crafts</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label text-[10px] mt-1">Map</span>
+</div>
+</nav>
+<script>
+        // Simple scroll listener to change TopAppBar opacity
+        window.addEventListener('scroll', () => {
+            const header = document.querySelector('header');
+            if (window.scrollY > 50) {
+                header.classList.add('shadow-sm');
+            } else {
+                header.classList.remove('shadow-sm');
+            }
+        });
+    </script>
+</body></html>

@@ -1,0 +1,385 @@
+<!DOCTYPE html>
+
+<html class="scroll-smooth" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Heritage Retreats | Hoi An Heritage Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&amp;family=Manrope:wght@400;500;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+        }
+        .glass-effect {
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+        }
+        .hero-zoom {
+            animation: slowBreath 20s infinite alternate cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        @keyframes slowBreath {
+            from { transform: scale(1); }
+            to { transform: scale(1.08); }
+        }
+        .stagger-in {
+            animation: fadeInUp 0.8s ease forwards;
+            opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+    </style>
+<script id="tailwind-config">
+        tailwind.config = {
+          darkMode: "class",
+          theme: {
+            extend: {
+              "colors": {
+                      "primary-container": "#705d00",
+                      "on-secondary-fixed": "#00201b",
+                      "surface-variant": "#e9e2d3",
+                      "tertiary-container": "#865300",
+                      "on-tertiary-fixed": "#2b1700",
+                      "outline": "#7d7766",
+                      "surface": "#fff8ef",
+                      "tertiary-fixed": "#ffddb9",
+                      "surface-cool": "#f0f7f5",
+                      "outline-variant": "#cfc6ae",
+                      "on-tertiary-container": "#ffd09c",
+                      "on-primary-container": "#f2d876",
+                      "primary": "#554600",
+                      "secondary-container": "#90f1dd",
+                      "on-secondary-container": "#0b6f61",
+                      "surface-container": "#f5edde",
+                      "on-surface": "#1e1b12",
+                      "surface-cream": "#fff8ef",
+                      "on-tertiary-fixed-variant": "#663e00",
+                      "error-container": "#ffdad6",
+                      "error": "#ba1a1a",
+                      "secondary": "#006b5d",
+                      "inverse-on-surface": "#f8f0e1",
+                      "on-primary": "#ffffff",
+                      "background": "#fff8ef",
+                      "on-error-container": "#93000a",
+                      "surface-warm": "#f5f0e8",
+                      "on-background": "#1e1b12",
+                      "surface-container-highest": "#e9e2d3",
+                      "secondary-fixed-dim": "#83d6c4",
+                      "tertiary": "#663e00",
+                      "on-tertiary": "#ffffff",
+                      "on-surface-variant": "#4b4637",
+                      "on-secondary-fixed-variant": "#005046",
+                      "primary-fixed": "#fce17e",
+                      "inverse-surface": "#343026",
+                      "surface-tint": "#705d00",
+                      "on-secondary": "#ffffff",
+                      "surface-container-high": "#efe7d8",
+                      "inverse-primary": "#dfc566",
+                      "secondary-fixed": "#9ff2e0",
+                      "surface-bright": "#fff8ef",
+                      "surface-container-lowest": "#ffffff",
+                      "primary-fixed-dim": "#dfc566",
+                      "surface-dim": "#e1d9ca",
+                      "surface-container-low": "#fbf3e4",
+                      "on-primary-fixed": "#221b00",
+                      "tertiary-fixed-dim": "#feb965",
+                      "on-primary-fixed-variant": "#544600",
+                      "on-error": "#ffffff"
+              },
+              "borderRadius": {
+                      "DEFAULT": "0.25rem",
+                      "lg": "0.5rem",
+                      "xl": "0.75rem",
+                      "full": "9999px"
+              },
+              "spacing": {
+                      "margin-mobile": "24px",
+                      "margin-desktop": "80px",
+                      "hero-pad-lg": "128px",
+                      "section-gap": "120px",
+                      "hero-pad-sm": "32px",
+                      "gutter": "24px",
+                      "base": "8px"
+              },
+              "fontFamily": {
+                      "display-lg-mobile": ["Noto Serif"],
+                      "display-lg": ["Noto Serif"],
+                      "headline": ["Noto Serif"],
+                      "label": ["Manrope"],
+                      "body": ["Manrope"]
+              },
+              "fontSize": {
+                      "display-lg-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "0px", "fontWeight": "700"}],
+                      "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "0px", "fontWeight": "700"}],
+                      "headline": ["32px", {"lineHeight": "1.2", "letterSpacing": "0px", "fontWeight": "600"}],
+                      "label": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                      "body": ["16px", {"lineHeight": "1.5", "letterSpacing": "0px", "fontWeight": "400"}]
+              }
+            },
+          },
+        }
+      </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface overflow-x-hidden">
+<!-- Top Navigation -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-surface/95 flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full transition-all duration-300">
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary p-2">menu</button>
+<span class="font-headline text-headline-mobile font-bold text-primary tracking-tight">Hoi An Heritage Hub</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="text-primary border-b-2 border-primary font-label text-label py-1" href="#">Heritage</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label text-label" href="#">Eat</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label text-label" href="#">Crafts</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label text-label" href="#">Map</a>
+</div>
+<div class="flex items-center gap-4">
+<button class="material-symbols-outlined text-primary p-2">search</button>
+</div>
+</nav>
+<!-- Hero Section -->
+<header class="relative w-full h-[751px] flex items-end overflow-hidden">
+<div class="absolute inset-0 z-0">
+<div class="w-full h-full hero-zoom bg-cover bg-center" data-alt="A cinematic, high-angle shot of a lush, central courtyard within a French-colonial boutique hotel in Hoi An. Sunlight filters through yellow-washed walls and arched windows, illuminating a serene jade-green pool surrounded by tropical ferns and ancient stone lanterns. The color palette is rich with ochre yellow, deep greens, and warm terracotta, creating a luxurious and historic atmosphere under a soft morning glow." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCmwPKqok15CnejxBQuv3BtrHTXiZf5yfI8cCjTwpvf7TMQ4o00fmjNjZvZupOLMMkG9ngJsnS1mp4Cu1jn4JpUiykVxoBLTzyGz0yEE52rZeeZwYvf-tocs49hwfHMvOeeg4jggZnQb4tkvVr-v8nKG7WKSXee_1LkQZD3m2_QcMUL_v3ZqfAWY0yJsZGvjAXk7zL1UCILWdpiLNpTRNrbroqhLz2P1DjYGPESe6FdaK-JlVv8BTz8oM0-TC6PFu9Udb_XMry00PKo')"></div>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent"></div>
+</div>
+<div class="relative z-10 w-full px-margin-mobile md:px-margin-desktop pb-16 stagger-in" style="animation-delay: 0.2s">
+<div class="flex items-center gap-3 mb-6">
+<span class="bg-secondary-container text-on-secondary-container px-4 py-1.5 rounded-full font-label text-label uppercase tracking-widest">Heritage Design</span>
+<span class="bg-white/20 backdrop-blur-md text-white px-4 py-1.5 rounded-full font-label text-label uppercase tracking-widest border border-white/20">Premier Collection</span>
+</div>
+<h1 class="font-display-lg-mobile md:text-display-lg text-white max-w-3xl mb-4 leading-tight">Heritage Retreats: Where History Breathes</h1>
+<p class="text-white/90 text-body max-w-xl font-body leading-relaxed">Experience the soul of the Ancient Town through our curated selection of architecturally significant stays and riverfront sanctuaries.</p>
+</div>
+</header>
+<!-- Introduction / Filter Bar -->
+<section class="bg-surface-container-low py-12 px-margin-mobile md:px-margin-desktop">
+<div class="flex flex-col md:flex-row justify-between items-end gap-8">
+<div class="max-w-2xl">
+<h2 class="font-headline text-primary mb-4">Curated Sanctuaries</h2>
+<p class="text-on-surface-variant font-body">Our collection focuses on properties that respect the delicate balance between cultural preservation and modern luxury. From 200-year-old wooden villas to sustainable eco-resorts flanking the Thu Bon River.</p>
+</div>
+<div class="flex gap-4 flex-wrap">
+<button class="bg-primary-container text-on-primary-container px-6 py-3 rounded-lg font-label transition-transform active:scale-95 flex items-center gap-2">
+<span class="material-symbols-outlined">filter_list</span> Filter Stays
+                </button>
+<button class="outline-variant border-2 border-outline/20 px-6 py-3 rounded-lg font-label text-on-surface hover:bg-surface-variant/30 transition-all">
+                    Availability
+                </button>
+</div>
+</div>
+</section>
+<main class="space-y-section-gap pt-12">
+<!-- Riverfront Resorts Section (Bento Grid) -->
+<section class="px-margin-mobile md:px-margin-desktop">
+<div class="flex items-center justify-between mb-10">
+<div>
+<h3 class="font-headline text-on-surface">Riverfront Resorts</h3>
+<p class="font-label text-on-surface-variant mt-2 uppercase tracking-tighter">Serenity by the Thu Bon</p>
+</div>
+<a class="text-primary font-label flex items-center gap-2 hover:underline" href="#">View All <span class="material-symbols-outlined">arrow_forward</span></a>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Feature Card -->
+<div class="md:col-span-8 group cursor-pointer">
+<div class="relative overflow-hidden rounded-xl aspect-[16/9] mb-4 shadow-sm hover:shadow-xl transition-all duration-500">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="A wide, sweeping view of a luxury riverfront resort in Hoi An during sunset. The architecture features modern eco-friendly lines integrated with traditional thatched roofs. Golden light reflects off the calm Thu Bon River, where traditional wooden boats drift by. The pool area is lit with warm ambient lights, contrasting with the cool mint and teal hues of the water and surrounding lush gardens." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDcG8AdKBMWdaOM20zQt4woi3Y_Tb8qPDAIU5OqWd4RL7bF5QdP-0Q9MXKW88Yxe1ox0e9zPGkBUaJW8-Cjbsa2z_GrCqMfiTQcob3-4yYbGxOWYSIr40FsiliIJWAkcPzKI-YS2462fVhkY-EdVgl1B4AB2S4wUjHK_JYwndNxofS2txM8tc4nZ7Pu25aB8g5CPb7whCdKqNrtcswT-D8zkynTTPnMNuz7BWKdwwUrzqQBrF7WRdD1URk5ggwiXbwk6FFB8HqGl5iH')"></div>
+<div class="absolute top-4 left-4 flex gap-2">
+<span class="bg-surface/90 backdrop-blur px-3 py-1 rounded-full text-[10px] font-bold uppercase text-secondary">Eco-conscious</span>
+</div>
+</div>
+<div class="flex justify-between items-start">
+<div>
+<h4 class="font-headline text-2xl group-hover:text-primary transition-colors">The Anantara Riverside</h4>
+<p class="text-on-surface-variant font-body">Merging contemporary Vietnamese design with riverine tranquility.</p>
+</div>
+<span class="text-primary font-bold text-xl">$320<span class="text-xs text-on-surface-variant font-normal">/night</span></span>
+</div>
+</div>
+<!-- Vertical Card -->
+<div class="md:col-span-4 group cursor-pointer flex flex-col">
+<div class="relative overflow-hidden rounded-xl flex-grow mb-4 shadow-sm hover:shadow-xl transition-all duration-500 min-h-[300px]">
+<div class="absolute inset-0 bg-cover bg-center transition-transform duration-700 group-hover:scale-110" data-alt="An intimate view of a luxury bedroom in a heritage resort. The room features dark polished wood floors, a high vaulted ceiling with exposed beams, and a white canopy bed. Large open shutters reveal a private balcony overlooking the river at dawn. The interior design is minimal, using cream textiles and ochre accents to highlight the historic woodwork." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCZuzm59csxC55GvRW0ZuBbzU22umgKFOszFP18RcHZ86ReWJuCTpC_0W7kn4ivhUF9Cz-m7X_6cqNFlRBXPTtKMHWIw5_FVHFjC-8QPBu7yyIRnmY9aAYSGeGlztLoF7IcGkRt07pgwGA14YUMoHrECRzTMN3gdwbAyD6zqm4UHfRSai03yOK0MzyKSor6XCvYN_4z1MxS6ZKiGdM1CSe_f_f27uahRm0JuyqcoLzsaoD-5sBwVHaeplT-lAw2g1gAiDryAkI2mhtW')"></div>
+<div class="absolute bottom-4 left-4">
+<span class="bg-primary-container text-on-primary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase">Boutique</span>
+</div>
+</div>
+<div>
+<h4 class="font-headline text-xl group-hover:text-primary transition-colors">Riverside Pavilions</h4>
+<p class="text-on-surface-variant text-sm font-body">Exclusive suites with private docks.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Aesthetic Divider / Quote -->
+<section class="w-full bg-surface-container py-24 flex flex-col items-center justify-center text-center px-margin-mobile">
+<span class="material-symbols-outlined text-primary-container text-4xl mb-6">spa</span>
+<blockquote class="font-headline text-2xl md:text-3xl max-w-3xl text-on-surface leading-tight italic">
+                "To stay in Hoi An is not merely to sleep, but to inhabit a story woven from silk, spice, and the soft lap of river water."
+            </blockquote>
+<cite class="mt-6 font-label text-on-surface-variant uppercase tracking-[0.2em] not-italic">— Local Anthology</cite>
+</section>
+<!-- Ancient Town Villas (Asymmetric Layout) -->
+<section class="px-margin-mobile md:px-margin-desktop pb-24">
+<div class="flex flex-col md:flex-row gap-16 items-start">
+<div class="md:w-1/3 sticky top-24">
+<h3 class="font-headline text-on-surface text-4xl mb-6">Ancient Town Villas</h3>
+<p class="text-on-surface-variant mb-8 leading-relaxed">Step out directly onto the yellow-walled streets. These preserved merchant houses offer an unparalleled immersion into the heritage of the UNESCO World Heritage site.</p>
+<div class="space-y-4">
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-secondary-container flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-secondary-container">history_edu</span>
+</div>
+<div>
+<h5 class="font-bold">Heritage Design</h5>
+<p class="text-xs text-on-surface-variant">Original 18th-century architecture</p>
+</div>
+</div>
+<div class="flex items-center gap-4 group cursor-pointer">
+<div class="w-12 h-12 rounded-full bg-primary-container flex items-center justify-center group-hover:scale-110 transition-transform">
+<span class="material-symbols-outlined text-on-primary-container">location_on</span>
+</div>
+<div>
+<h5 class="font-bold">Prime Location</h5>
+<p class="text-xs text-on-surface-variant">Heart of the Pedestrian Zone</p>
+</div>
+</div>
+</div>
+</div>
+<div class="md:w-2/3 grid grid-cols-1 md:grid-cols-2 gap-12">
+<!-- Villa 1 -->
+<div class="group translate-y-8">
+<div class="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="A beautiful, centuries-old yellow merchant house converted into a private villa in Hoi An Ancient Town. The entrance is framed by vibrant magenta bougainvillea and traditional red silk lanterns. The architecture shows weathered textures on the walls, intricate wooden shutters, and a glimpse into a quiet, tiled interior foyer. The mood is poetic and nostalgic." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuA67ottkCo3n-Fm4h1ZrGqairJf0nHjSjUtGQu0-FLvSbT3F2XmQYXr-fNCgpkWzvix6pufhhd_rUVDriqJMmbIy3dnPQCDfEYJUo7_698Snfotzf8Ha93WzwQBIHMDZsoSmku8ev3rc9yRw-YKp-ydvpjXcn0gTuzV8H6-xVCBhstHHd--JGJOUKbnKQx2Y5s6VlsVbJ4SpVFce8jkTta5Ob6_Cc5ivKTCgq2AGNEI-S2Gzp4JiL91fN_Qc4kcKQf1sPwKquDV21_0')"></div>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="px-2">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label text-[10px] text-primary uppercase font-bold">The Merchant's Secret</span>
+<div class="flex text-primary-container">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+</div>
+</div>
+<h4 class="font-headline text-2xl mb-2 group-hover:translate-x-2 transition-transform duration-300">Nha Co Heritage House</h4>
+<p class="text-on-surface-variant text-sm mb-4">A restored residence featuring an internal lily pond and original timber framing.</p>
+<button class="text-on-surface font-bold text-sm border-b border-on-surface pb-1">Request a Booking</button>
+</div>
+</div>
+<!-- Villa 2 -->
+<div class="group">
+<div class="relative overflow-hidden rounded-2xl aspect-[4/5] mb-6">
+<div class="absolute inset-0 bg-cover bg-center" data-alt="An atmospheric interior courtyard of a heritage villa at night. Traditional Vietnamese lanterns in shades of amber and red hang from the balconies, casting a warm glow on the dark wood pillars and stone floor. A small central water feature reflects the light. The scene is quiet and sophisticated, embodying high-end heritage travel." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCUbOTZjWC5rcIb2t5RzpLDE1g3RpA5mFKYtSj6wxDPE_O-UfJfxuHe0WGayZFuekJa8cHxVJ2LlkGxNJDcKNJVh1f-BZQR7fKNNa0yCPyxv4rjQtg6wXQ7NGLTdyVlYT-BewaLigmd9kVL40HjEFvwtDNoiQ7RUyQJ5vFYvTS4vbPYuOKoYd0VIrc2S4G1jsPXpf-rC97_dqfMeTZbqPMREFmpAGCqQUoZJIJaRDFQzBDSNCnUMWrKo2GX3hIinTmZDfRodpRQ0JpB')"></div>
+<div class="absolute inset-0 bg-black/20 group-hover:bg-transparent transition-colors"></div>
+</div>
+<div class="px-2">
+<div class="flex justify-between items-center mb-2">
+<span class="font-label text-[10px] text-primary uppercase font-bold">Silk &amp; Stone</span>
+<div class="flex text-primary-container">
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs" style="font-variation-settings: 'FILL' 1;">star</span>
+<span class="material-symbols-outlined text-xs">star</span>
+</div>
+</div>
+<h4 class="font-headline text-2xl mb-2 group-hover:translate-x-2 transition-transform duration-300">Lantern Garden Suites</h4>
+<p class="text-on-surface-variant text-sm mb-4">Secluded luxury hidden behind a discreet gate, featuring private outdoor rain showers.</p>
+<button class="text-on-surface font-bold text-sm border-b border-on-surface pb-1">Explore Suite</button>
+</div>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container rounded-t-[40px] w-full mt-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-start px-margin-mobile md:px-margin-desktop py-16 gap-12">
+<div class="max-w-xs">
+<span class="font-headline text-headline text-primary block mb-4">Hoi An Heritage Hub</span>
+<p class="text-on-surface-variant font-body text-sm leading-relaxed">© 2024 Hoi An Heritage Hub. Preserving the soul of the Ancient Town through ethical tourism and historic preservation.</p>
+</div>
+<div class="grid grid-cols-2 md:grid-cols-4 gap-8 w-full md:w-auto">
+<div class="flex flex-col gap-3">
+<span class="font-label text-[10px] uppercase text-primary font-bold">Discovery</span>
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Archives</a>
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Community</a>
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Stays</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label text-[10px] uppercase text-primary font-bold">About</span>
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Sustainability</a>
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Contact</a>
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Mission</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label text-[10px] uppercase text-primary font-bold">Connect</span>
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Instagram</a>
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Journal</a>
+</div>
+<div class="flex flex-col gap-3">
+<span class="font-label text-[10px] uppercase text-primary font-bold">Legal</span>
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Privacy</a>
+<a class="text-on-surface-variant hover:text-primary transition-all text-sm" href="#">Terms</a>
+</div>
+</div>
+</div>
+<div class="px-margin-mobile md:px-margin-desktop py-8 border-t border-outline/10 text-center text-xs text-on-surface-variant">
+            Crafted for the conscious traveler. Designed with heritage in heart.
+        </div>
+</footer>
+<!-- Bottom Nav for Mobile -->
+<nav class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 py-3 pb-safe backdrop-blur-md bg-surface/90 shadow-[0_-4px_20px_rgba(27,28,26,0.06)] rounded-t-xl">
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1" href="#">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-label text-[10px] mt-1">Heritage</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined">restaurant</span>
+<span class="font-label text-[10px] mt-1">Eat</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label text-[10px] mt-1">Crafts</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all px-4 py-1 rounded-xl" href="#">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label text-[10px] mt-1">Map</span>
+</a>
+</nav>
+<script>
+        // Simple scroll interaction for Nav
+        window.addEventListener('scroll', () => {
+            const nav = document.querySelector('nav');
+            if (window.scrollY > 50) {
+                nav.classList.add('h-14', 'bg-surface/100', 'shadow-sm');
+                nav.classList.remove('h-16', 'bg-surface/95');
+            } else {
+                nav.classList.remove('h-14', 'bg-surface/100', 'shadow-sm');
+                nav.classList.add('h-16', 'bg-surface/95');
+            }
+        });
+
+        // Hover lift logic for cards
+        const cards = document.querySelectorAll('.group');
+        cards.forEach(card => {
+            card.addEventListener('mouseenter', () => {
+                card.style.transform = 'translateY(-4px)';
+            });
+            card.addEventListener('mouseleave', () => {
+                card.style.transform = 'translateY(0px)';
+            });
+        });
+    </script>
+</body></html>

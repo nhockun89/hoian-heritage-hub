@@ -67,6 +67,8 @@
   --spacing-base-unit: 8px;
   --spacing-gutter: 24px;
   --spacing-section-gap: 120px;
+  --spacing-hero-pad-sm: 32px;
+  --spacing-hero-pad-lg: 128px;
 
   --radius-lg: 0.5rem;
   --radius-xl: 0.75rem;

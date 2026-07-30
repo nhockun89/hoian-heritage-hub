@@ -1,0 +1,339 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Living Landscapes | Hoi An Heritage Hub</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Noto+Serif:wght@400;600;700&family=Manrope:wght@400;600;800&family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@100..900&family=Noto+Serif:wght@100..900&display=swap" rel="stylesheet"/>
+<!-- Tailwind Config -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "primary-container": "#705d00",
+                    "on-secondary-fixed": "#00201b",
+                    "surface-variant": "#e9e2d3",
+                    "tertiary-container": "#865300",
+                    "on-tertiary-fixed": "#2b1700",
+                    "outline": "#7d7766",
+                    "surface": "#fff8ef",
+                    "tertiary-fixed": "#ffddb9",
+                    "surface-cool": "#f0f7f5",
+                    "outline-variant": "#cfc6ae",
+                    "on-tertiary-container": "#ffd09c",
+                    "on-primary-container": "#f2d876",
+                    "primary": "#554600",
+                    "secondary-container": "#90f1dd",
+                    "on-secondary-container": "#0b6f61",
+                    "surface-container": "#f5edde",
+                    "on-surface": "#1e1b12",
+                    "surface-cream": "#fff8ef",
+                    "on-tertiary-fixed-variant": "#663e00",
+                    "error-container": "#ffdad6",
+                    "error": "#ba1a1a",
+                    "secondary": "#006b5d",
+                    "inverse-on-surface": "#f8f0e1",
+                    "on-primary": "#ffffff",
+                    "background": "#fff8ef",
+                    "on-error-container": "#93000a",
+                    "surface-warm": "#f5f0e8",
+                    "on-background": "#1e1b12",
+                    "surface-container-highest": "#e9e2d3",
+                    "secondary-fixed-dim": "#83d6c4",
+                    "tertiary": "#663e00",
+                    "on-tertiary": "#ffffff",
+                    "on-surface-variant": "#4b4637",
+                    "on-secondary-fixed-variant": "#005046",
+                    "primary-fixed": "#fce17e",
+                    "inverse-surface": "#343026",
+                    "surface-tint": "#705d00",
+                    "on-secondary": "#ffffff",
+                    "surface-container-high": "#efe7d8",
+                    "inverse-primary": "#dfc566",
+                    "secondary-fixed": "#9ff2e0",
+                    "surface-bright": "#fff8ef",
+                    "surface-container-lowest": "#ffffff",
+                    "primary-fixed-dim": "#dfc566",
+                    "surface-dim": "#e1d9ca",
+                    "surface-container-low": "#fbf3e4",
+                    "on-primary-fixed": "#221b00",
+                    "tertiary-fixed-dim": "#feb965",
+                    "on-primary-fixed-variant": "#544600",
+                    "on-error": "#ffffff"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "margin-mobile": "24px",
+                    "margin-desktop": "80px",
+                    "hero-pad-lg": "128px",
+                    "section-gap": "120px",
+                    "hero-pad-sm": "32px",
+                    "gutter": "24px",
+                    "base": "8px"
+            },
+            "fontFamily": {
+                    "display-lg-mobile": ["Noto Serif"],
+                    "display-lg": ["Noto Serif"],
+                    "headline": ["Noto Serif"],
+                    "label": ["Manrope"],
+                    "body": ["Manrope"]
+            },
+            "fontSize": {
+                    "display-lg-mobile": ["36px", {"lineHeight": "1.2", "letterSpacing": "0px", "fontWeight": "700"}],
+                    "display-lg": ["48px", {"lineHeight": "1.1", "letterSpacing": "0px", "fontWeight": "700"}],
+                    "headline": ["32px", {"lineHeight": "1.2", "letterSpacing": "0px", "fontWeight": "600"}],
+                    "label": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "600"}],
+                    "body": ["16px", {"lineHeight": "1.5", "letterSpacing": "0px", "fontWeight": "400"}]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        .material-symbols-outlined {
+            font-variation-settings: 'FILL' 0, 'wght' 400, 'GRAD' 0, 'opsz' 24;
+            vertical-align: middle;
+        }
+        .hero-breath {
+            animation: breath 20s ease-in-out infinite alternate;
+        }
+        @keyframes breath {
+            from { transform: scale(1); }
+            to { transform: scale(1.08); }
+        }
+        .parallax-section {
+            clip-path: inset(0 0 0 0);
+        }
+        .organic-shape {
+            border-radius: 60% 40% 30% 70% / 60% 30% 70% 40%;
+        }
+        .glass-card {
+            backdrop-filter: blur(12px);
+            background: rgba(255, 248, 239, 0.7);
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-surface font-body text-on-surface selection:bg-secondary-container/30">
+<!-- TopAppBar -->
+<nav class="fixed top-0 w-full z-50 backdrop-blur-md bg-surface/95 flex items-center justify-between px-margin-mobile md:px-margin-desktop h-16 w-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary text-2xl cursor-pointer">menu</span>
+<span class="font-headline text-headline-mobile md:text-headline font-bold text-primary tracking-tight">Hoi An Heritage Hub</span>
+</div>
+<div class="hidden md:flex gap-8 items-center">
+<a class="font-label text-label text-primary border-b-2 border-primary py-1" href="#">Heritage</a>
+<a class="font-label text-label text-on-surface-variant hover:text-primary transition-colors duration-300 py-1" href="#">Eat</a>
+<a class="font-label text-label text-on-surface-variant hover:text-primary transition-colors duration-300 py-1" href="#">Crafts</a>
+<a class="font-label text-label text-on-surface-variant hover:text-primary transition-colors duration-300 py-1" href="#">Map</a>
+</div>
+<span class="material-symbols-outlined text-primary text-2xl cursor-pointer">search</span>
+</nav>
+<!-- Main Content -->
+<main>
+<!-- Cinematic Hero: Thu Bon River -->
+<section class="relative h-[795px] overflow-hidden flex items-center justify-center">
+<div class="absolute inset-0 z-0 overflow-hidden">
+<div class="w-full h-full hero-breath bg-cover bg-center scale-110" data-alt="A cinematic, wide-angle photograph of the Thu Bon River in Hoi An at the first light of dawn. The sky is a soft blend of tropical mint, pale gold, and misty lavender, reflecting perfectly on the calm water surface. Small traditional wooden boats with single fishermen glide silently through the morning mist. The overall mood is ethereal, serene, and unhurried, emphasizing the heritage of Vietnam's natural landscapes in high-end editorial quality." style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBK8rfNEGxkfe-OlM8xs_zRJiSqkEcW8F8qYtOtd4uz7adnkpLpgxZuNfT68cqQ5e4bMRj21NJa414Zz9uzA6cxzek0tUEistPQiiTdQwQr99J9VN8fBVETHhBO50yp-Eo5hjTczdAI4tYnKjIQG6NJ8LRVGbbrj8bCkCPn9gqnI88o0SQn-PISRygSn9AX0UO871Rw9Kz5GpcyRJgi7SopJ_rL6Zq8mIyA10_aqCmsJXz7gKx1YFUAu5TtnpL9Tz3sTZAYnMHRYS8I')">
+</div>
+<div class="absolute inset-0 bg-gradient-to-b from-transparent via-transparent to-surface/40"></div>
+</div>
+<div class="relative z-10 text-center px-margin-mobile">
+<div class="inline-block px-4 py-1 rounded-full bg-secondary-container/80 backdrop-blur-sm text-on-secondary-container font-label text-label mb-6 tracking-widest uppercase">
+                    Waterfront
+                </div>
+<h1 class="font-display-lg-mobile md:text-display-lg text-primary max-w-4xl mx-auto leading-tight mb-8">
+                    The Living Landscapes <br/>of Thu Bon
+                </h1>
+<p class="font-body text-on-surface-variant max-w-xl mx-auto text-lg leading-relaxed mb-10">
+                    A timeless journey through the liquid veins of Quang Nam, where the morning light dances on the soul of the ancient town.
+                </p>
+<button class="bg-primary-container text-on-primary-container px-10 py-4 rounded-lg font-label text-label transition-all duration-300 hover:scale-105 hover:shadow-xl active:scale-95">
+                    EXPLORE THE RIVER
+                </button>
+</div>
+</section>
+<!-- Bento Grid: Eco-Escapes (Cam Thanh) -->
+<section class="px-margin-mobile md:px-margin-desktop py-section-gap max-w-7xl mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-16 gap-4">
+<div class="max-w-xl">
+<span class="font-label text-label text-secondary uppercase tracking-[0.2em]">Nature Sanctuary</span>
+<h2 class="font-headline text-primary mt-2">Eco-Escapes: Cam Thanh</h2>
+</div>
+<p class="font-body text-on-surface-variant max-w-xs text-sm italic">
+                    "Between the brackish water and the emerald palms lies a sanctuary of forgotten peace."
+                </p>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter">
+<!-- Large Image Card -->
+<div class="md:col-span-8 group relative overflow-hidden rounded-[32px] aspect-[16/10]">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110" data-alt="An aerial bento-style shot of the Cam Thanh Coconut Forest near Hoi An. Thousands of vibrant tropical mint and emerald green nipa palms create a dense, organic pattern. A few traditional round bamboo basket boats are seen navigating the narrow water channels. The lighting is soft and warm, capturing the rich textures of the palm fronds and the reflective water in a high-fashion travel journal style." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAzjf1rbTY7XGcmTJnGsZB33SUVQSNmvjLipw65lhRg3_DdAPd1rcKMVKwzMT3FXcYQtXk1PCHVJcVxxgtRtHkPUEHYDzu0kSQ8gkcdh6d02y-Nk5BeKuyFjDeY3VLp2IHnMtSsYPW7L0fnBsSPFgo5Pgn-Vg2V0Kkjd5ZplzVl1vh3pLUU6ebbQM-AdoNXff-fnp2wuy4PSlb8dFIYx-XSTUcHQ-D8wBgwzwfIOC54XZPSUuJ1dK71CwzgefEVDI7kvLd-iGXpDSvi"/>
+<div class="absolute inset-0 bg-gradient-to-t from-primary/80 to-transparent flex flex-col justify-end p-10 opacity-0 group-hover:opacity-100 transition-opacity duration-500">
+<span class="text-secondary-fixed font-label text-label mb-2">Sustainable Travel</span>
+<h3 class="text-white font-headline text-2xl">The Basket Boat Ballet</h3>
+</div>
+</div>
+<!-- Vertical Text Card -->
+<div class="md:col-span-4 bg-surface-container rounded-[32px] p-10 flex flex-col justify-center border-l-4 border-secondary">
+<span class="material-symbols-outlined text-secondary text-4xl mb-6">eco</span>
+<h3 class="font-headline text-2xl text-primary mb-4">Palm Harmony</h3>
+<p class="font-body text-on-surface-variant leading-relaxed">
+                        Navigate the labyrinth of Nipa palms in traditional basket boats, a practice unchanged for generations. This ecosystem is the green lung of the Heritage Hub.
+                    </p>
+<div class="mt-8 flex gap-2">
+<span class="bg-secondary-container/40 text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase">Countryside</span>
+<span class="bg-secondary-container/40 text-on-secondary-container px-3 py-1 rounded-full text-[10px] font-bold uppercase">Zero-Waste</span>
+</div>
+</div>
+<!-- Bottom Row Small Cards -->
+<div class="md:col-span-4 aspect-square bg-surface-cool rounded-[32px] overflow-hidden group">
+<img class="w-full h-full object-cover group-hover:opacity-80 transition-all" data-alt="A close-up, artistic shot of a Vietnamese fisherman casting a traditional net over the water during sunset. The net creates a mesmerizing geometric web of golden threads. The water is a deep tropical mint green. The photography is intimate and captures a sense of quiet authority and cultural preservation." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCGQk1XQQhFfCyNEAnvzoJqn55BpIFi9uC6BlPMoa-eKpTUQATY7nUYR9uM6cJeqbclXiX5MAsOc1-IC2eZfBxYAc4ufYHSgWfOAeCh2cDZRSHp8W64p0D_XAM1xywUjuV6Z_SxnGQzLkNMFOtdufvCBXXLFMXYelsOWQzXHK-6pKaQd5JA_9YSHvB7uwVylxQUMnfjbxfCj3Cu-PQQXcxS-57KBFkWku446SipWWXHueWiA1bSYsemBnHHc3IFpFc4LjI881j1DO3E"/>
+</div>
+<div class="md:col-span-8 aspect-[21/9] bg-surface-container-high rounded-[32px] p-10 flex items-center gap-8 border-ghost">
+<div class="w-24 h-24 organic-shape bg-secondary-container shrink-0 flex items-center justify-center">
+<span class="material-symbols-outlined text-on-secondary-container text-4xl">water_drop</span>
+</div>
+<div>
+<h4 class="font-headline text-xl text-primary mb-2">Water Management</h4>
+<p class="font-body text-on-surface-variant text-sm">Our community-led initiative ensures the preservation of these wetlands through seasonal restoration and educational tours.</p>
+</div>
+</div>
+</div>
+</section>
+<!-- Asymmetric Section: Quiet Shores (An Bang) -->
+<section class="bg-surface-dim/30 py-section-gap relative overflow-hidden">
+<div class="px-margin-mobile md:px-margin-desktop grid grid-cols-1 md:grid-cols-2 gap-20 items-center">
+<div class="relative order-2 md:order-1">
+<div class="absolute -top-12 -left-12 w-64 h-64 bg-secondary-container/20 organic-shape blur-3xl -z-10 animate-pulse"></div>
+<div class="rounded-[40px] overflow-hidden shadow-2xl rotate-[-2deg] transition-transform hover:rotate-0 duration-700">
+<img class="w-full h-[600px] object-cover" data-alt="A serene landscape of An Bang Beach at a quiet, uncrowded hour. The white sand is pristine and untouched. The sea is a calm, layered gradient of tropical mint and turquoise under a bright, high-key sky. A few rustic thatched umbrellas stand solitary on the shore. The aesthetic is ultra-minimalist, airy, and high-end, evoking a sense of poetic solitude." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAPsGbAF5zTXdVIMdHSWJj8Ixf4IY_Z-uuh9HEtUtYXgVJh28oWjR2tjcAzgS6fpa0EDVWo6pCqlkX270IGmp2SRkIRxWApJGj9KPRFYuVjvU4jo7vL_-FXtWt4I_kU0VEOZ17xUgZslrlJ1w_RuwB-u2M81oHQodlC5bNAwEtXWwe6VREMRNGzXlLOO34eeMP06QIUgs4BtHr5z9IHKiYykvckcPnDPmnGONlQq-u9cZbZTaUM8xGyt8WkYe9-SGyn2R-5_trV4BtV"/>
+</div>
+</div>
+<div class="order-1 md:order-2 space-y-8">
+<div class="flex items-center gap-4">
+<div class="h-px w-12 bg-secondary"></div>
+<span class="font-label text-label text-secondary tracking-widest uppercase">Coastal Serenity</span>
+</div>
+<h2 class="font-display-lg-mobile md:text-headline text-primary leading-tight">Quiet Shores:<br/>An Bang Beach</h2>
+<p class="font-body text-on-surface-variant text-lg leading-loose">
+                        Far from the bustling markets, the coast whispers stories of the Eastern Sea. An Bang remains a sanctuary of stillness, where the rhythmic pulse of the tide cleanses the spirit of the modern traveler.
+                    </p>
+<div class="space-y-6">
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1">waves</span>
+<div>
+<span class="font-label text-label text-primary font-bold block mb-1">Pristine Tides</span>
+<p class="text-sm text-on-surface-variant">Classified as one of Asia's most beautiful beaches for its untouched horizons.</p>
+</div>
+</div>
+<div class="flex items-start gap-4">
+<span class="material-symbols-outlined text-secondary mt-1">wb_sunny</span>
+<div>
+<span class="font-label text-label text-primary font-bold block mb-1">Golden Hour Rituals</span>
+<p class="text-sm text-on-surface-variant">Experience the local morning bath tradition as the sun breaks the horizon.</p>
+</div>
+</div>
+</div>
+<a class="inline-flex items-center gap-3 text-secondary font-label text-label group hover:gap-6 transition-all duration-300" href="#">
+                        VIEW THE COASTAL GUIDE
+                        <span class="material-symbols-outlined">arrow_forward</span>
+</a>
+</div>
+</div>
+</section>
+<!-- Newsletter / Community Section -->
+<section class="py-section-gap px-margin-mobile md:px-margin-desktop text-center">
+<div class="max-w-3xl mx-auto bg-surface-container rounded-[48px] p-12 md:p-20 relative overflow-hidden border border-outline-variant/30">
+<div class="absolute top-0 right-0 w-32 h-32 bg-secondary-container/30 rounded-bl-full"></div>
+<h2 class="font-headline text-primary mb-6">Preserve the Soul</h2>
+<p class="font-body text-on-surface-variant mb-10 text-lg">Join our community committed to the sustainable heritage of Hoi An’s natural beauty. Receive seasonal updates and conservation stories.</p>
+<div class="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
+<input class="flex-grow rounded-full border-outline-variant bg-surface px-6 py-3 focus:ring-2 focus:ring-primary-container outline-none transition-all" placeholder="Your email address" type="email"/>
+<button class="bg-primary text-white px-8 py-3 rounded-full font-label text-label hover:bg-primary-container transition-colors shadow-lg">SUBSCRIBE</button>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<footer class="bg-surface-container rounded-t-[40px] w-full mt-section-gap">
+<div class="flex flex-col md:flex-row justify-between items-center px-margin-mobile md:px-margin-desktop py-10 gap-8">
+<div class="text-center md:text-left">
+<span class="font-headline text-headline text-primary block mb-2">Hoi An Heritage Hub</span>
+<p class="font-body text-body text-on-surface-variant text-sm">© 2024 Hoi An Heritage Hub. Preserving the soul of the Ancient Town.</p>
+</div>
+<div class="flex gap-6 md:gap-12">
+<a class="font-label text-label text-on-surface-variant hover:text-primary underline transition-all duration-300" href="#">Archives</a>
+<a class="font-label text-label text-on-surface-variant hover:text-primary underline transition-all duration-300" href="#">Community</a>
+<a class="font-label text-label text-on-surface-variant hover:text-primary underline transition-all duration-300" href="#">Sustainability</a>
+<a class="font-label text-label text-on-surface-variant hover:text-primary underline transition-all duration-300" href="#">Contact</a>
+</div>
+</div>
+</footer>
+<!-- Bottom Navigation (Mobile Only) -->
+<div class="md:hidden fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-6 py-3 pb-safe bg-surface shadow-[0_-4px_20px_rgba(27,28,26,0.06)] rounded-t-xl">
+<div class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-xl px-4 py-1 transition-transform active:scale-95">
+<span class="material-symbols-outlined">account_balance</span>
+<span class="font-label text-[10px]">Heritage</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all duration-300 p-2">
+<span class="material-symbols-outlined">restaurant</span>
+<span class="font-label text-[10px]">Eat</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all duration-300 p-2">
+<span class="material-symbols-outlined">auto_awesome</span>
+<span class="font-label text-[10px]">Crafts</span>
+</div>
+<div class="flex flex-col items-center justify-center text-on-surface-variant hover:bg-surface-variant/50 transition-all duration-300 p-2">
+<span class="material-symbols-outlined">explore</span>
+<span class="font-label text-[10px]">Map</span>
+</div>
+</div>
+<!-- Floating Action Button -->
+<button class="fixed bottom-24 right-8 md:bottom-12 md:right-12 w-16 h-16 bg-secondary-container text-on-secondary-container rounded-full shadow-2xl flex items-center justify-center z-40 transition-transform hover:scale-110 active:scale-90 group">
+<span class="material-symbols-outlined text-3xl group-hover:rotate-12 transition-transform">eco</span>
+</button>
+<script>
+        // Micro-interactions for smooth scrolling or hover effects
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                document.querySelector(this.getAttribute('href')).scrollIntoView({
+                    behavior: 'smooth'
+                });
+            });
+        });
+
+        // Simple scroll observer for fading elements
+        const observerOptions = {
+            threshold: 0.1
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('opacity-100', 'translate-y-0');
+                    entry.target.classList.remove('opacity-0', 'translate-y-10');
+                }
+            });
+        }, observerOptions);
+
+        document.querySelectorAll('.grid > div').forEach(el => {
+            el.classList.add('transition-all', 'duration-700', 'opacity-0', 'translate-y-10');
+            observer.observe(el);
+        });
+    </script>
+</body></html>

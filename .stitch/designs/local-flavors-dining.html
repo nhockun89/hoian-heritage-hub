@@ -1,0 +1,223 @@
+<!DOCTYPE html>
+
+<html class="light" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>The Hoi An Archivist - Local Flavors &amp; Dining</title>
+<!-- Google Fonts: Noto Serif (Headline) & Manrope (Body/Label) -->
+<link href="https://fonts.googleapis.com" rel="preconnect"/>
+<link crossorigin="" href="https://fonts.gstatic.com" rel="preconnect"/>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700&amp;family=Noto+Serif:ital,wght@0,400;0,600;0,700;1,400&amp;display=swap" rel="stylesheet"/>
+<!-- Material Symbols -->
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<!-- Tailwind CSS -->
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<!-- Design System Theme Configuration -->
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary": "#40655f",
+                    "surface-container-lowest": "#ffffff",
+                    "on-primary-fixed-variant": "#663e00",
+                    "inverse-primary": "#f8bb73",
+                    "tertiary-fixed": "#ffdbd0",
+                    "surface-variant": "#e3e2df",
+                    "surface-container-low": "#f4f4f0",
+                    "on-error-container": "#93000a",
+                    "on-secondary-fixed-variant": "#284d47",
+                    "inverse-on-surface": "#f2f1ed",
+                    "surface-dim": "#dbdad6",
+                    "surface-container": "#efeeea",
+                    "on-tertiary-fixed": "#2c160e",
+                    "outline": "#837567",
+                    "outline-variant": "#d5c4b4",
+                    "secondary-fixed": "#c3ebe3",
+                    "surface-container-highest": "#e3e2df",
+                    "error": "#ba1a1a",
+                    "on-secondary-fixed": "#00201c",
+                    "on-tertiary": "#ffffff",
+                    "tertiary": "#77574d",
+                    "on-surface-variant": "#504539",
+                    "on-secondary": "#ffffff",
+                    "on-primary-container": "#5c3700",
+                    "secondary-fixed-dim": "#a7cec7",
+                    "on-secondary-container": "#466b65",
+                    "error-container": "#ffdad6",
+                    "inverse-surface": "#2f312e",
+                    "tertiary-container": "#c9a296",
+                    "on-background": "#1b1c1a",
+                    "surface": "#faf9f5",
+                    "surface-bright": "#faf9f5",
+                    "surface-container-high": "#e9e8e4",
+                    "on-tertiary-fixed-variant": "#5d4037",
+                    "surface-tint": "#825516",
+                    "primary-container": "#d9a05b",
+                    "tertiary-fixed-dim": "#e7bdb1",
+                    "on-tertiary-container": "#543830",
+                    "primary-fixed-dim": "#f8bb73",
+                    "secondary-container": "#c3ebe3",
+                    "primary": "#825516",
+                    "background": "#faf9f5",
+                    "on-surface": "#1b1c1a",
+                    "on-error": "#ffffff",
+                    "primary-fixed": "#ffddb9",
+                    "on-primary": "#ffffff",
+                    "on-primary-fixed": "#2b1700"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.125rem",
+                    "lg": "0.25rem",
+                    "xl": "0.5rem",
+                    "full": "0.75rem"
+            },
+            "fontFamily": {
+                    "headline": ["Noto Serif", "serif"],
+                    "body": ["Manrope", "sans-serif"],
+                    "label": ["Manrope", "sans-serif"]
+            }
+          },
+        },
+      }
+    </script>
+<style>
+        /* Ambient shadow utility for cards */
+        .ambient-shadow {
+            box-shadow: 0 20px 40px rgba(80, 69, 57, 0.08);
+        }
+        /* Gradient text utility */
+        .text-gradient-primary {
+            background-image: linear-gradient(to right, #825516, #d9a05b);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body antialiased selection:bg-primary-container selection:text-on-primary-container">
+<!-- TopNavBar -->
+<!-- Executing JSON style keys explicitly -->
+<nav class="fixed top-0 left-0 w-full z-50 bg-white/20 dark:bg-stone-900/20 backdrop-blur-xl shadow-none flex justify-between items-center px-8 md:px-16 h-20 w-full">
+<div class="text-2xl font-serif italic text-amber-900 dark:text-amber-50">
+            The Hoi An Archivist
+        </div>
+<div class="hidden md:flex items-center space-x-8">
+<a class="text-stone-600 dark:text-stone-400 font-sans font-medium hover:text-amber-600 transition-colors duration-300 scale-100 active:scale-95 transition-transform" href="#">Heritage</a>
+<!-- Active State: Dining -->
+<a class="text-amber-800 dark:text-amber-400 border-b-2 border-amber-800 dark:border-amber-400 pb-1 hover:text-amber-600 transition-colors duration-300 scale-100 active:scale-95 transition-transform" href="#">Dining</a>
+<a class="text-stone-600 dark:text-stone-400 font-sans font-medium hover:text-amber-600 transition-colors duration-300 scale-100 active:scale-95 transition-transform" href="#">Travel Guide</a>
+<a class="text-stone-600 dark:text-stone-400 font-sans font-medium hover:text-amber-600 transition-colors duration-300 scale-100 active:scale-95 transition-transform" href="#">Experiences</a>
+</div>
+<div class="flex items-center space-x-4">
+<!-- search bar "on_right" -->
+<button aria-label="Search" class="text-amber-700 dark:text-amber-500 hover:text-amber-600 transition-colors duration-300">
+<span class="material-symbols-outlined">search</span>
+</button>
+<button class="font-serif tracking-wider uppercase text-sm text-amber-700 dark:text-amber-500 hover:text-amber-600 transition-colors duration-300 scale-100 active:scale-95 transition-transform">
+                Plan Your Visit
+            </button>
+</div>
+</nav>
+<!-- Main Content -->
+<main class="pt-32 pb-24">
+<!-- Hero Section: Editorial & Asymmetric -->
+<section class="max-w-7xl mx-auto px-8 md:px-16 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center mb-32">
+<div class="lg:col-span-5 flex flex-col justify-center space-y-8 z-10">
+<span class="font-label text-xs uppercase tracking-[0.1em] text-secondary font-semibold">Culinary Archives</span>
+<h1 class="font-headline text-5xl md:text-7xl text-primary leading-tight tracking-wide">
+                    The Taste <br/>of Antiquity
+                </h1>
+<p class="font-body text-lg text-on-surface-variant leading-relaxed max-w-md">
+                    In Hoi An, history is not just preserved in golden walls and silk lanterns; it is served daily in steaming bowls of broth and crisped baguettes. Discover the centuries-old recipes that define the Ancient Town.
+                </p>
+</div>
+<div class="lg:col-span-7 relative">
+<!-- Image bleeding off right -->
+<div class="w-full h-[600px] rounded-full overflow-hidden ambient-shadow relative -mr-16 lg:-mr-32">
+<img alt="close-up of steaming bowl of traditional vietnamese noodles with fresh herbs, sliced pork, and crispy crackers on a dark rustic wooden table, rich warm lighting" class="w-full h-full object-cover" data-alt="close-up of steaming bowl of traditional vietnamese noodles with fresh herbs, sliced pork, and crispy crackers on a dark rustic wooden table, rich warm lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuBtkPjiXBb1hCvHwlQorGy3zrWV3_XT-xOk2fZZFYds-0_veJIVC6KslOVZ7kvcj06FzgQQ9qr3-Ojn6RwWTXk0vwcx5xjULfawX1Kdl9JOeM9iZrxZ3jF-gy5HNalL--jJw6bnLPxAaxZE13Bgh9TiaXmB8_4ZdpOUVhaiWr1_ven17u400BzJ8BhWQW341weD7fpL-woZuf7gITRPuB6a1SpEUISmHfqw74X_AX-YMHZU1NSiHoyXoZC7dReQXECXjrUwuJjq0Yk"/>
+</div>
+</div>
+</section>
+<!-- Street Food Staples (Tonal Shift via surface-container-low) -->
+<section class="bg-surface-container-low py-32 rounded-none">
+<div class="max-w-7xl mx-auto px-8 md:px-16">
+<div class="flex flex-col md:flex-row justify-between items-end mb-16 gap-8">
+<div class="max-w-2xl">
+<span class="font-label text-xs uppercase tracking-[0.1em] text-secondary font-semibold mb-4 block">The Fundamentals</span>
+<h2 class="font-headline text-4xl text-on-background tracking-wide">Street Food Staples</h2>
+</div>
+<p class="font-body text-on-surface-variant max-w-sm text-right hidden md:block">
+                        Wander the narrow alleys to find these iconic dishes, where recipes are fiercely guarded family secrets passed down through generations.
+                    </p>
+</div>
+<!-- Bento Grid Layout -->
+<div class="grid grid-cols-1 md:grid-cols-12 gap-8">
+<!-- Cao Lau Card (Large) -->
+<div class="md:col-span-8 bg-surface-container-lowest rounded-full p-8 ambient-shadow flex flex-col md:flex-row gap-8 items-center">
+<div class="w-full md:w-1/2 h-64 md:h-full rounded-full overflow-hidden">
+<img alt="overhead view of rustic bowl containing chewy rice noodles, roasted pork slices, fresh mint, and crispy square croutons, authentic vietnamese street food styling" class="w-full h-full object-cover" data-alt="overhead view of rustic bowl containing chewy rice noodles, roasted pork slices, fresh mint, and crispy crackers, authentic vietnamese street food styling" src="https://lh3.googleusercontent.com/aida-public/AB6AXuAGZX5fgCFhLYNvBPF7fHykLfNpoHAmbrSySFMSwBw10ZdNuQILuqeuKIhp85FRGom1d4_ImdMDL5RFIFDzVdQzIDUxyp6dO2stP3-EnR7jTP_O_cXJEKq2MFXF6iyX9C0ozqHjinSqb50UxzxRjibO4SKXq3VohyIlN3Zazl4t7bcJP9vf0UHMkDpidFvGo7ZZccW_Ehqj9P-sZCcb-WSaWz6p_rmG5KWey4be20LGadvNLf_AeOuMdPAmTee8T4AUzZlLsV-4UXk"/>
+</div>
+<div class="w-full md:w-1/2 space-y-4">
+<h3 class="font-headline text-3xl text-primary">Cao Lầu</h3>
+<p class="font-body text-on-surface-variant">The soul of Hoi An in a bowl. Authentic Cao Lau can only be made with water drawn from the ancient Ba Le well, mixed with ash from the Cham Islands.</p>
+<button class="mt-4 text-secondary font-label uppercase tracking-widest text-xs font-semibold hover:text-primary transition-colors flex items-center gap-2">
+                                Discover Origins <span class="material-symbols-outlined text-sm">arrow_right_alt</span>
+</button>
+</div>
+</div>
+<!-- Banh Mi Card (Tall) -->
+<div class="md:col-span-4 bg-surface-container-lowest rounded-full p-8 ambient-shadow flex flex-col justify-between">
+<div class="space-y-4 mb-8">
+<h3 class="font-headline text-3xl text-primary">Bánh Mì</h3>
+<p class="font-body text-on-surface-variant text-sm">A symphony of textures. Crusty baguette, rich paté, savory meats, and sharp pickled vegetables.</p>
+</div>
+<div class="w-full h-48 rounded-full overflow-hidden mt-auto">
+<img alt="close-up of crispy vietnamese baguette sandwich overflowing with roasted pork, fresh cilantro, chili peppers, and pickled carrots on vintage paper" class="w-full h-full object-cover" data-alt="close-up of crispy vietnamese baguette sandwich overflowing with roasted pork, fresh cilantro, chili peppers, and pickled carrots on vintage paper" src="https://lh3.googleusercontent.com/aida-public/AB6AXuDSkWQhV_Id5jVtce_ZvNsoACokx7BKaHIo-KJYvptDBdYRxn-ZKxltYO8jd3AtmUSyxTrQ72bMlk2u7AO5MQTRvCIiJkBOj5ktUGVRBUnF_VqnPtl-YRkx8y-wgj9fqGLuyYIWxv4Rmbz6c2HSz4uy9crvJnjMahNyxIjZmEv41INoMo1Ok3nXQEMb4buUd5RZgjskwD8DcCCBPj0kOOS5dF0u3uNzffPL_-FwD4jCLuGf5v6PMfNGsPUV1OGg6nt8FXNulVW-Tv8"/>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Riverside Dining (Layered & Glassmorphism) -->
+<section class="py-32 relative">
+<div class="max-w-7xl mx-auto px-8 md:px-16">
+<div class="relative w-full h-[700px]">
+<!-- Background Image for Section -->
+<div class="absolute inset-0 w-full md:w-3/4 h-full rounded-full overflow-hidden">
+<img alt="romantic evening view of dining tables by a dark river illuminated by soft glowing colorful silk lanterns hanging from trees, moody atmospheric lighting" class="w-full h-full object-cover" data-alt="romantic evening view of dining tables by a dark river illuminated by soft glowing colorful silk lanterns hanging from trees, moody atmospheric lighting" src="https://lh3.googleusercontent.com/aida-public/AB6AXuClMTP9MDQt6iZJHgAbg9775-zbItz3n6pSU1AYZROuNDXnuXdjw3HRqp2dL7H8hmSNFY-iH1V7Ej1jMM4xLvPlim6T532Dic2u6xdEInS87OS-RiItRI0YueK91oHlM8IWRFB62OxykLZdnbO_8n--mTHl_kUlYZ8dwUMDrzyGHqLXj6OkjTAU1SIL9IYGGF0un9laOf9zsxPZGsJA7LPQVA5Q-cxFzjwVY21GNT33Y60wDmT0plmifmTNAjNr4X8f7jcYLwrxReM"/>
+</div>
+<!-- Floating Glassmorphism Card -->
+<div class="absolute bottom-12 right-0 md:right-12 w-full md:w-5/12 bg-surface/85 backdrop-blur-xl rounded-full p-12 ambient-shadow border border-outline-variant/20">
+<span class="font-label text-xs uppercase tracking-[0.1em] text-secondary font-semibold block mb-4">Evening Ambiance</span>
+<h2 class="font-headline text-4xl text-on-background mb-6">Riverside Elegance</h2>
+<p class="font-body text-on-surface-variant mb-8 leading-relaxed">
+                            As dusk falls and the lanterns are lit, the banks of the Thu Bon River transform into a culinary stage. Experience elevated local cuisine in heritage merchant houses turned fine dining establishments, where the cool river breeze accompanies every course.
+                        </p>
+<button class="bg-gradient-to-r from-primary to-primary-container text-on-primary px-8 py-3 rounded-md font-body font-medium hover:opacity-90 transition-opacity ambient-shadow">
+                            Curated Dining Guide
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer -->
+<!-- Executing JSON style keys explicitly -->
+<footer class="bg-stone-100 dark:bg-stone-950 w-full py-20 px-8 border-t-0 tonal shift from surface_container_low flat no shadows grid grid-cols-1 md:grid-cols-4 gap-12 max-w-7xl mx-auto text-center md:text-left">
+<!-- Brand/Copyright Column -->
+<div class="md:col-span-1 flex flex-col gap-4">
+<div class="font-serif text-xl text-stone-900 dark:text-stone-100">The Hoi An Archivist</div>
+<p class="font-sans text-xs tracking-widest uppercase text-stone-500 dark:text-stone-400">© 2024 The Digital Archivist. Preserving the textures of the Ancient Town.</p>
+</div>
+<!-- Links Columns -->
+<div class="md:col-span-3 flex flex-col md:flex-row gap-8 justify-end">
+<a class="font-sans text-xs tracking-widest uppercase text-stone-500 dark:text-stone-400 hover:opacity-70 transition-opacity ease-in-out duration-200" href="#">Curated Sights</a>
+<a class="font-sans text-xs tracking-widest uppercase text-stone-500 dark:text-stone-400 hover:opacity-70 transition-opacity ease-in-out duration-200" href="#">Local Culinary</a>
+<a class="font-sans text-xs tracking-widest uppercase text-stone-500 dark:text-stone-400 hover:opacity-70 transition-opacity ease-in-out duration-200" href="#">Seasonal Festivals</a>
+<a class="font-sans text-xs tracking-widest uppercase text-stone-500 dark:text-stone-400 hover:opacity-70 transition-opacity ease-in-out duration-200" href="#">Practical Travel</a>
+<a class="font-sans text-xs tracking-widest uppercase text-stone-500 dark:text-stone-400 hover:opacity-70 transition-opacity ease-in-out duration-200" href="#">Contact Curator</a>
+</div>
+</footer>
+</body></html>

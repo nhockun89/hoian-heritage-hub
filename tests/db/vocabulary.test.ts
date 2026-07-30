@@ -42,9 +42,8 @@ function extractCheckValues(sql: string, checkName: string): string[] {
 }
 
 describe("Vocabulary ↔ SQL CHECK agreement", () => {
-  const migration = readMigration(SQL_CHECK_LOCATIONS.COLOR_THEMES);
-
   it("COLOR_THEMES matches categories_color_theme_check", () => {
+    const migration = readMigration(SQL_CHECK_LOCATIONS.COLOR_THEMES);
     const sqlValues = extractCheckValues(
       migration,
       "categories_color_theme_check",
@@ -53,6 +52,7 @@ describe("Vocabulary ↔ SQL CHECK agreement", () => {
   });
 
   it("PLACE_CONTENT_TYPES matches place_contents_type_check", () => {
+    const migration = readMigration(SQL_CHECK_LOCATIONS.PLACE_CONTENT_TYPES);
     const sqlValues = extractCheckValues(
       migration,
       "place_contents_type_check",
@@ -61,6 +61,7 @@ describe("Vocabulary ↔ SQL CHECK agreement", () => {
   });
 
   it("MEDIA_TYPES matches place_media_type_check", () => {
+    const migration = readMigration(SQL_CHECK_LOCATIONS.MEDIA_TYPES);
     const sqlValues = extractCheckValues(
       migration,
       "place_media_type_check",
@@ -69,6 +70,7 @@ describe("Vocabulary ↔ SQL CHECK agreement", () => {
   });
 
   it("SUBMISSION_TYPES matches submissions_type_check", () => {
+    const migration = readMigration(SQL_CHECK_LOCATIONS.SUBMISSION_TYPES);
     const sqlValues = extractCheckValues(
       migration,
       "submissions_type_check",
@@ -77,6 +79,7 @@ describe("Vocabulary ↔ SQL CHECK agreement", () => {
   });
 
   it("SUBMISSION_STATUSES matches submissions_status_check", () => {
+    const migration = readMigration(SQL_CHECK_LOCATIONS.SUBMISSION_STATUSES);
     const sqlValues = extractCheckValues(
       migration,
       "submissions_status_check",

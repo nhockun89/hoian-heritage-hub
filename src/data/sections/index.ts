@@ -25,5 +25,6 @@ export { localSecretsData } from "./localSecrets";
 export { photoGalleryData } from "./photoGallery";
 export { featuredData } from "./featured";
 export { foodData } from "./food";
+export { foodPageData } from "./foodPage";
 export { newsletterData } from "./newsletter";
 export { footerData } from "./footer";

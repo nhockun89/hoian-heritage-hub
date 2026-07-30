@@ -17,6 +17,6 @@
     "erasableSyntaxOnly": true,
     "noFallthroughCasesInSwitch": true
   },
-  "include": ["src/components", "src/data", "src/hooks", "src/assets", "src/App.tsx", "src/App.css", "src/main.tsx", "src/index.css"],
+  "include": ["src/components", "src/data", "src/hooks", "src/lib/foodPageFilters.ts", "src/assets", "src/App.tsx", "src/App.css", "src/main.tsx", "src/index.css"],
   "exclude": ["node_modules", "src/db", "src/lib"]
 }
